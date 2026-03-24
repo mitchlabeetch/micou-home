@@ -1,0 +1,819 @@
+- generic [ref=e1]:
+  - generic [ref=e2]:
+    - banner [ref=e3]:
+      - generic [ref=e4]:
+        - generic "Language selector" [ref=e5]:
+          - button "Français" [ref=e6] [cursor=pointer]
+          - button "English" [ref=e7] [cursor=pointer]
+          - button "Deutsch" [ref=e8] [cursor=pointer]
+          - button "Español" [ref=e9] [cursor=pointer]
+        - img "Green hosting label" [ref=e10]
+      - generic [ref=e11]:
+        - heading "micou.org" [level=1] [ref=e12]
+        - paragraph [ref=e13]: Protected tools · free software culture · self-hosted care infrastructure
+    - generic [ref=e14]:
+      - generic [ref=e15]:
+        - heading "Create, organize" [level=2] [ref=e16]:
+          - generic [ref=e17]: Create, organize
+        - paragraph [ref=e18]: "micou.org offers carefully maintained tools for artists, creators, activists, associations, collectives, and anyone who needs safer digital spaces. The goal is practical: to help people write, share, organize, publish, collaborate, and archive without depending on closed ecosystems or centralized providers."
+        - paragraph [ref=e19]: Private space matters here. The infrastructure is meant to support autonomy, confidentiality, accessibility, and open frameworks while staying welcoming for people who need reliable tools in everyday work.
+      - generic [ref=e20]:
+        - link "My Panel" [ref=e21] [cursor=pointer]:
+          - /url: /yunohost/sso/
+        - link "Request access" [ref=e22] [cursor=pointer]:
+          - /url: "#access-form"
+      - paragraph [ref=e23]: Already a member? The My Panel button opens your personal space directly, with every service already enabled for you.
+      - generic [ref=e24]:
+        - article [ref=e25]:
+          - strong [ref=e27]: Real privacy
+          - paragraph [ref=e28]: Private areas stay limited to the people who are allowed to access them. Data travels encrypted and, when the software supports it, benefits from stronger end-to-end protection.
+        - article [ref=e29]:
+          - strong [ref=e31]: Free to use for life*
+          - paragraph [ref=e32]: "Every service on micou.org is free to use: no subscription wall, no artificially limited tier, and no added advertising."
+        - article [ref=e33]:
+          - strong [ref=e35]: No-AI principle
+          - paragraph [ref=e36]: No cloud AI service is integrated by default. This reduces data extraction, opaque dependencies, and environmental impact.
+      - generic [ref=e37]: "* To protect the platform against spam, attacks, and misuse, a few more resource-intensive tools are enabled on request. Filling out the form below as an individual or a team is only a simple formality. Requests are accepted unless the server is temporarily close to capacity, and the infrastructure keeps being improved to welcome more people."
+      - generic [ref=e38]:
+        - generic [ref=e39]:
+          - heading "Support the server" [level=3] [ref=e40]
+          - paragraph [ref=e41]: Every service offered on micou.org is, and will remain, free to use for life. If you still wish to help cover the cost of keeping the server online, you can click this button to contribute. Any help is welcome but never required; only give if you are sure you comfortably can. 100% of donations go to the development and maintenance of this infrastructure.
+        - link "Contribute" [ref=e42] [cursor=pointer]:
+          - /url: mailto:micou@micou.org?subject=Contribution%20micou.org
+      - generic [ref=e43]:
+        - heading "Usage charter" [level=3] [ref=e44]
+        - group [ref=e45]:
+          - generic "1. I use shared resources with care +" [ref=e46] [cursor=pointer]:
+            - strong [ref=e48]: 1. I use shared resources with care
+            - generic [ref=e49]: +
+        - group [ref=e50]:
+          - generic "2. I do not use micou.org to dominate, monitor, or sell +" [ref=e51] [cursor=pointer]:
+            - strong [ref=e53]: 2. I do not use micou.org to dominate, monitor, or sell
+            - generic [ref=e54]: +
+        - group [ref=e55]:
+          - generic "3. I keep agency over my data +" [ref=e56] [cursor=pointer]:
+            - strong [ref=e58]: 3. I keep agency over my data
+            - generic [ref=e59]: +
+        - group [ref=e60]:
+          - generic "4. I favor open and low-extraction frameworks +" [ref=e61] [cursor=pointer]:
+            - strong [ref=e63]: 4. I favor open and low-extraction frameworks
+            - generic [ref=e64]: +
+        - group [ref=e65]:
+          - generic "5. I use the access request flow when it helps protect the space +" [ref=e66] [cursor=pointer]:
+            - strong [ref=e68]: 5. I use the access request flow when it helps protect the space
+            - generic [ref=e69]: +
+    - generic [ref=e70]:
+      - heading "Services" [level=2] [ref=e72]
+      - generic [ref=e73]:
+        - generic [ref=e74]:
+          - generic [ref=e75]:
+            - img "Français" [ref=e76]
+            - img "English" [ref=e77]
+            - img "Deutsch" [ref=e79]
+            - img "Español" [ref=e80]
+          - generic [ref=e81]: Available languages
+        - generic [ref=e83]: Open access
+        - generic [ref=e85]: On request
+      - generic [ref=e86]:
+        - button "See all" [ref=e87] [cursor=pointer]
+        - button "Organize (2)" [ref=e88] [cursor=pointer]
+        - button "Collaborate (5)" [ref=e89] [cursor=pointer]
+        - button "Publish (2)" [ref=e90] [cursor=pointer]
+        - button "Read and document (3)" [ref=e91] [cursor=pointer]
+        - button "Listen and watch (3)" [ref=e92] [cursor=pointer]
+        - button "Practical tools (7)" [ref=e93] [cursor=pointer]
+      - generic [ref=e94]:
+        - generic [ref=e95]:
+          - generic [ref=e96]:
+            - heading "Organize" [level=3] [ref=e97]
+            - generic [ref=e98]: "2"
+          - generic [ref=e99]:
+            - article [ref=e100]:
+              - generic [ref=e101]:
+                - generic [ref=e102]: BV
+                - generic [ref=e103]:
+                  - heading "Bénévalibre" [level=3] [ref=e104]
+                  - paragraph [ref=e105]: Coordinate shifts, missions, and volunteers without an overflowing spreadsheet.
+              - generic [ref=e106]:
+                - generic [ref=e108]: Open access
+                - generic [ref=e109]:
+                  - generic [ref=e110]:
+                    - img "Français" [ref=e111]
+                    - img "English" [ref=e112]
+                    - img "Deutsch" [ref=e114]
+                    - img "Español" [ref=e115]
+                  - generic [ref=e116]: Available languages
+              - generic [ref=e117]:
+                - generic [ref=e118]: volunteer coordination
+                - generic [ref=e119]: shifts
+                - generic [ref=e120]: team follow-up
+              - paragraph [ref=e121]:
+                - strong [ref=e122]: "Can replace:"
+                - text: Hand-built volunteer spreadsheets or long message chains.
+              - generic [ref=e123]:
+                - link "Open" [ref=e124] [cursor=pointer]:
+                  - /url: https://benevalibre.micou.org/
+                - button "Learn more" [ref=e125] [cursor=pointer]
+              - paragraph [ref=e126]:
+                - strong [ref=e127]: Thanks to
+                - text: the Bénévalibre founders; active maintainers; upstream contributors
+            - article [ref=e128]:
+              - generic [ref=e129]:
+                - generic [ref=e130]: BT
+                - generic [ref=e131]:
+                  - heading "Billetterie" [level=3] [ref=e132]
+                  - paragraph [ref=e133]: Prepare registrations, tickets, and attendance limits for an event without an extractive ticketing platform.
+              - generic [ref=e134]:
+                - generic [ref=e136]: On request
+                - generic [ref=e137]:
+                  - generic [ref=e138]:
+                    - img "Français" [ref=e139]
+                    - img "English" [ref=e140]
+                    - img "Deutsch" [ref=e142]
+                    - img "Español" [ref=e143]
+                  - generic [ref=e144]: Available languages
+              - generic [ref=e145]:
+                - generic [ref=e146]: ticketing
+                - generic [ref=e147]: registrations
+                - generic [ref=e148]: check-in
+              - paragraph [ref=e149]:
+                - strong [ref=e150]: "Can replace:"
+                - text: Eventbrite or scattered registration forms.
+              - generic [ref=e151]:
+                - link "Request access" [ref=e152] [cursor=pointer]:
+                  - /url: "#access-form"
+                - button "Learn more" [ref=e153] [cursor=pointer]
+              - paragraph [ref=e154]:
+                - strong [ref=e155]: Thanks to
+                - text: Raphael Michel; the rami.io team; pretix maintainers; the YunoHost packaging community
+        - generic [ref=e156]:
+          - generic [ref=e157]:
+            - heading "Collaborate" [level=3] [ref=e158]
+            - generic [ref=e159]: "5"
+          - generic [ref=e160]:
+            - article [ref=e161]:
+              - generic [ref=e162]:
+                - generic [ref=e163]: HM
+                - generic [ref=e164]:
+                  - heading "I Hate Money" [level=3] [ref=e165]
+                  - paragraph [ref=e166]: Split shared expenses simply, without improvised spreadsheets or intrusive commercial apps.
+              - generic [ref=e167]:
+                - generic [ref=e169]: On request
+                - generic [ref=e170]:
+                  - generic [ref=e171]:
+                    - img "Français" [ref=e172]
+                    - img "English" [ref=e173]
+                    - img "Deutsch" [ref=e175]
+                    - img "Español" [ref=e176]
+                  - generic [ref=e177]: Available languages
+              - generic [ref=e178]:
+                - generic [ref=e179]: shared expenses
+                - generic [ref=e180]: automatic balances
+                - generic [ref=e181]: group budgeting
+              - paragraph [ref=e182]:
+                - strong [ref=e183]: "Can replace:"
+                - text: Splitwise or improvised spreadsheets for shared expenses.
+              - generic [ref=e184]:
+                - link "Request access" [ref=e185] [cursor=pointer]:
+                  - /url: "#access-form"
+                - button "Learn more" [ref=e186] [cursor=pointer]
+              - paragraph [ref=e187]:
+                - strong [ref=e188]: Thanks to
+                - text: the I Hate Money maintainers; upstream contributors; the YunoHost packaging community
+            - article [ref=e189]:
+              - generic [ref=e190]:
+                - generic [ref=e191]: FB
+                - generic [ref=e192]:
+                  - heading "Le Forum" [level=3] [ref=e193]
+                  - paragraph [ref=e194]: Host discussions that remain readable over time, with categories, moderation, and collective memory.
+              - generic [ref=e195]:
+                - generic [ref=e197]: Open access
+                - generic [ref=e198]:
+                  - generic [ref=e199]:
+                    - img "Français" [ref=e200]
+                    - img "English" [ref=e201]
+                    - img "Deutsch" [ref=e203]
+                    - img "Español" [ref=e204]
+                  - generic [ref=e205]: Available languages
+              - generic [ref=e206]:
+                - generic [ref=e207]: structured discussions
+                - generic [ref=e208]: durable archives
+                - generic [ref=e209]: moderation
+              - paragraph [ref=e210]:
+                - strong [ref=e211]: "Can replace:"
+                - text: Facebook groups, ephemeral Discord channels, scattered message threads.
+              - generic [ref=e212]:
+                - link "Open" [ref=e213] [cursor=pointer]:
+                  - /url: https://micou.org/forum
+                - button "Learn more" [ref=e214] [cursor=pointer]
+              - paragraph [ref=e215]:
+                - strong [ref=e216]: Thanks to
+                - text: the NodeBB founders; current maintainers; plugin contributors; the YunoHost packaging community
+            - article [ref=e217]:
+              - generic [ref=e220]:
+                - heading "Ornitoffice" [level=3] [ref=e221]
+                - paragraph [ref=e222]: Write, revise, and share documents, spreadsheets, and presentations in one protected workspace.
+              - generic [ref=e223]:
+                - generic [ref=e225]: On request
+                - generic [ref=e226]:
+                  - generic [ref=e227]:
+                    - img "Français" [ref=e228]
+                    - img "English" [ref=e229]
+                    - img "Deutsch" [ref=e231]
+                    - img "Español" [ref=e232]
+                  - generic [ref=e233]: Available languages
+              - generic [ref=e234]:
+                - generic [ref=e235]: shared documents
+                - generic [ref=e236]: collaborative spreadsheets
+                - generic [ref=e237]: presentations
+              - paragraph [ref=e238]:
+                - strong [ref=e239]: "Can replace:"
+                - text: Google Docs, Google Sheets, online Microsoft 365.
+              - generic [ref=e240]:
+                - link "Request access" [ref=e241] [cursor=pointer]:
+                  - /url: "#access-form"
+                - button "Learn more" [active] [ref=e242] [cursor=pointer]
+              - paragraph [ref=e243]:
+                - strong [ref=e244]: Thanks to
+                - text: Ascensio; the OnlyOffice maintainers; upstream contributors; the YunoHost packaging community
+            - article [ref=e245]:
+              - generic [ref=e246]:
+                - generic [ref=e247]: TB
+                - generic [ref=e248]:
+                  - heading "Tablo" [level=3] [ref=e249]
+                  - paragraph [ref=e250]: Draw together, facilitate a workshop, or sketch quickly without a heavy account setup.
+              - generic [ref=e251]:
+                - generic [ref=e253]: Open access
+                - generic [ref=e254]:
+                  - generic [ref=e255]:
+                    - img "Français" [ref=e256]
+                    - img "English" [ref=e257]
+                    - img "Deutsch" [ref=e259]
+                    - img "Español" [ref=e260]
+                  - generic [ref=e261]: Available languages
+              - generic [ref=e262]:
+                - generic [ref=e263]: collaborative whiteboard
+                - generic [ref=e264]: quick sketches
+                - generic [ref=e265]: visual workshops
+              - paragraph [ref=e266]:
+                - strong [ref=e267]: "Can replace:"
+                - text: Miro, Jamboard, or screen-sharing just to draw together.
+              - generic [ref=e268]:
+                - link "Open" [ref=e269] [cursor=pointer]:
+                  - /url: https://micou.org/dessin
+                - button "Learn more" [ref=e270] [cursor=pointer]
+              - paragraph [ref=e271]:
+                - strong [ref=e272]: Thanks to
+                - text: the whitebophir maintainers; upstream contributors
+            - article [ref=e273]:
+              - generic [ref=e276]:
+                - heading "Vikunja" [level=3] [ref=e277]
+                - paragraph [ref=e278]: Organize lists, boards, and deadlines for projects without a heavy managerial interface.
+              - generic [ref=e279]:
+                - generic [ref=e281]: On request
+                - generic [ref=e282]:
+                  - generic [ref=e283]:
+                    - img "Français" [ref=e284]
+                    - img "English" [ref=e285]
+                    - img "Deutsch" [ref=e287]
+                    - img "Español" [ref=e288]
+                  - generic [ref=e289]: Available languages
+              - generic [ref=e290]:
+                - generic [ref=e291]: task management
+                - generic [ref=e292]: kanban views
+                - generic [ref=e293]: planning
+              - paragraph [ref=e294]:
+                - strong [ref=e295]: "Can replace:"
+                - text: Trello, Todoist, or Asana for simpler setups.
+              - generic [ref=e296]:
+                - link "Request access" [ref=e297] [cursor=pointer]:
+                  - /url: "#access-form"
+                - button "Learn more" [ref=e298] [cursor=pointer]
+              - paragraph [ref=e299]:
+                - strong [ref=e300]: Thanks to
+                - text: the Vikunja maintainers; upstream contributors; the YunoHost packaging community
+        - generic [ref=e301]:
+          - generic [ref=e302]:
+            - heading "Publish" [level=3] [ref=e303]
+            - generic [ref=e304]: "2"
+          - generic [ref=e305]:
+            - article [ref=e306]:
+              - generic [ref=e307]:
+                - generic [ref=e308]: WS
+                - generic [ref=e309]:
+                  - heading "Sites" [level=3] [ref=e310]
+                  - paragraph [ref=e311]: Build a site, project page, or fuller blog when you need a durable public presence.
+              - generic [ref=e312]:
+                - generic [ref=e314]: On request
+                - generic [ref=e315]:
+                  - generic [ref=e316]:
+                    - img "Français" [ref=e317]
+                    - img "English" [ref=e318]
+                    - img "Deutsch" [ref=e320]
+                    - img "Español" [ref=e321]
+                  - generic [ref=e322]: Available languages
+              - generic [ref=e323]:
+                - generic [ref=e324]: public pages
+                - generic [ref=e325]: publishing flow
+              - paragraph [ref=e326]:
+                - strong [ref=e327]: "Can replace:"
+                - text: Wix, WordPress.com, or closed website builders.
+              - generic [ref=e328]:
+                - link "Request access" [ref=e329] [cursor=pointer]:
+                  - /url: "#access-form"
+                - button "Learn more" [ref=e330] [cursor=pointer]
+              - paragraph [ref=e331]:
+                - strong [ref=e332]: Thanks to
+                - text: the WordPress project maintainers; theme and plugin contributors; the YunoHost packaging community
+            - article [ref=e333]:
+              - generic [ref=e336]:
+                - heading "WriteFreely" [level=3] [ref=e337]
+                - paragraph [ref=e338]: Publish texts, notes, or chronicles in a lightweight interface that lets writing breathe.
+              - generic [ref=e339]:
+                - generic [ref=e341]: Open access
+                - generic [ref=e342]:
+                  - generic [ref=e343]:
+                    - img "Français" [ref=e344]
+                    - img "English" [ref=e345]
+                    - img "Deutsch" [ref=e347]
+                    - img "Español" [ref=e348]
+                  - generic [ref=e349]: Available languages
+              - generic [ref=e350]:
+                - generic [ref=e351]: text publishing
+                - generic [ref=e352]: chronicles
+                - generic [ref=e353]: minimal editing
+              - paragraph [ref=e354]:
+                - strong [ref=e355]: "Can replace:"
+                - text: Medium, Substack, or CMS tools that are too heavy for simple publishing.
+              - generic [ref=e356]:
+                - link "Open" [ref=e357] [cursor=pointer]:
+                  - /url: https://write.micou.org/
+                - button "Learn more" [ref=e358] [cursor=pointer]
+              - paragraph [ref=e359]:
+                - strong [ref=e360]: Thanks to
+                - text: the Write.as team; the WriteFreely maintainers; the YunoHost packaging community
+        - generic [ref=e361]:
+          - generic [ref=e362]:
+            - heading "Read and document" [level=3] [ref=e363]
+            - generic [ref=e364]: "3"
+          - generic [ref=e365]:
+            - article [ref=e366]:
+              - generic [ref=e367]:
+                - generic [ref=e368]: AQ
+                - generic [ref=e369]:
+                  - heading "Anarchism" [level=3] [ref=e370]
+                  - paragraph [ref=e371]: Browse an open documentation resource to read, quote, and revisit reference texts.
+              - generic [ref=e372]:
+                - generic [ref=e374]: Open access
+                - generic [ref=e375]:
+                  - generic [ref=e376]:
+                    - img "Français" [ref=e377]
+                    - img "English" [ref=e378]
+                    - img "Deutsch" [ref=e380]
+                    - img "Español" [ref=e381]
+                  - generic [ref=e382]: Available languages
+              - generic [ref=e383]:
+                - generic [ref=e384]: deep reading
+                - generic [ref=e385]: open archives
+                - generic [ref=e386]: reference material
+              - paragraph [ref=e387]:
+                - strong [ref=e388]: "Can replace:"
+                - text: Scattered searches across archives that are hard to navigate.
+              - generic [ref=e389]:
+                - link "Open" [ref=e390] [cursor=pointer]:
+                  - /url: https://micou.org/anarchism
+                - button "Learn more" [ref=e391] [cursor=pointer]
+              - paragraph [ref=e392]:
+                - strong [ref=e393]: Thanks to
+                - text: the archive maintainers; volunteer editors; the YunoHost packaging community
+            - article [ref=e394]:
+              - generic [ref=e395]:
+                - generic [ref=e396]: RD
+                - generic [ref=e397]:
+                  - heading "Reader" [level=3] [ref=e398]
+                  - paragraph [ref=e399]: Follow feeds, reading lists, and selected publications in a calm reader without intrusive algorithms.
+              - generic [ref=e400]:
+                - generic [ref=e402]: Open access
+                - generic [ref=e403]:
+                  - generic [ref=e404]:
+                    - img "Français" [ref=e405]
+                    - img "English" [ref=e406]
+                    - img "Deutsch" [ref=e408]
+                    - img "Español" [ref=e409]
+                  - generic [ref=e410]: Available languages
+              - generic [ref=e411]:
+                - generic [ref=e412]: deep reading
+                - generic [ref=e413]: open archives
+                - generic [ref=e414]: reference material
+              - paragraph [ref=e415]:
+                - strong [ref=e416]: "Can replace:"
+                - text: Feedly or social feeds used as a press digest.
+              - generic [ref=e417]:
+                - link "Open" [ref=e418] [cursor=pointer]:
+                  - /url: https://read.micou.org/
+                - button "Learn more" [ref=e419] [cursor=pointer]
+              - paragraph [ref=e420]:
+                - strong [ref=e421]: Thanks to
+                - text: the FreshRSS maintainers; feed-reader contributors; the YunoHost packaging community
+            - article [ref=e422]:
+              - generic [ref=e423]:
+                - generic [ref=e424]: WK
+                - generic [ref=e425]:
+                  - heading "Wiki" [level=3] [ref=e426]
+                  - paragraph [ref=e427]: Document practices, keep internal how-to pages, and share durable collective memory.
+              - generic [ref=e428]:
+                - generic [ref=e430]: Open access
+                - generic [ref=e431]:
+                  - generic [ref=e432]:
+                    - img "Français" [ref=e433]
+                    - img "English" [ref=e434]
+                    - img "Deutsch" [ref=e436]
+                    - img "Español" [ref=e437]
+                  - generic [ref=e438]: Available languages
+              - generic [ref=e439]:
+                - generic [ref=e440]: documentation
+                - generic [ref=e441]: how-to pages
+                - generic [ref=e442]: knowledge base
+              - paragraph [ref=e443]:
+                - strong [ref=e444]: "Can replace:"
+                - text: Confusing shared folders or scattered notes.
+              - generic [ref=e445]:
+                - link "Open" [ref=e446] [cursor=pointer]:
+                  - /url: https://micou.org/wiki
+                - button "Learn more" [ref=e447] [cursor=pointer]
+              - paragraph [ref=e448]:
+                - strong [ref=e449]: Thanks to
+                - text: Andreas Gohr; the DokuWiki maintainers; plugin contributors; the YunoHost packaging community
+        - generic [ref=e450]:
+          - generic [ref=e451]:
+            - heading "Listen and watch" [level=3] [ref=e452]
+            - generic [ref=e453]: "3"
+          - generic [ref=e454]:
+            - article [ref=e455]:
+              - generic [ref=e458]:
+                - heading "Piped" [level=3] [ref=e459]
+                - paragraph [ref=e460]: Watch videos while limiting tracking, ad noise, and intrusive recommendations.
+              - generic [ref=e461]:
+                - generic [ref=e463]: Open access
+                - generic [ref=e464]:
+                  - generic [ref=e465]:
+                    - img "Français" [ref=e466]
+                    - img "English" [ref=e467]
+                    - img "Deutsch" [ref=e469]
+                    - img "Español" [ref=e470]
+                  - generic [ref=e471]: Available languages
+              - generic [ref=e472]:
+                - generic [ref=e473]: tracking-free video
+                - generic [ref=e474]: imported subscriptions
+                - generic [ref=e475]: calmer watching
+              - paragraph [ref=e476]:
+                - strong [ref=e477]: "Can replace:"
+                - text: The standard YouTube interface.
+              - generic [ref=e478]:
+                - link "Open" [ref=e479] [cursor=pointer]:
+                  - /url: https://yt.micou.org/
+                - button "Learn more" [ref=e480] [cursor=pointer]
+              - paragraph [ref=e481]:
+                - strong [ref=e482]: Thanks to
+                - text: TeamPiped; upstream contributors; the YunoHost packaging community
+            - article [ref=e483]:
+              - generic [ref=e486]:
+                - heading "WiddyPad" [level=3] [ref=e487]
+                - paragraph [ref=e488]: Explore a lightweight music library designed for listening, selections, and shared moods.
+              - generic [ref=e489]:
+                - generic [ref=e491]: Open access
+                - generic [ref=e492]:
+                  - generic [ref=e493]:
+                    - img "Français" [ref=e494]
+                    - img "English" [ref=e495]
+                    - img "Deutsch" [ref=e497]
+                    - img "Español" [ref=e498]
+                  - generic [ref=e499]: Available languages
+              - generic [ref=e500]:
+                - generic [ref=e501]: music listening
+                - generic [ref=e502]: playlists
+                - generic [ref=e503]: lightweight streaming
+              - paragraph [ref=e504]:
+                - strong [ref=e505]: "Can replace:"
+                - text: Heavy streaming platforms for small, shared listening needs.
+              - generic [ref=e506]:
+                - link "Open" [ref=e507] [cursor=pointer]:
+                  - /url: https://micou.org/widdypad/
+                - button "Learn more" [ref=e508] [cursor=pointer]
+              - paragraph [ref=e509]:
+                - strong [ref=e510]: Thanks to
+                - text: the WiddyPad contributors; micou maintenance
+            - article [ref=e511]:
+              - generic [ref=e514]:
+                - heading "Y" [level=3] [ref=e515]
+                - paragraph [ref=e516]: Read public accounts and keep watch without logging into the platform itself.
+              - generic [ref=e517]:
+                - generic [ref=e519]: Open access
+                - generic [ref=e520]:
+                  - generic [ref=e521]:
+                    - img "Français" [ref=e522]
+                    - img "English" [ref=e523]
+                    - img "Deutsch" [ref=e525]
+                    - img "Español" [ref=e526]
+                  - generic [ref=e527]: Available languages
+              - generic [ref=e528]:
+                - generic [ref=e529]: reading public accounts
+                - generic [ref=e530]: privacy mirror
+                - generic [ref=e531]: monitoring without an account
+              - paragraph [ref=e532]:
+                - strong [ref=e533]: "Can replace:"
+                - text: The official X / Twitter interface for public reading.
+              - generic [ref=e534]:
+                - link "Open" [ref=e535] [cursor=pointer]:
+                  - /url: https://y.micou.org/about
+                - button "Learn more" [ref=e536] [cursor=pointer]
+              - paragraph [ref=e537]:
+                - strong [ref=e538]: Thanks to
+                - text: the Nitter maintainers; upstream contributors; the YunoHost packaging community
+        - generic [ref=e539]:
+          - generic [ref=e540]:
+            - heading "Practical tools" [level=3] [ref=e541]
+            - generic [ref=e542]: "7"
+          - generic [ref=e543]:
+            - article [ref=e544]:
+              - generic [ref=e547]:
+                - heading "Convertisseur" [level=3] [ref=e548]
+                - paragraph [ref=e549]: Convert media or documents quickly into a more useful format without unnecessary data collection.
+              - generic [ref=e550]:
+                - generic [ref=e552]: Open access
+                - generic [ref=e553]:
+                  - generic [ref=e554]:
+                    - img "Français" [ref=e555]
+                    - img "English" [ref=e556]
+                    - img "Deutsch" [ref=e558]
+                    - img "Español" [ref=e559]
+                  - generic [ref=e560]: Available languages
+              - generic [ref=e561]:
+                - generic [ref=e562]: media conversion
+                - generic [ref=e563]: many formats
+                - generic [ref=e564]: quick exports
+              - paragraph [ref=e565]:
+                - strong [ref=e566]: "Can replace:"
+                - text: Opaque or ad-heavy web converters.
+              - generic [ref=e567]:
+                - link "Open" [ref=e568] [cursor=pointer]:
+                  - /url: https://convert.micou.org/
+                - button "Learn more" [ref=e569] [cursor=pointer]
+              - paragraph [ref=e570]:
+                - strong [ref=e571]: Thanks to
+                - text: the Vert maintainers; upstream contributors
+            - article [ref=e572]:
+              - generic [ref=e575]:
+                - heading "FacePrivacy" [level=3] [ref=e576]
+                - paragraph [ref=e577]: Prepare images before sharing by hiding faces or other sensitive areas.
+              - generic [ref=e578]:
+                - generic [ref=e580]: Open access
+                - generic [ref=e581]:
+                  - generic [ref=e582]:
+                    - img "Français" [ref=e583]
+                    - img "English" [ref=e584]
+                    - img "Deutsch" [ref=e586]
+                    - img "Español" [ref=e587]
+                  - generic [ref=e588]: Available languages
+              - generic [ref=e589]:
+                - generic [ref=e590]: face blurring
+                - generic [ref=e591]: image preparation
+                - generic [ref=e592]: safer sharing
+              - paragraph [ref=e593]:
+                - strong [ref=e594]: "Can replace:"
+                - text: Opaque mobile apps for quick face blurring.
+              - generic [ref=e595]:
+                - link "Open" [ref=e596] [cursor=pointer]:
+                  - /url: https://micou.org/faceprivacy
+                - button "Learn more" [ref=e597] [cursor=pointer]
+              - paragraph [ref=e598]:
+                - strong [ref=e599]: Thanks to
+                - text: the FacePrivacy maintainers; upstream contributors
+            - article [ref=e600]:
+              - generic [ref=e603]:
+                - heading "Grammalecte server" [level=3] [ref=e604]
+                - paragraph [ref=e605]: Proofread French texts with a free grammar tool that helps on drafts and final versions alike.
+              - generic [ref=e606]:
+                - generic [ref=e608]: Open access
+                - generic [ref=e609]:
+                  - img "Français" [ref=e611]
+                  - generic [ref=e612]: Available languages
+              - generic [ref=e613]:
+                - generic [ref=e614]: grammar checks
+                - generic [ref=e615]: spelling
+                - generic [ref=e616]: French proofreading
+              - paragraph [ref=e617]:
+                - strong [ref=e618]: "Can replace:"
+                - text: Proprietary cloud grammar checkers for French.
+              - generic [ref=e619]:
+                - link "Open" [ref=e620] [cursor=pointer]:
+                  - /url: https://grammaire.micou.org/
+                - button "Learn more" [ref=e621] [cursor=pointer]
+              - paragraph [ref=e622]:
+                - strong [ref=e623]: Thanks to
+                - text: Olivier R.; the Grammalecte contributors
+            - article [ref=e624]:
+              - generic [ref=e627]:
+                - heading "Le compteur du GASE" [level=3] [ref=e628]
+                - paragraph [ref=e629]: Track shared counters and practical markers for very concrete local collective use.
+              - generic [ref=e630]:
+                - generic [ref=e632]: On request
+                - generic [ref=e633]:
+                  - generic [ref=e634]:
+                    - img "Français" [ref=e635]
+                    - img "English" [ref=e636]
+                    - img "Deutsch" [ref=e638]
+                    - img "Español" [ref=e639]
+                  - generic [ref=e640]: Available languages
+              - generic [ref=e641]:
+                - generic [ref=e642]: collective tracking
+                - generic [ref=e643]: shared counters
+                - generic [ref=e644]: local coordination
+              - paragraph [ref=e645]:
+                - strong [ref=e646]: "Can replace:"
+                - text: Manual sheets or scattered local tracking.
+              - generic [ref=e647]:
+                - link "Request access" [ref=e648] [cursor=pointer]:
+                  - /url: "#access-form"
+                - button "Learn more" [ref=e649] [cursor=pointer]
+              - paragraph [ref=e650]:
+                - strong [ref=e651]: Thanks to
+                - text: the Compteur du GASE maintainers; micou maintenance
+            - article [ref=e652]:
+              - generic [ref=e655]:
+                - heading "PDF Tools" [level=3] [ref=e656]
+                - paragraph [ref=e657]: Merge, split, compress, or reorganize PDFs without relying on an opaque website.
+              - generic [ref=e658]:
+                - generic [ref=e660]: On request
+                - generic [ref=e661]:
+                  - generic [ref=e662]:
+                    - img "Français" [ref=e663]
+                    - img "English" [ref=e664]
+                    - img "Deutsch" [ref=e666]
+                    - img "Español" [ref=e667]
+                  - generic [ref=e668]: Available languages
+              - generic [ref=e669]:
+                - generic [ref=e670]: PDF merge
+                - generic [ref=e671]: splitting
+                - generic [ref=e672]: compression
+              - paragraph [ref=e673]:
+                - strong [ref=e674]: "Can replace:"
+                - text: iLovePDF, Smallpdf, and similar intrusive document sites.
+              - generic [ref=e675]:
+                - link "Request access" [ref=e676] [cursor=pointer]:
+                  - /url: "#access-form"
+                - button "Learn more" [ref=e677] [cursor=pointer]
+              - paragraph [ref=e678]:
+                - strong [ref=e679]: Thanks to
+                - text: the BentoPDF maintainers; upstream contributors
+            - article [ref=e680]:
+              - generic [ref=e683]:
+                - heading "QR" [level=3] [ref=e684]
+                - paragraph [ref=e685]: Create QR codes that can change over time for posters, flyers, menus, or public paths.
+              - generic [ref=e686]:
+                - generic [ref=e688]: Open access
+                - generic [ref=e689]:
+                  - generic [ref=e690]:
+                    - img "Français" [ref=e691]
+                    - img "English" [ref=e692]
+                    - img "Deutsch" [ref=e694]
+                    - img "Español" [ref=e695]
+                  - generic [ref=e696]: Available languages
+              - generic [ref=e697]:
+                - generic [ref=e698]: dynamic QR codes
+                - generic [ref=e699]: printable links
+                - generic [ref=e700]: updates without reprinting
+              - paragraph [ref=e701]:
+                - strong [ref=e702]: "Can replace:"
+                - text: Throwaway QR generators that cannot be updated later.
+              - generic [ref=e703]:
+                - link "Open" [ref=e704] [cursor=pointer]:
+                  - /url: https://qr.micou.org/
+                - button "Learn more" [ref=e705] [cursor=pointer]
+              - paragraph [ref=e706]:
+                - strong [ref=e707]: Thanks to
+                - text: the Dynamic QR Code project maintainers; micou maintenance
+            - article [ref=e708]:
+              - generic [ref=e711]:
+                - heading "Send" [level=3] [ref=e712]
+                - paragraph [ref=e713]: Share files occasionally through simple, temporary, and more respectful links.
+              - generic [ref=e714]:
+                - generic [ref=e716]: Open access
+                - generic [ref=e717]:
+                  - generic [ref=e718]:
+                    - img "Français" [ref=e719]
+                    - img "English" [ref=e720]
+                    - img "Deutsch" [ref=e722]
+                    - img "Español" [ref=e723]
+                  - generic [ref=e724]: Available languages
+              - generic [ref=e725]:
+                - generic [ref=e726]: temporary sending
+                - generic [ref=e727]: protected links
+                - generic [ref=e728]: large files
+              - paragraph [ref=e729]:
+                - strong [ref=e730]: "Can replace:"
+                - text: WeTransfer or oversized email attachments.
+              - generic [ref=e731]:
+                - link "Open" [ref=e732] [cursor=pointer]:
+                  - /url: https://send.micou.org/
+                - button "Learn more" [ref=e733] [cursor=pointer]
+              - paragraph [ref=e734]:
+                - strong [ref=e735]: Thanks to
+                - text: the Mozilla Send community forks; current Send maintainers; the YunoHost packaging community
+    - generic [ref=e736]:
+      - generic [ref=e737]:
+        - heading "Request access" [level=2] [ref=e738]
+        - paragraph [ref=e739]: The form below stays intentionally light. It handles account openings and team needs without creating unnecessary friction.
+      - generic "Request type" [ref=e740]:
+        - button "Individual" [ref=e741] [cursor=pointer]
+        - button "Team" [ref=e742] [cursor=pointer]
+      - generic [ref=e743]:
+        - generic [ref=e744]:
+          - generic [ref=e745]:
+            - generic [ref=e746]: Email address to use
+            - textbox "Email address to use" [ref=e747]:
+              - /placeholder: micou@example.org
+          - generic [ref=e748]:
+            - generic [ref=e749]: If we already know each other, what name should I know you by?
+            - textbox "If we already know each other, what name should I know you by?" [ref=e750]:
+              - /placeholder: Optional
+          - generic [ref=e751]:
+            - generic [ref=e752]: Services requested
+            - generic [ref=e753]:
+              - generic [ref=e754]:
+                - checkbox "Billetterie On request"
+                - generic [ref=e755] [cursor=pointer]:
+                  - generic [ref=e756]: Billetterie
+                  - generic [ref=e757]: On request
+              - generic [ref=e758]:
+                - checkbox "I Hate Money On request"
+                - generic [ref=e759] [cursor=pointer]:
+                  - generic [ref=e760]: I Hate Money
+                  - generic [ref=e761]: On request
+              - generic [ref=e762]:
+                - checkbox "Ornitoffice On request"
+                - generic [ref=e763] [cursor=pointer]:
+                  - generic [ref=e764]: Ornitoffice
+                  - generic [ref=e765]: On request
+              - generic [ref=e766]:
+                - checkbox "Vikunja On request"
+                - generic [ref=e767] [cursor=pointer]:
+                  - generic [ref=e768]: Vikunja
+                  - generic [ref=e769]: On request
+              - generic [ref=e770]:
+                - checkbox "Sites On request"
+                - generic [ref=e771] [cursor=pointer]:
+                  - generic [ref=e772]: Sites
+                  - generic [ref=e773]: On request
+              - generic [ref=e774]:
+                - checkbox "Le compteur du GASE On request"
+                - generic [ref=e775] [cursor=pointer]:
+                  - generic [ref=e776]: Le compteur du GASE
+                  - generic [ref=e777]: On request
+              - generic [ref=e778]:
+                - checkbox "PDF Tools On request"
+                - generic [ref=e779] [cursor=pointer]:
+                  - generic [ref=e780]: PDF Tools
+                  - generic [ref=e781]: On request
+          - generic [ref=e782]:
+            - generic [ref=e783]: What would you like to use these tools for?
+            - textbox "What would you like to use these tools for?" [ref=e784]
+          - generic [ref=e785]:
+            - generic [ref=e786]: Useful details
+            - textbox "Useful details" [ref=e787]
+        - button "Send request" [ref=e788] [cursor=pointer]
+    - contentinfo [ref=e789]:
+      - paragraph [ref=e791]: 2026 micou.org - Hosted with love on a self-managed server
+  - dialog "Ornitoffice" [ref=e794]:
+    - generic [ref=e795]:
+      - generic [ref=e796]:
+        - heading "Ornitoffice" [level=2] [ref=e797]
+        - generic [ref=e798]:
+          - generic [ref=e800]: On request
+          - generic [ref=e801]:
+            - generic [ref=e802]:
+              - img "Français" [ref=e803]
+              - img "English" [ref=e804]
+              - img "Deutsch" [ref=e806]
+              - img "Español" [ref=e807]
+            - generic [ref=e808]: Available languages
+      - button "Close" [ref=e809] [cursor=pointer]: ×
+    - generic [ref=e810]:
+      - generic [ref=e811]:
+        - paragraph [ref=e812]: Ornitoffice lets several people work on office files without relying on Google Docs or Microsoft 365. It is useful for collectives that want to keep control over working documents and archives.
+        - generic [ref=e813]:
+          - generic [ref=e814]: shared documents
+          - generic [ref=e815]: collaborative spreadsheets
+          - generic [ref=e816]: presentations
+        - paragraph [ref=e817]:
+          - strong [ref=e818]: "Can replace:"
+          - text: Google Docs, Google Sheets, online Microsoft 365.
+        - generic [ref=e819]:
+          - generic [ref=e820]:
+            - strong [ref=e821]: Thanks to
+            - text: Ascensio; the OnlyOffice maintainers; upstream contributors; the YunoHost packaging community
+          - link "Request access" [ref=e822] [cursor=pointer]:
+            - /url: "#access-form"
+      - complementary [ref=e823]:
+        - img "Ornitoffice" [ref=e825]
+        - paragraph [ref=e826]: "shared documents · collaborative spreadsheets · presentations — Can replace: Google Docs, Google Sheets, online Microsoft 365."

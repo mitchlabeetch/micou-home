@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>micou.org home</title>
+    <link rel="icon" type="image/svg+xml" href="illustrations/svgmicoulogo.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #faf8f3;
+            --panel: #ffffff;
+            --text: #1a1a1a;
+            --muted: #5b5b5b;
+            --accent-purple: #8b5cf6;
+            --accent-green: #22c55e;
+            --accent-orange: #f97316;
+            --accent-blue: #3b82f6;
+            --accent-red: #dc2626;
+            --border: 4px;
+            --shadow: 6px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Merriweather', Georgia, serif;
+            background: radial-gradient(circle at top left, #fff7fd 0, transparent 35%),
+                        radial-gradient(circle at top right, #eef8ff 0, transparent 30%),
+                        var(--bg-color);
+            color: var(--text);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        .container {
+            width: min(1180px, calc(100% - 32px));
+            margin: 0 auto;
+            padding: 24px 0 56px;
+        }
+
+        .hero,
+        .panel {
+            background: var(--panel);
+            border: var(--border) solid var(--text);
+            box-shadow: var(--shadow) var(--shadow) 0 var(--accent-purple);
+        }
+
+        .hero {
+            padding: 28px;
+            margin-bottom: 28px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            top: 14px;
+            right: 18px;
+            width: 74px;
+            height: 74px;
+            background: url('illustrations/rose-purple-sparkle.gif') center/contain no-repeat;
+            opacity: 0.8;
+            pointer-events: none;
+        }
+
+        .eyebrow,
+        .stat-label,
+        .pill,
+        .card-topline,
+        .button,
+        .mini-link {
+            font-family: 'Space Mono', monospace;
+        }
+
+        .eyebrow {
+            color: var(--accent-purple);
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        h1 {
+            margin-top: 10px;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            line-height: 0.95;
+            max-width: 10ch;
+        }
+
+        .hero-copy {
+            max-width: 68ch;
+            margin-top: 16px;
+            color: var(--muted);
+        }
+
+        .hero-grid,
+        .section-grid,
+        .stats-grid {
+            display: grid;
+            gap: 22px;
+        }
+
+        .hero-grid {
+            grid-template-columns: 1.25fr 0.95fr;
+            align-items: start;
+            margin-top: 26px;
+        }
+
+        .stats-grid {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .stat {
+            background: #fffdf8;
+            border: 3px solid var(--text);
+            padding: 18px;
+        }
+
+        .stat strong {
+            display: block;
+            font-size: 2rem;
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            color: var(--muted);
+        }
+
+        .panel {
+            padding: 24px;
+        }
+
+        .panel-title {
+            display: flex;
+            justify-content: space-between;
+            gap: 14px;
+            align-items: baseline;
+            margin-bottom: 14px;
+        }
+
+        .panel-title h2 {
+            font-size: 1.4rem;
+        }
+
+        .panel-subtle {
+            color: var(--muted);
+            font-size: 0.92rem;
+        }
+
+        .pill-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 14px;
+        }
+
+        .pill {
+            display: inline-flex;
+            align-items: center;
+            padding: 6px 10px;
+            border: 2px solid var(--text);
+            background: #f6f1ff;
+            font-size: 0.76rem;
+            font-weight: 700;
+        }
+
+        .section-grid {
+            grid-template-columns: 1fr 1fr;
+            margin-bottom: 28px;
+        }
+
+        .stack {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .app-list {
+            display: grid;
+            gap: 14px;
+        }
+
+        .app-card {
+            border: 3px solid var(--text);
+            background: #fff;
+            padding: 16px;
+        }
+
+        .app-card.allowed {
+            box-shadow: 4px 4px 0 var(--accent-green);
+        }
+
+        .app-card.requestable {
+            box-shadow: 4px 4px 0 var(--accent-orange);
+        }
+
+        .app-card.public {
+            box-shadow: 4px 4px 0 var(--accent-blue);
+        }
+
+        .card-topline {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            margin-bottom: 8px;
+            font-size: 0.76rem;
+            text-transform: uppercase;
+        }
+
+        .card-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .card-icon {
+            width: 42px;
+            height: 42px;
+            border: 3px solid var(--text);
+            background: #fff7d6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            flex-shrink: 0;
+            overflow: hidden;
+        }
+
+        .card-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-description {
+            color: var(--muted);
+            font-size: 0.94rem;
+            margin-bottom: 12px;
+        }
+
+        .card-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+
+        .mini-link {
+            font-size: 0.74rem;
+            color: var(--accent-purple);
+            font-weight: 700;
+        }
+
+        .button-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 42px;
+            padding: 10px 16px;
+            border: 3px solid var(--text);
+            box-shadow: 3px 3px 0 var(--text);
+            text-decoration: none;
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            background: var(--accent-green);
+            color: white;
+        }
+
+        .button.secondary {
+            background: #fff;
+            color: var(--text);
+        }
+
+        .button.request {
+            background: var(--accent-orange);
+        }
+        .helper-panel {
+            margin-top: 18px;
+            border-top: 2px dashed var(--text);
+            padding-top: 16px;
+        }
+
+        .category-panel {
+            margin-top: 26px;
+        }
+
+        .category-group + .category-group {
+            margin-top: 24px;
+            padding-top: 24px;
+            border-top: 2px dashed var(--text);
+        }
+
+        .category-group h3 {
+            font-size: 1.2rem;
+            color: var(--accent-purple);
+            margin-bottom: 12px;
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 14px;
+        }
+
+        .empty-state {
+            border: 3px dashed var(--text);
+            padding: 18px;
+            background: #fffbeb;
+        }
+
+        .status {
+            margin-top: 16px;
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 900px) {
+            .hero-grid,
+            .section-grid,
+            .stats-grid,
+            .category-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <section class="hero">
+            <div class="eyebrow">micou.org / home</div>
+            <h1>One place to see what you can use.</h1>
+            <p class="hero-copy" id="hero-copy">
+                This dashboard brings together the public tools, the apps you can already access, and the services you can request.
+            </p>
+
+            <div class="hero-grid">
+                <div class="stats-grid">
+                    <div class="stat">
+                        <strong id="stat-public">0</strong>
+                        <span class="stat-label">Public apps</span>
+                    </div>
+                    <div class="stat">
+                        <strong id="stat-allowed">0</strong>
+                        <span class="stat-label">Accessible now</span>
+                    </div>
+                    <div class="stat">
+                        <strong id="stat-requestable">0</strong>
+                        <span class="stat-label">On request</span>
+                    </div>
+                </div>
+
+                <div class="panel">
+                    <div class="panel-title">
+                        <h2>Your status</h2>
+                        <span class="panel-subtle" id="viewer-email">Visitor</span>
+                    </div>
+                    <p class="panel-subtle" id="viewer-summary">
+                        You are currently browsing as a visitor.
+                    </p>
+                    <div class="pill-row" id="viewer-pills"></div>
+                    <div class="helper-panel">
+                        <div class="panel-title">
+                            <h2>Quick actions</h2>
+                            <span class="panel-subtle">Common links around the stack</span>
+                        </div>
+                        <div class="button-row" id="quick-actions">
+                            <a class="button secondary" href="/">Public homepage</a>
+                            <a class="button secondary" href="/yunohost/sso/">Member portal</a>
+                            <a class="button request" href="https://micou.org/#access-form">Request access</a>
+                        </div>
+                    </div>
+                    <p class="status" id="dashboard-status">Loading dashboard data…</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-grid">
+            <div class="stack">
+                <div class="panel">
+                    <div class="panel-title">
+                        <h2>Accessible now</h2>
+                        <span class="panel-subtle">Apps you can open immediately</span>
+                    </div>
+                    <div class="app-list" id="allowed-list"></div>
+                </div>
+
+                <div class="panel">
+                    <div class="panel-title">
+                        <h2>Need access?</h2>
+                        <span class="panel-subtle">Restricted apps that require approval</span>
+                    </div>
+                    <div class="app-list" id="requestable-list"></div>
+                </div>
+            </div>
+
+            <div class="stack">
+                <div class="panel">
+                    <div class="panel-title">
+                        <h2>Public tools</h2>
+                        <span class="panel-subtle">Available without special authorization</span>
+                    </div>
+                    <div class="app-list" id="public-list"></div>
+                </div>
+
+                <div class="panel category-panel">
+                    <div class="panel-title">
+                        <h2>Browse by category</h2>
+                        <span class="panel-subtle">Everything currently listed on the platform</span>
+                    </div>
+                    <div id="category-groups"></div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        const API_BASE = '/home-api';
+
+        function localized(value, lang, fallback = '') {
+            if (value && typeof value === 'object') {
+                return value[lang] || value.en || fallback;
+            }
+            return value || fallback;
+        }
+
+        function activeLang() {
+            const stored = (() => {
+                try { return localStorage.getItem('micou_lang') || ''; } catch (_) { return ''; }
+            })();
+            if (stored) return stored;
+            const nav = (navigator.language || 'en').slice(0, 2).toLowerCase();
+            return ['fr', 'en', 'de', 'es'].includes(nav) ? nav : 'en';
+        }
+
+        function escapeHtml(value) {
+            return String(value)
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#39;');
+        }
+
+        function ctaFor(service, lang) {
+            const openLabel = localized(service.button_label, lang, lang === 'fr' ? 'Ouvrir' : lang === 'de' ? 'Öffnen' : lang === 'es' ? 'Abrir' : 'Open');
+            const requestLabel = localized(service.button_label, lang, lang === 'fr' ? "Demander l'accès" : lang === 'de' ? 'Zugang anfragen' : lang === 'es' ? 'Solicitar acceso' : 'Request access');
+            if (service.requires_request) {
+                return { href: 'https://micou.org/#access-form', label: requestLabel, className: 'button request' };
+            }
+            return { href: service.default_url || '#', label: openLabel, className: 'button' };
+        }
+
+        function iconFor(service) {
+            if (service.id === 'onlyoffice') return 'illustrations/ornitoffice.png';
+            if (service.icon_path) return service.icon_path;
+            if (!service.default_url) return '';
+            try {
+                const url = new URL(service.default_url);
+                return `${url.origin}/favicon.ico`;
+            } catch (_) {
+                return '';
+            }
+        }
+
+        function appCard(service, kind, lang) {
+            const title = localized(service.name, lang, service.id);
+            const description = localized(service.description, lang, '');
+            const docsLabel = lang === 'fr' ? 'En savoir plus' : lang === 'de' ? 'Mehr erfahren' : lang === 'es' ? 'Saber más' : 'Learn more';
+            const iconSource = iconFor(service);
+            const icon = iconSource
+                ? `<img src="${escapeHtml(iconSource)}" alt="" onerror="this.parentElement.textContent='${escapeHtml(service.emoji || '✨')}';">`
+                : escapeHtml(service.emoji || '✨');
+            const cta = ctaFor(service, lang);
+            const docs = service.docs_url
+                ? `<a class="mini-link" href="${escapeHtml(service.docs_url)}">${docsLabel}</a>`
+                : '';
+            const host = service.default_url ? new URL(service.default_url).host + new URL(service.default_url).pathname.replace(/\/$/, '') : '';
+            return `
+                <article class="app-card ${escapeHtml(kind)}">
+                    <div class="card-topline">
+                        <span>${escapeHtml(kind)}</span>
+                        <span>${escapeHtml(host)}</span>
+                    </div>
+                    <div class="card-title">
+                        <div class="card-icon">${icon}</div>
+                        <span>${escapeHtml(title)}</span>
+                    </div>
+                    <p class="card-description">${escapeHtml(description)}</p>
+                    <div class="card-meta">${docs}</div>
+                    <div class="button-row">
+                        <a class="${escapeHtml(cta.className)}" href="${escapeHtml(cta.href)}">${escapeHtml(cta.label)}</a>
+                    </div>
+                </article>
+            `;
+        }
+
+        function renderList(targetId, items, kind, lang, emptyText) {
+            const node = document.getElementById(targetId);
+            if (!node) return;
+            if (!items.length) {
+                node.innerHTML = `<div class="empty-state">${escapeHtml(emptyText)}</div>`;
+                return;
+            }
+            node.innerHTML = items.map((service) => appCard(service, kind, lang)).join('');
+        }
+
+        function renderCategories(payload, lang) {
+            const categories = Object.values(payload.categories || {}).sort((a, b) => (a.order || 9999) - (b.order || 9999));
+            const apps = Array.isArray(payload.apps) ? payload.apps : [];
+            const groups = categories.map((category) => {
+                const items = apps.filter((app) => app.category === category.id);
+                if (!items.length) return '';
+                return `
+                    <section class="category-group">
+                        <h3>${escapeHtml(localized(category.name, lang, category.id))}</h3>
+                        <div class="category-grid">
+                            ${items.map((service) => appCard(service, service.allowed_for_viewer ? 'allowed' : (service.requires_request ? 'requestable' : 'public'), lang)).join('')}
+                        </div>
+                    </section>
+                `;
+            }).filter(Boolean).join('');
+            document.getElementById('category-groups').innerHTML = groups || '<div class="empty-state">No categories yet.</div>';
+        }
+
+        function renderViewer(viewer) {
+            const email = viewer.email || 'Visitor';
+            const roles = viewer.roles || [];
+            const groups = viewer.groups || [];
+            document.getElementById('viewer-email').textContent = email;
+            document.getElementById('viewer-summary').textContent = viewer.email
+                ? `Signed in as ${viewer.email}. Your dashboard combines public apps and the services you are explicitly allowed to use.`
+                : 'You are currently browsing as a visitor. Public apps are open, while restricted apps will lead to an access request flow.';
+            const pills = [
+                ...roles.map((role) => `role:${role}`),
+                ...groups.map((group) => `group:${group}`)
+            ];
+            document.getElementById('viewer-pills').innerHTML = pills.length
+                ? pills.map((pill) => `<span class="pill">${escapeHtml(pill)}</span>`).join('')
+                : '<span class="pill">visitor</span>';
+            const quickActions = [
+                '<a class="button secondary" href="/">Public homepage</a>',
+                '<a class="button secondary" href="/yunohost/sso/">Member portal</a>',
+                '<a class="button request" href="https://micou.org/#access-form">Request access</a>'
+            ];
+            if (roles.includes('admin')) {
+                quickActions.push('<a class="button secondary" href="/admin">Admin control plane</a>');
+                quickActions.push('<a class="button secondary" href="https://studio.micou.org/">Studio workspace</a>');
+            }
+            document.getElementById('quick-actions').innerHTML = quickActions.join('');
+        }
+
+        async function loadDashboard() {
+            const lang = activeLang();
+            document.documentElement.lang = lang;
+            try {
+                const res = await fetch(`${API_BASE}/api/catalog`, { headers: { Accept: 'application/json' } });
+                if (!res.ok) throw new Error('catalog');
+                const payload = await res.json();
+                const dashboard = payload.dashboard || {};
+                renderViewer(payload.viewer || { roles: ['visitor'], groups: [], email: '' });
+                renderList('allowed-list', dashboard.allowed_apps || [], 'allowed', lang, 'No app is currently authorized for this account.');
+                renderList('requestable-list', dashboard.requestable_apps || [], 'requestable', lang, 'Nothing requires additional access right now.');
+                renderList('public-list', dashboard.public_apps || [], 'public', lang, 'No public apps are configured yet.');
+                renderCategories(payload, lang);
+                document.getElementById('stat-public').textContent = String((dashboard.public_apps || []).length);
+                document.getElementById('stat-allowed').textContent = String((dashboard.allowed_apps || []).length);
+                document.getElementById('stat-requestable').textContent = String((dashboard.requestable_apps || []).length);
+                document.getElementById('dashboard-status').textContent = 'Dashboard loaded from the live micou.org catalog API.';
+                document.getElementById('hero-copy').textContent = payload.viewer && payload.viewer.email
+                    ? 'You are signed in. This page groups the services you can already use, the public ones, and the apps you can request.'
+                    : 'You are browsing publicly. This page highlights open tools and shows which services require an access request.';
+            } catch (_) {
+                document.getElementById('dashboard-status').textContent = 'The dashboard API is unavailable right now.';
+            }
+        }
+
+        loadDashboard();
+    </script>
+</body>
+</html>

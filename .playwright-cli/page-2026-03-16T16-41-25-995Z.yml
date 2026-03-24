@@ -1,0 +1,767 @@
+- generic [ref=e2]:
+  - banner [ref=e3]:
+    - generic [ref=e1534]:
+      - generic "Selector de idioma" [ref=e1535]:
+        - button "Français" [ref=e1536] [cursor=pointer]
+        - button "English" [ref=e1537] [cursor=pointer]
+        - button "Deutsch" [ref=e1538] [cursor=pointer]
+        - button "Español" [ref=e1539] [cursor=pointer]
+      - img "Etiqueta de alojamiento verde" [ref=e1540]
+    - generic [ref=e1541]:
+      - heading "micou.org" [level=1] [ref=e1542]
+      - paragraph [ref=e1543]: Herramientas protegidas · cultura de software libre · infraestructura autoalojada con cuidado
+  - generic [ref=e14]:
+    - generic [ref=e1544]:
+      - heading "Crear, organizarse" [level=2] [ref=e1545]:
+        - generic [ref=e1546]: Crear, organizarse
+      - paragraph [ref=e1547]: "micou.org ofrece herramientas cuidadas para artistas, creadorxs, activistas, asociaciones, colectivos y personas que necesitan espacios digitales más seguros. La idea es muy concreta: permitir escribir, compartir, organizar, publicar, colaborar y archivar sin depender de ecosistemas cerrados ni de proveedores centralizados."
+      - paragraph [ref=e1548]: Aquí los espacios privados importan de verdad. La infraestructura busca sostener autonomía, confidencialidad, accesibilidad y marcos abiertos, sin dejar de ser acogedora para quienes necesitan herramientas fiables en el día a día.
+    - generic [ref=e1549]:
+      - link "Mi panel" [ref=e1550] [cursor=pointer]:
+        - /url: /yunohost/sso/
+      - link "Solicitar acceso" [ref=e1551] [cursor=pointer]:
+        - /url: "#access-form"
+    - paragraph [ref=e1552]: ¿Ya eres miembro? El botón Mi panel abre directamente tu espacio personal con los servicios que ya tienes activados.
+    - generic [ref=e1553]:
+      - article [ref=e1554]:
+        - strong [ref=e1556]: Privacidad real
+        - paragraph [ref=e1557]: Los espacios privados quedan reservados a las personas autorizadas. Los datos circulan cifrados y, cuando la herramienta lo permite, cuentan con una protección reforzada de extremo a extremo.
+      - article [ref=e1558]:
+        - strong [ref=e1560]: Gratis para siempre*
+        - paragraph [ref=e1561]: "Todos los servicios de micou.org son gratuitos: sin muro de suscripción, sin versión recortada y sin publicidad añadida."
+      - article [ref=e1562]:
+        - strong [ref=e1564]: Principio No-AI
+        - paragraph [ref=e1565]: No se integra por defecto ningún servicio de IA en la nube. Esto limita la extracción de datos, las dependencias opacas y el impacto ambiental.
+    - generic [ref=e1566]: "* Para proteger la plataforma frente al spam, los ataques y los usos abusivos, algunas herramientas que consumen más recursos se activan bajo demanda. El formulario de abajo, para personas o equipos, es solo una formalidad sencilla. Las solicitudes se aceptan salvo cuando el servidor está temporalmente cerca de su límite, y la infraestructura sigue ampliándose."
+    - generic [ref=e1567]:
+      - generic [ref=e1568]:
+        - heading "Llamado a contribuciones" [level=3] [ref=e1569]
+        - paragraph [ref=e1570]: El uso de todos los servicios ofrecidos en micou.org es y seguirá siendo gratuito de por vida. Si aun así deseas ayudar a cubrir los gastos del servidor, puedes pulsar este bonito botón para contribuir. Toda ayuda es bienvenida pero nunca obligatoria; dona solo si sabes que puedes hacerlo con tranquilidad. El 100% de las donaciones se dedica al desarrollo y al mantenimiento en línea de esta infraestructura.
+      - link "Contribuir" [ref=e1571] [cursor=pointer]:
+        - /url: mailto:micou@micou.org?subject=Contribution%20micou.org
+    - generic [ref=e1572]:
+      - heading "Carta de uso" [level=3] [ref=e1573]
+      - group [ref=e1574]:
+        - generic "1. Cuido los recursos compartidos +" [ref=e1575] [cursor=pointer]:
+          - strong [ref=e1577]: 1. Cuido los recursos compartidos
+          - generic [ref=e1578]: +
+      - group [ref=e1579]:
+        - generic "2. No uso micou.org para dominar, vigilar ni vender +" [ref=e1580] [cursor=pointer]:
+          - strong [ref=e1582]: 2. No uso micou.org para dominar, vigilar ni vender
+          - generic [ref=e1583]: +
+      - group [ref=e1584]:
+        - generic "3. Mantengo el control sobre mis datos +" [ref=e1585] [cursor=pointer]:
+          - strong [ref=e1587]: 3. Mantengo el control sobre mis datos
+          - generic [ref=e1588]: +
+      - group [ref=e1589]:
+        - generic "4. Priorizo marcos abiertos y sobrios +" [ref=e1590] [cursor=pointer]:
+          - strong [ref=e1592]: 4. Priorizo marcos abiertos y sobrios
+          - generic [ref=e1593]: +
+      - group [ref=e1594]:
+        - generic "5. Uso la solicitud de acceso cuando ayuda a proteger el espacio +" [ref=e1595] [cursor=pointer]:
+          - strong [ref=e1597]: 5. Uso la solicitud de acceso cuando ayuda a proteger el espacio
+          - generic [ref=e1598]: +
+  - generic [ref=e70]:
+    - heading "Los servicios" [level=2] [ref=e1600]
+    - generic [ref=e1601]:
+      - generic [ref=e1602]:
+        - generic [ref=e1603]:
+          - img "Français" [ref=e1604]
+          - img "English" [ref=e1605]
+          - img "Deutsch" [ref=e1606]
+          - img "Español" [ref=e1607]
+        - generic [ref=e1608]: Idiomas disponibles
+      - generic [ref=e1610]: Acceso libre
+      - generic [ref=e1612]: Bajo demanda
+    - generic [ref=e1613]:
+      - button "Ver todo" [ref=e1614] [cursor=pointer]
+      - button "Organizar (2)" [ref=e1615] [cursor=pointer]
+      - button "Colaborar (5)" [ref=e1616] [cursor=pointer]
+      - button "Publicar (2)" [ref=e1617] [cursor=pointer]
+      - button "Leer y documentar (3)" [ref=e1618] [cursor=pointer]
+      - button "Escuchar y mirar (3)" [ref=e1619] [cursor=pointer]
+      - button "Herramientas prácticas (7)" [ref=e1620] [cursor=pointer]
+    - generic [ref=e1621]:
+      - generic [ref=e1622]:
+        - generic [ref=e1623]:
+          - heading "Organizar" [level=3] [ref=e1624]
+          - generic [ref=e1625]: "2"
+        - generic [ref=e1626]:
+          - article [ref=e1627]:
+            - generic [ref=e1630]:
+              - heading "Bénévalibre" [level=3] [ref=e1631]
+              - paragraph [ref=e1632]: Coordina turnos, misiones y personas voluntarias sin una hoja que se desborde.
+            - generic [ref=e1633]:
+              - generic [ref=e1635]: Acceso libre
+              - generic [ref=e1636]:
+                - generic [ref=e1637]:
+                  - img "Français" [ref=e1638]
+                  - img "English" [ref=e1639]
+                  - img "Deutsch" [ref=e1640]
+                  - img "Español" [ref=e1641]
+                - generic [ref=e1642]: Idiomas disponibles
+            - generic [ref=e1643]:
+              - generic [ref=e1644]: coordinación voluntaria
+              - generic [ref=e1645]: turnos
+              - generic [ref=e1646]: seguimiento de equipo
+            - paragraph [ref=e1647]:
+              - strong [ref=e1648]: "Puede sustituir:"
+              - text: Hojas caseras de voluntariado o cadenas interminables de mensajes.
+            - generic [ref=e1649]:
+              - link "Abrir" [ref=e1650] [cursor=pointer]:
+                - /url: https://benevalibre.micou.org/
+              - button "Saber más" [ref=e1651] [cursor=pointer]
+            - paragraph [ref=e1652]:
+              - strong [ref=e1653]: Gracias a
+              - text: las personas fundadoras de Bénévalibre; las personas que mantienen activamente el proyecto; las personas que contribuyen al proyecto original
+          - article [ref=e1654]:
+            - generic [ref=e1657]:
+              - heading "Billetterie" [level=3] [ref=e1658]
+              - paragraph [ref=e1659]: Prepara inscripciones, entradas y aforos sin pasar por una plataforma de billettería extractiva.
+            - generic [ref=e1660]:
+              - generic [ref=e1662]: Bajo demanda
+              - generic [ref=e1663]:
+                - generic [ref=e1664]:
+                  - img "Français" [ref=e1665]
+                  - img "English" [ref=e1666]
+                  - img "Deutsch" [ref=e1667]
+                  - img "Español" [ref=e1668]
+                - generic [ref=e1669]: Idiomas disponibles
+            - generic [ref=e1670]:
+              - generic [ref=e1671]: billettería
+              - generic [ref=e1672]: inscripciones
+              - generic [ref=e1673]: control de acceso
+            - paragraph [ref=e1674]:
+              - strong [ref=e1675]: "Puede sustituir:"
+              - text: Eventbrite o formularios de inscripción dispersos.
+            - generic [ref=e1676]:
+              - link "Solicitar acceso" [ref=e1677] [cursor=pointer]:
+                - /url: "#access-form"
+              - button "Saber más" [ref=e1678] [cursor=pointer]
+            - paragraph [ref=e1679]:
+              - strong [ref=e1680]: Gracias a
+              - text: Raphael Michel; el equipo de rami.io; las personas que mantienen pretix; la comunidad de empaquetado de YunoHost
+      - generic [ref=e1681]:
+        - generic [ref=e1682]:
+          - heading "Colaborar" [level=3] [ref=e1683]
+          - generic [ref=e1684]: "5"
+        - generic [ref=e1685]:
+          - article [ref=e1686]:
+            - generic [ref=e1689]:
+              - heading "I Hate Money" [level=3] [ref=e1690]
+              - paragraph [ref=e1691]: Reparte gastos compartidos de forma sencilla, sin hojas improvisadas ni aplicaciones comerciales invasivas.
+            - generic [ref=e1692]:
+              - generic [ref=e1694]: Bajo demanda
+              - generic [ref=e1695]:
+                - generic [ref=e1696]:
+                  - img "Français" [ref=e1697]
+                  - img "English" [ref=e1698]
+                  - img "Deutsch" [ref=e1699]
+                  - img "Español" [ref=e1700]
+                - generic [ref=e1701]: Idiomas disponibles
+            - generic [ref=e1702]:
+              - generic [ref=e1703]: gastos compartidos
+              - generic [ref=e1704]: balances automáticos
+              - generic [ref=e1705]: presupuesto colectivo
+            - paragraph [ref=e1706]:
+              - strong [ref=e1707]: "Puede sustituir:"
+              - text: Splitwise o las hojas improvisadas para gastos compartidos.
+            - generic [ref=e1708]:
+              - link "Solicitar acceso" [ref=e1709] [cursor=pointer]:
+                - /url: "#access-form"
+              - button "Saber más" [ref=e1710] [cursor=pointer]
+            - paragraph [ref=e1711]:
+              - strong [ref=e1712]: Gracias a
+              - text: las personas que mantienen I Hate Money; las personas que contribuyen al proyecto original; la comunidad de empaquetado de YunoHost
+          - article [ref=e1713]:
+            - generic [ref=e1716]:
+              - heading "Le Forum" [level=3] [ref=e1717]
+              - paragraph [ref=e1718]: Aloja conversaciones que siguen siendo legibles con el tiempo, con categorías, moderación y memoria colectiva.
+            - generic [ref=e1719]:
+              - generic [ref=e1721]: Acceso libre
+              - generic [ref=e1722]:
+                - generic [ref=e1723]:
+                  - img "Français" [ref=e1724]
+                  - img "English" [ref=e1725]
+                  - img "Deutsch" [ref=e1726]
+                  - img "Español" [ref=e1727]
+                - generic [ref=e1728]: Idiomas disponibles
+            - generic [ref=e1729]:
+              - generic [ref=e1730]: debates estructurados
+              - generic [ref=e1731]: archivos duraderos
+              - generic [ref=e1732]: moderación
+            - paragraph [ref=e1733]:
+              - strong [ref=e1734]: "Puede sustituir:"
+              - text: Grupos de Facebook, canales efímeros de Discord, hilos dispersos de mensajes.
+            - generic [ref=e1735]:
+              - link "Abrir" [ref=e1736] [cursor=pointer]:
+                - /url: https://micou.org/forum
+              - button "Saber más" [ref=e1737] [cursor=pointer]
+            - paragraph [ref=e1738]:
+              - strong [ref=e1739]: Gracias a
+              - text: las personas fundadoras de NodeBB; las personas que mantienen actualmente el proyecto; las personas que contribuyen a los complementos; la comunidad de empaquetado de YunoHost
+          - article [ref=e1740]:
+            - generic [ref=e1743]:
+              - heading "Ornitoffice" [level=3] [ref=e1744]
+              - paragraph [ref=e1745]: Redacta, corrige y comparte documentos, hojas y presentaciones en un mismo espacio protegido.
+            - generic [ref=e1746]:
+              - generic [ref=e1748]: Bajo demanda
+              - generic [ref=e1749]:
+                - generic [ref=e1750]:
+                  - img "Français" [ref=e1751]
+                  - img "English" [ref=e1752]
+                  - img "Deutsch" [ref=e1753]
+                  - img "Español" [ref=e1754]
+                - generic [ref=e1755]: Idiomas disponibles
+            - generic [ref=e1756]:
+              - generic [ref=e1757]: documentos compartidos
+              - generic [ref=e1758]: hojas colaborativas
+              - generic [ref=e1759]: presentaciones
+            - paragraph [ref=e1760]:
+              - strong [ref=e1761]: "Puede sustituir:"
+              - text: Google Docs, Google Sheets, Microsoft 365 en línea.
+            - generic [ref=e1762]:
+              - link "Solicitar acceso" [ref=e1763] [cursor=pointer]:
+                - /url: "#access-form"
+              - button "Saber más" [ref=e1764] [cursor=pointer]
+            - paragraph [ref=e1765]:
+              - strong [ref=e1766]: Gracias a
+              - text: Ascensio; las personas que mantienen OnlyOffice; las personas que contribuyen al proyecto original; la comunidad de empaquetado de YunoHost
+          - article [ref=e1767]:
+            - generic [ref=e1770]:
+              - heading "Tablo" [level=3] [ref=e1771]
+              - paragraph [ref=e1772]: Dibuja en grupo, facilita un taller o esboza algo rápido sin una cuenta compleja.
+            - generic [ref=e1773]:
+              - generic [ref=e1775]: Acceso libre
+              - generic [ref=e1776]:
+                - generic [ref=e1777]:
+                  - img "Français" [ref=e1778]
+                  - img "English" [ref=e1779]
+                  - img "Deutsch" [ref=e1780]
+                  - img "Español" [ref=e1781]
+                - generic [ref=e1782]: Idiomas disponibles
+            - generic [ref=e1783]:
+              - generic [ref=e1784]: pizarra colaborativa
+              - generic [ref=e1785]: esquemas rápidos
+              - generic [ref=e1786]: talleres visuales
+            - paragraph [ref=e1787]:
+              - strong [ref=e1788]: "Puede sustituir:"
+              - text: Miro, Jamboard o compartir pantalla solo para dibujar en grupo.
+            - generic [ref=e1789]:
+              - link "Abrir" [ref=e1790] [cursor=pointer]:
+                - /url: https://micou.org/dessin
+              - button "Saber más" [ref=e1791] [cursor=pointer]
+            - paragraph [ref=e1792]:
+              - strong [ref=e1793]: Gracias a
+              - text: las personas que mantienen whitebophir; las personas que contribuyen al proyecto original
+          - article [ref=e1794]:
+            - generic [ref=e1797]:
+              - heading "Vikunja" [level=3] [ref=e1798]
+              - paragraph [ref=e1799]: Organiza listas, tableros y fechas para proyectos sin una interfaz de gestión pesada.
+            - generic [ref=e1800]:
+              - generic [ref=e1802]: Bajo demanda
+              - generic [ref=e1803]:
+                - generic [ref=e1804]:
+                  - img "Français" [ref=e1805]
+                  - img "English" [ref=e1806]
+                  - img "Deutsch" [ref=e1807]
+                  - img "Español" [ref=e1808]
+                - generic [ref=e1809]: Idiomas disponibles
+            - generic [ref=e1810]:
+              - generic [ref=e1811]: gestión de tareas
+              - generic [ref=e1812]: vistas kanban
+              - generic [ref=e1813]: planificación
+            - paragraph [ref=e1814]:
+              - strong [ref=e1815]: "Puede sustituir:"
+              - text: Trello, Todoist o Asana para usos más sencillos.
+            - generic [ref=e1816]:
+              - link "Solicitar acceso" [ref=e1817] [cursor=pointer]:
+                - /url: "#access-form"
+              - button "Saber más" [ref=e1818] [cursor=pointer]
+            - paragraph [ref=e1819]:
+              - strong [ref=e1820]: Gracias a
+              - text: las personas que mantienen Vikunja; las personas que contribuyen al proyecto original; la comunidad de empaquetado de YunoHost
+      - generic [ref=e1821]:
+        - generic [ref=e1822]:
+          - heading "Publicar" [level=3] [ref=e1823]
+          - generic [ref=e1824]: "2"
+        - generic [ref=e1825]:
+          - article [ref=e1826]:
+            - generic [ref=e1829]:
+              - heading "Sites" [level=3] [ref=e1830]
+              - paragraph [ref=e1831]: Crea un sitio, una página de proyecto o un blog más completo cuando necesites una presencia pública duradera.
+            - generic [ref=e1832]:
+              - generic [ref=e1834]: Bajo demanda
+              - generic [ref=e1835]:
+                - generic [ref=e1836]:
+                  - img "Français" [ref=e1837]
+                  - img "English" [ref=e1838]
+                  - img "Deutsch" [ref=e1839]
+                  - img "Español" [ref=e1840]
+                - generic [ref=e1841]: Idiomas disponibles
+            - generic [ref=e1842]:
+              - generic [ref=e1843]: páginas visibles
+              - generic [ref=e1844]: puesta en línea
+            - paragraph [ref=e1845]:
+              - strong [ref=e1846]: "Puede sustituir:"
+              - text: Wix, WordPress.com o constructores cerrados de sitios.
+            - generic [ref=e1847]:
+              - link "Solicitar acceso" [ref=e1848] [cursor=pointer]:
+                - /url: "#access-form"
+              - button "Saber más" [ref=e1849] [cursor=pointer]
+            - paragraph [ref=e1850]:
+              - strong [ref=e1851]: Gracias a
+              - text: las personas que mantienen el proyecto WordPress; las personas que contribuyen a temas y complementos; la comunidad de empaquetado de YunoHost
+          - article [ref=e1852]:
+            - generic [ref=e1855]:
+              - heading "WriteFreely" [level=3] [ref=e1856]
+              - paragraph [ref=e1857]: Publica textos, notas o crónicas en una interfaz ligera que deja respirar la escritura.
+            - generic [ref=e1858]:
+              - generic [ref=e1860]: Acceso libre
+              - generic [ref=e1861]:
+                - generic [ref=e1862]:
+                  - img "Français" [ref=e1863]
+                  - img "English" [ref=e1864]
+                  - img "Deutsch" [ref=e1865]
+                  - img "Español" [ref=e1866]
+                - generic [ref=e1867]: Idiomas disponibles
+            - generic [ref=e1868]:
+              - generic [ref=e1869]: publicación de textos
+              - generic [ref=e1870]: boletines
+              - generic [ref=e1871]: edición mínima
+            - paragraph [ref=e1872]:
+              - strong [ref=e1873]: "Puede sustituir:"
+              - text: Medium, Substack o CMS demasiado pesados para una publicación sencilla.
+            - generic [ref=e1874]:
+              - link "Abrir" [ref=e1875] [cursor=pointer]:
+                - /url: https://write.micou.org/
+              - button "Saber más" [ref=e1876] [cursor=pointer]
+            - paragraph [ref=e1877]:
+              - strong [ref=e1878]: Gracias a
+              - text: el equipo de Write.as; las personas que mantienen WriteFreely; la comunidad de empaquetado de YunoHost
+      - generic [ref=e1879]:
+        - generic [ref=e1880]:
+          - heading "Leer y documentar" [level=3] [ref=e1881]
+          - generic [ref=e1882]: "3"
+        - generic [ref=e1883]:
+          - article [ref=e1884]:
+            - generic [ref=e1887]:
+              - heading "Anarchism" [level=3] [ref=e1888]
+              - paragraph [ref=e1889]: Consulta un recurso documental abierto para leer, citar y volver a textos de referencia.
+            - generic [ref=e1890]:
+              - generic [ref=e1892]: Acceso libre
+              - generic [ref=e1893]:
+                - generic [ref=e1894]:
+                  - img "Français" [ref=e1895]
+                  - img "English" [ref=e1896]
+                  - img "Deutsch" [ref=e1897]
+                  - img "Español" [ref=e1898]
+                - generic [ref=e1899]: Idiomas disponibles
+            - generic [ref=e1900]:
+              - generic [ref=e1901]: lectura profunda
+              - generic [ref=e1902]: archivos abiertos
+              - generic [ref=e1903]: referencias
+            - paragraph [ref=e1904]:
+              - strong [ref=e1905]: "Puede sustituir:"
+              - text: Búsquedas dispersas entre archivos poco legibles.
+            - generic [ref=e1906]:
+              - link "Abrir" [ref=e1907] [cursor=pointer]:
+                - /url: https://micou.org/anarchism
+              - button "Saber más" [ref=e1908] [cursor=pointer]
+            - paragraph [ref=e1909]:
+              - strong [ref=e1910]: Gracias a
+              - text: las personas que mantienen el archivo; las personas voluntarias que editan y mantienen; la comunidad de empaquetado de YunoHost
+          - article [ref=e1911]:
+            - generic [ref=e1914]:
+              - heading "Reader" [level=3] [ref=e1915]
+              - paragraph [ref=e1916]: Sigue fuentes, selecciones y publicaciones en un lector tranquilo, sin algoritmos intrusivos.
+            - generic [ref=e1917]:
+              - generic [ref=e1919]: Acceso libre
+              - generic [ref=e1920]:
+                - generic [ref=e1921]:
+                  - img "Français" [ref=e1922]
+                  - img "English" [ref=e1923]
+                  - img "Deutsch" [ref=e1924]
+                  - img "Español" [ref=e1925]
+                - generic [ref=e1926]: Idiomas disponibles
+            - generic [ref=e1927]:
+              - generic [ref=e1928]: lectura profunda
+              - generic [ref=e1929]: archivos abiertos
+              - generic [ref=e1930]: referencias
+            - paragraph [ref=e1931]:
+              - strong [ref=e1932]: "Puede sustituir:"
+              - text: Feedly o los feeds sociales usados como revista de prensa.
+            - generic [ref=e1933]:
+              - link "Abrir" [ref=e1934] [cursor=pointer]:
+                - /url: https://read.micou.org/
+              - button "Saber más" [ref=e1935] [cursor=pointer]
+            - paragraph [ref=e1936]:
+              - strong [ref=e1937]: Gracias a
+              - text: las personas que mantienen FreshRSS; las personas que contribuyen a lectores de feeds; la comunidad de empaquetado de YunoHost
+          - article [ref=e1938]:
+            - generic [ref=e1941]:
+              - heading "Wiki" [level=3] [ref=e1942]
+              - paragraph [ref=e1943]: Documenta prácticas, guarda guías internas y comparte memoria colectiva duradera.
+            - generic [ref=e1944]:
+              - generic [ref=e1946]: Acceso libre
+              - generic [ref=e1947]:
+                - generic [ref=e1948]:
+                  - img "Français" [ref=e1949]
+                  - img "English" [ref=e1950]
+                  - img "Deutsch" [ref=e1951]
+                  - img "Español" [ref=e1952]
+                - generic [ref=e1953]: Idiomas disponibles
+            - generic [ref=e1954]:
+              - generic [ref=e1955]: documentación
+              - generic [ref=e1956]: guías prácticas
+              - generic [ref=e1957]: base de conocimiento
+            - paragraph [ref=e1958]:
+              - strong [ref=e1959]: "Puede sustituir:"
+              - text: Carpetas compartidas confusas o notas dispersas.
+            - generic [ref=e1960]:
+              - link "Abrir" [ref=e1961] [cursor=pointer]:
+                - /url: https://micou.org/wiki
+              - button "Saber más" [ref=e1962] [cursor=pointer]
+            - paragraph [ref=e1963]:
+              - strong [ref=e1964]: Gracias a
+              - text: Andreas Gohr; las personas que mantienen DokuWiki; las personas que contribuyen a los complementos; la comunidad de empaquetado de YunoHost
+      - generic [ref=e1965]:
+        - generic [ref=e1966]:
+          - heading "Escuchar y mirar" [level=3] [ref=e1967]
+          - generic [ref=e1968]: "3"
+        - generic [ref=e1969]:
+          - article [ref=e1970]:
+            - generic [ref=e1973]:
+              - heading "Piped" [level=3] [ref=e1974]
+              - paragraph [ref=e1975]: Mira vídeos limitando el rastreo, el ruido publicitario y las recomendaciones intrusivas.
+            - generic [ref=e1976]:
+              - generic [ref=e1978]: Acceso libre
+              - generic [ref=e1979]:
+                - generic [ref=e1980]:
+                  - img "Français" [ref=e1981]
+                  - img "English" [ref=e1982]
+                  - img "Deutsch" [ref=e1983]
+                  - img "Español" [ref=e1984]
+                - generic [ref=e1985]: Idiomas disponibles
+            - generic [ref=e1986]:
+              - generic [ref=e1987]: vídeo sin rastreo
+              - generic [ref=e1988]: suscripciones importadas
+              - generic [ref=e1989]: visualización serena
+            - paragraph [ref=e1990]:
+              - strong [ref=e1991]: "Puede sustituir:"
+              - text: La interfaz estándar de YouTube.
+            - generic [ref=e1992]:
+              - link "Abrir" [ref=e1993] [cursor=pointer]:
+                - /url: https://yt.micou.org/
+              - button "Saber más" [ref=e1994] [cursor=pointer]
+            - paragraph [ref=e1995]:
+              - strong [ref=e1996]: Gracias a
+              - text: TeamPiped; las personas que contribuyen al proyecto original; la comunidad de empaquetado de YunoHost
+          - article [ref=e1997]:
+            - generic [ref=e2000]:
+              - heading "WiddyPad" [level=3] [ref=e2001]
+              - paragraph [ref=e2002]: Explora una biblioteca musical ligera pensada para escuchar, seleccionar y compartir ambientes.
+            - generic [ref=e2003]:
+              - generic [ref=e2005]: Acceso libre
+              - generic [ref=e2006]:
+                - generic [ref=e2007]:
+                  - img "Français" [ref=e2008]
+                  - img "English" [ref=e2009]
+                  - img "Deutsch" [ref=e2010]
+                  - img "Español" [ref=e2011]
+                - generic [ref=e2012]: Idiomas disponibles
+            - generic [ref=e2013]:
+              - generic [ref=e2014]: escucha musical
+              - generic [ref=e2015]: listas
+              - generic [ref=e2016]: difusión ligera
+            - paragraph [ref=e2017]:
+              - strong [ref=e2018]: "Puede sustituir:"
+              - text: Plataformas de streaming pesadas para pequeños usos compartidos.
+            - generic [ref=e2019]:
+              - link "Abrir" [ref=e2020] [cursor=pointer]:
+                - /url: https://micou.org/widdypad/
+              - button "Saber más" [ref=e2021] [cursor=pointer]
+            - paragraph [ref=e2022]:
+              - strong [ref=e2023]: Gracias a
+              - text: las personas que contribuyen a WiddyPad; el mantenimiento de micou
+          - article [ref=e2024]:
+            - generic [ref=e2027]:
+              - heading "Y" [level=3] [ref=e2028]
+              - paragraph [ref=e2029]: Lee cuentas públicas y haz seguimiento sin conectarte a la propia plataforma.
+            - generic [ref=e2030]:
+              - generic [ref=e2032]: Acceso libre
+              - generic [ref=e2033]:
+                - generic [ref=e2034]:
+                  - img "Français" [ref=e2035]
+                  - img "English" [ref=e2036]
+                  - img "Deutsch" [ref=e2037]
+                  - img "Español" [ref=e2038]
+                - generic [ref=e2039]: Idiomas disponibles
+            - generic [ref=e2040]:
+              - generic [ref=e2041]: lectura de cuentas públicas
+              - generic [ref=e2042]: espejo discreto
+              - generic [ref=e2043]: seguimiento sin cuenta
+            - paragraph [ref=e2044]:
+              - strong [ref=e2045]: "Puede sustituir:"
+              - text: La interfaz oficial de X / Twitter para lectura pública.
+            - generic [ref=e2046]:
+              - link "Abrir" [ref=e2047] [cursor=pointer]:
+                - /url: https://y.micou.org/about
+              - button "Saber más" [ref=e2048] [cursor=pointer]
+            - paragraph [ref=e2049]:
+              - strong [ref=e2050]: Gracias a
+              - text: las personas que mantienen Nitter; las personas que contribuyen al proyecto original; la comunidad de empaquetado de YunoHost
+      - generic [ref=e2051]:
+        - generic [ref=e2052]:
+          - heading "Herramientas prácticas" [level=3] [ref=e2053]
+          - generic [ref=e2054]: "7"
+        - generic [ref=e2055]:
+          - article [ref=e2056]:
+            - generic [ref=e2059]:
+              - heading "Convertisseur" [level=3] [ref=e2060]
+              - paragraph [ref=e2061]: Convierte medios o documentos con rapidez a formatos más prácticos, sin recopilación innecesaria.
+            - generic [ref=e2062]:
+              - generic [ref=e2064]: Acceso libre
+              - generic [ref=e2065]:
+                - generic [ref=e2066]:
+                  - img "Français" [ref=e2067]
+                  - img "English" [ref=e2068]
+                  - img "Deutsch" [ref=e2069]
+                  - img "Español" [ref=e2070]
+                - generic [ref=e2071]: Idiomas disponibles
+            - generic [ref=e2072]:
+              - generic [ref=e2073]: conversión multimedia
+              - generic [ref=e2074]: varios formatos
+              - generic [ref=e2075]: exportaciones rápidas
+            - paragraph [ref=e2076]:
+              - strong [ref=e2077]: "Puede sustituir:"
+              - text: Conversores web opacos o llenos de publicidad.
+            - generic [ref=e2078]:
+              - link "Abrir" [ref=e2079] [cursor=pointer]:
+                - /url: https://convert.micou.org/
+              - button "Saber más" [ref=e2080] [cursor=pointer]
+            - paragraph [ref=e2081]:
+              - strong [ref=e2082]: Gracias a
+              - text: las personas que mantienen Vert; las personas que contribuyen al proyecto original
+          - article [ref=e2083]:
+            - generic [ref=e2086]:
+              - heading "FacePrivacy" [level=3] [ref=e2087]
+              - paragraph [ref=e2088]: Prepara imágenes antes de compartirlas ocultando rostros o zonas sensibles.
+            - generic [ref=e2089]:
+              - generic [ref=e2091]: Acceso libre
+              - generic [ref=e2092]:
+                - generic [ref=e2093]:
+                  - img "Français" [ref=e2094]
+                  - img "English" [ref=e2095]
+                  - img "Deutsch" [ref=e2096]
+                  - img "Español" [ref=e2097]
+                - generic [ref=e2098]: Idiomas disponibles
+            - generic [ref=e2099]:
+              - generic [ref=e2100]: difuminado de rostros
+              - generic [ref=e2101]: preparación de imágenes
+              - generic [ref=e2102]: compartir con más cuidado
+            - paragraph [ref=e2103]:
+              - strong [ref=e2104]: "Puede sustituir:"
+              - text: Aplicaciones opacas para difuminar deprisa desde el móvil.
+            - generic [ref=e2105]:
+              - link "Abrir" [ref=e2106] [cursor=pointer]:
+                - /url: https://micou.org/faceprivacy
+              - button "Saber más" [ref=e2107] [cursor=pointer]
+            - paragraph [ref=e2108]:
+              - strong [ref=e2109]: Gracias a
+              - text: las personas que mantienen FacePrivacy; las personas que contribuyen al proyecto original
+          - article [ref=e2110]:
+            - generic [ref=e2113]:
+              - heading "Grammalecte server" [level=3] [ref=e2114]
+              - paragraph [ref=e2115]: Revisa textos en francés con una herramienta libre útil tanto en borradores como en versiones finales.
+            - generic [ref=e2116]:
+              - generic [ref=e2118]: Acceso libre
+              - generic [ref=e2119]:
+                - img "Français" [ref=e2121]
+                - generic [ref=e2122]: Idiomas disponibles
+            - generic [ref=e2123]:
+              - generic [ref=e2124]: corrección gramatical
+              - generic [ref=e2125]: ortografía
+              - generic [ref=e2126]: revisión en francés
+            - paragraph [ref=e2127]:
+              - strong [ref=e2128]: "Puede sustituir:"
+              - text: Correctores propietarios en la nube para francés.
+            - generic [ref=e2129]:
+              - link "Abrir" [ref=e2130] [cursor=pointer]:
+                - /url: https://grammaire.micou.org/
+              - button "Saber más" [ref=e2131] [cursor=pointer]
+            - paragraph [ref=e2132]:
+              - strong [ref=e2133]: Gracias a
+              - text: Olivier R.; las personas que contribuyen a Grammalecte
+          - article [ref=e2134]:
+            - generic [ref=e2137]:
+              - heading "Le compteur du GASE" [level=3] [ref=e2138]
+              - paragraph [ref=e2139]: Sigue contadores y referencias compartidas para un uso colectivo muy concreto y local.
+            - generic [ref=e2140]:
+              - generic [ref=e2142]: Bajo demanda
+              - generic [ref=e2143]:
+                - generic [ref=e2144]:
+                  - img "Français" [ref=e2145]
+                  - img "English" [ref=e2146]
+                  - img "Deutsch" [ref=e2147]
+                  - img "Español" [ref=e2148]
+                - generic [ref=e2149]: Idiomas disponibles
+            - generic [ref=e2150]:
+              - generic [ref=e2151]: seguimiento colectivo
+              - generic [ref=e2152]: contadores compartidos
+              - generic [ref=e2153]: coordinación local
+            - paragraph [ref=e2154]:
+              - strong [ref=e2155]: "Puede sustituir:"
+              - text: Hojas manuales o seguimientos locales dispersos.
+            - generic [ref=e2156]:
+              - link "Solicitar acceso" [ref=e2157] [cursor=pointer]:
+                - /url: "#access-form"
+              - button "Saber más" [ref=e2158] [cursor=pointer]
+            - paragraph [ref=e2159]:
+              - strong [ref=e2160]: Gracias a
+              - text: las personas que mantienen Le compteur du GASE; el mantenimiento de micou
+          - article [ref=e2161]:
+            - generic [ref=e2164]:
+              - heading "PDF Tools" [level=3] [ref=e2165]
+              - paragraph [ref=e2166]: Une, separa, comprime o reorganiza PDF sin depender de una web opaca.
+            - generic [ref=e2167]:
+              - generic [ref=e2169]: Bajo demanda
+              - generic [ref=e2170]:
+                - generic [ref=e2171]:
+                  - img "Français" [ref=e2172]
+                  - img "English" [ref=e2173]
+                  - img "Deutsch" [ref=e2174]
+                  - img "Español" [ref=e2175]
+                - generic [ref=e2176]: Idiomas disponibles
+            - generic [ref=e2177]:
+              - generic [ref=e2178]: unión de PDF
+              - generic [ref=e2179]: separación
+              - generic [ref=e2180]: compresión
+            - paragraph [ref=e2181]:
+              - strong [ref=e2182]: "Puede sustituir:"
+              - text: iLovePDF, Smallpdf y otros sitios intrusivos para documentos.
+            - generic [ref=e2183]:
+              - link "Solicitar acceso" [ref=e2184] [cursor=pointer]:
+                - /url: "#access-form"
+              - button "Saber más" [ref=e2185] [cursor=pointer]
+            - paragraph [ref=e2186]:
+              - strong [ref=e2187]: Gracias a
+              - text: las personas que mantienen BentoPDF; las personas que contribuyen al proyecto original
+          - article [ref=e2188]:
+            - generic [ref=e2191]:
+              - heading "QR" [level=3] [ref=e2192]
+              - paragraph [ref=e2193]: Crea códigos QR actualizables con el tiempo para carteles, folletos, menús o recorridos públicos.
+            - generic [ref=e2194]:
+              - generic [ref=e2196]: Acceso libre
+              - generic [ref=e2197]:
+                - generic [ref=e2198]:
+                  - img "Français" [ref=e2199]
+                  - img "English" [ref=e2200]
+                  - img "Deutsch" [ref=e2201]
+                  - img "Español" [ref=e2202]
+                - generic [ref=e2203]: Idiomas disponibles
+            - generic [ref=e2204]:
+              - generic [ref=e2205]: QR dinámicos
+              - generic [ref=e2206]: enlaces imprimibles
+              - generic [ref=e2207]: cambios sin reimprimir
+            - paragraph [ref=e2208]:
+              - strong [ref=e2209]: "Puede sustituir:"
+              - text: Generadores de QR desechables imposibles de actualizar después.
+            - generic [ref=e2210]:
+              - link "Abrir" [ref=e2211] [cursor=pointer]:
+                - /url: https://qr.micou.org/
+              - button "Saber más" [ref=e2212] [cursor=pointer]
+            - paragraph [ref=e2213]:
+              - strong [ref=e2214]: Gracias a
+              - text: las personas que mantienen el proyecto Dynamic QR Code; el mantenimiento de micou
+          - article [ref=e2215]:
+            - generic [ref=e2218]:
+              - heading "Send" [level=3] [ref=e2219]
+              - paragraph [ref=e2220]: Comparte archivos puntualmente con enlaces simples, temporales y más respetuosos.
+            - generic [ref=e2221]:
+              - generic [ref=e2223]: Acceso libre
+              - generic [ref=e2224]:
+                - generic [ref=e2225]:
+                  - img "Français" [ref=e2226]
+                  - img "English" [ref=e2227]
+                  - img "Deutsch" [ref=e2228]
+                  - img "Español" [ref=e2229]
+                - generic [ref=e2230]: Idiomas disponibles
+            - generic [ref=e2231]:
+              - generic [ref=e2232]: envío temporal
+              - generic [ref=e2233]: enlaces protegidos
+              - generic [ref=e2234]: archivos grandes
+            - paragraph [ref=e2235]:
+              - strong [ref=e2236]: "Puede sustituir:"
+              - text: WeTransfer o adjuntos demasiado pesados.
+            - generic [ref=e2237]:
+              - link "Abrir" [ref=e2238] [cursor=pointer]:
+                - /url: https://send.micou.org/
+              - button "Saber más" [ref=e2239] [cursor=pointer]
+            - paragraph [ref=e2240]:
+              - strong [ref=e2241]: Gracias a
+              - text: los forks comunitarios de Mozilla Send; las personas que mantienen Send en la actualidad; la comunidad de empaquetado de YunoHost
+  - generic [ref=e714]:
+    - generic [ref=e2242]:
+      - heading "Solicitar acceso" [level=2] [ref=e2243]
+      - paragraph [ref=e2244]: El formulario se mantiene deliberadamente ligero. Sirve para abrir cuentas y atender necesidades de equipo sin añadir fricción innecesaria.
+    - generic "Tipo de solicitud" [ref=e2245]:
+      - button "Individual" [ref=e2246] [cursor=pointer]
+      - button "Equipo" [ref=e2247] [cursor=pointer]
+    - generic [ref=e2248]:
+      - generic [ref=e2249]:
+        - generic [ref=e2250]:
+          - generic [ref=e2251]: Dirección de correo a utilizar
+          - textbox "Dirección de correo a utilizar" [ref=e2252]:
+            - /placeholder: micou@example.org
+        - generic [ref=e2253]:
+          - generic [ref=e2254]: Si ya nos conocemos, ¿con qué nombre te identifico?
+          - textbox "Si ya nos conocemos, ¿con qué nombre te identifico?" [ref=e2255]:
+            - /placeholder: Opcional
+        - generic [ref=e2256]:
+          - generic [ref=e2257]: Servicios solicitados
+          - generic [ref=e2258]:
+            - generic [ref=e2259]:
+              - checkbox "Billetterie Bajo demanda"
+              - generic [ref=e2260] [cursor=pointer]:
+                - generic [ref=e2261]: Billetterie
+                - generic [ref=e2262]: Bajo demanda
+            - generic [ref=e2263]:
+              - checkbox "I Hate Money Bajo demanda"
+              - generic [ref=e2264] [cursor=pointer]:
+                - generic [ref=e2265]: I Hate Money
+                - generic [ref=e2266]: Bajo demanda
+            - generic [ref=e2267]:
+              - checkbox "Ornitoffice Bajo demanda"
+              - generic [ref=e2268] [cursor=pointer]:
+                - generic [ref=e2269]: Ornitoffice
+                - generic [ref=e2270]: Bajo demanda
+            - generic [ref=e2271]:
+              - checkbox "Vikunja Bajo demanda"
+              - generic [ref=e2272] [cursor=pointer]:
+                - generic [ref=e2273]: Vikunja
+                - generic [ref=e2274]: Bajo demanda
+            - generic [ref=e2275]:
+              - checkbox "Sites Bajo demanda"
+              - generic [ref=e2276] [cursor=pointer]:
+                - generic [ref=e2277]: Sites
+                - generic [ref=e2278]: Bajo demanda
+            - generic [ref=e2279]:
+              - checkbox "Le compteur du GASE Bajo demanda"
+              - generic [ref=e2280] [cursor=pointer]:
+                - generic [ref=e2281]: Le compteur du GASE
+                - generic [ref=e2282]: Bajo demanda
+            - generic [ref=e2283]:
+              - checkbox "PDF Tools Bajo demanda"
+              - generic [ref=e2284] [cursor=pointer]:
+                - generic [ref=e2285]: PDF Tools
+                - generic [ref=e2286]: Bajo demanda
+        - generic [ref=e2287]:
+          - generic [ref=e2288]: ¿Para qué te gustaría usar estas herramientas?
+          - textbox "¿Para qué te gustaría usar estas herramientas?" [ref=e2289]
+        - generic [ref=e2290]:
+          - generic [ref=e2291]: Detalles útiles
+          - textbox "Detalles útiles" [ref=e2292]
+      - button "Enviar solicitud" [ref=e2293] [cursor=pointer]
+  - contentinfo [ref=e767]:
+    - paragraph [ref=e2295]: 2026 micou.org - Alojado con amor en un servidor autogestionado

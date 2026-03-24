@@ -1,0 +1,23 @@
+{
+  "admins": [
+    "mitch",
+    "mitch@micou.org"
+  ],
+  "groups": {
+    "orga_team": [
+      "mitch@micou.org"
+    ],
+    "media_team": [
+      "mitch@micou.org"
+    ]
+  },
+  "users": {
+    "mitch@micou.org": {
+      "apps": [],
+      "groups": [
+        "orga_team",
+        "media_team"
+      ]
+    }
+  }
+}

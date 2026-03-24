@@ -1,0 +1,1165 @@
+{
+  "categories": {
+    "events": {
+      "order": 10,
+      "name": {
+        "fr": "J'organise des événements",
+        "en": "I organize events",
+        "de": "Ich organisiere Veranstaltungen",
+        "es": "Organizo eventos"
+      }
+    },
+    "collaboration": {
+      "order": 20,
+      "name": {
+        "fr": "Je collabore sur des projets",
+        "en": "I collaborate on projects",
+        "de": "Ich arbeite an Projekten zusammen",
+        "es": "Colaboro en proyectos"
+      }
+    },
+    "publishing": {
+      "order": 30,
+      "name": {
+        "fr": "Je publie des contenus",
+        "en": "I publish content",
+        "de": "Ich veröffentliche Inhalte",
+        "es": "Publico contenidos"
+      }
+    },
+    "media": {
+      "order": 40,
+      "name": {
+        "fr": "J'écoute, regarde ou diffuse",
+        "en": "I listen, watch, or broadcast",
+        "de": "Ich höre, schaue oder verbreite",
+        "es": "Escucho, miro o difundo"
+      }
+    },
+    "knowledge": {
+      "order": 50,
+      "name": {
+        "fr": "Je lis, apprends ou documente",
+        "en": "I read, learn, or document",
+        "de": "Ich lese, lerne oder dokumentiere",
+        "es": "Leo, aprendo o documento"
+      }
+    },
+    "utilities": {
+      "order": 60,
+      "name": {
+        "fr": "J'utilise des outils pratiques",
+        "en": "I use practical tools",
+        "de": "Ich nutze praktische Werkzeuge",
+        "es": "Uso herramientas prácticas"
+      }
+    }
+  },
+  "apps": [
+    {
+      "id": "widdypad",
+      "source": "custom",
+      "service_kind": "media",
+      "tags": [
+        "music",
+        "audio",
+        "systemd",
+        "micou"
+      ],
+      "name": {
+        "fr": "WiddyPad",
+        "en": "WiddyPad",
+        "de": "WiddyPad",
+        "es": "WiddyPad"
+      },
+      "description": {
+        "fr": "Bibliotheque musicale minimale et espace d'ecoute experimental.",
+        "en": "Minimal music library and experimental listening space.",
+        "de": "Minimale Musikbibliothek und experimenteller Horraum.",
+        "es": "Biblioteca musical minima y espacio de escucha experimental."
+      },
+      "button_label": {
+        "fr": "Écouter",
+        "en": "Listen",
+        "de": "Anhören",
+        "es": "Escuchar"
+      },
+      "show_on_homepage": false,
+      "show_on_dashboard": true,
+      "allowed_groups": [
+        "visitor",
+        "user:all",
+        "admin"
+      ],
+      "default_url": "https://micou.org/widdypad/",
+      "repo_url": "",
+      "upstream_url": "",
+      "package_repo_url": "",
+      "deployment_mode": "systemd",
+      "category": "media",
+      "order": 5,
+      "access_mode": "public",
+      "cta_mode": "open",
+      "icon_path": "",
+      "illustration_path": "",
+      "auth": {
+        "mode": "public",
+        "provider": "proxy",
+        "managed_by": "micou",
+        "request_policy": "open",
+        "allowed_groups": [
+          "visitor",
+          "user:all",
+          "admin"
+        ],
+        "notes": "Custom public service proxied by micou.org nginx."
+      },
+      "deployment": {
+        "strategy": "systemd",
+        "source_type": "filesystem",
+        "repo_url": "",
+        "package_repo_url": "",
+        "upstream_url": "",
+        "branch": "main",
+        "deploy_path": "/srv/micou-services/widdypad",
+        "compose_file": "",
+        "systemd_unit": "widdypad.service",
+        "container_name": "",
+        "internal_url": "http://127.0.0.1:8000",
+        "healthcheck_url": "https://micou.org/widdypad/",
+        "notes": "Managed copy lives in /srv/micou-services/widdypad with code and media separated."
+      },
+      "operations": {
+        "deploy": "/home/micou_org/scripts/migrate_service_to_managed_root.sh widdypad",
+        "update": "/home/micou_org/scripts/migrate_service_to_managed_root.sh widdypad",
+        "restart": "systemctl restart widdypad.service",
+        "logs": "journalctl -u widdypad.service --no-pager -n 200",
+        "backup": ""
+      },
+      "links": {
+        "public_url": "https://micou.org/widdypad/",
+        "docs_url": "",
+        "admin_url": "",
+        "dashboard_url": "",
+        "health_url": "https://micou.org/widdypad/"
+      }
+    },
+    {
+      "id": "anarchism",
+      "source": "yunohost",
+      "category": "knowledge",
+      "order": 10,
+      "show_on_homepage": false,
+      "show_on_dashboard": true,
+      "allowed_groups": [
+        "visitor",
+        "user:all",
+        "admin"
+      ],
+      "access_mode": "public",
+      "cta_mode": "open",
+      "deployment_mode": "yunohost",
+      "button_label": {
+        "fr": "Lire",
+        "en": "Read",
+        "de": "Lesen",
+        "es": "Leer"
+      }
+    },
+    {
+      "id": "dokuwiki",
+      "source": "yunohost",
+      "category": "knowledge",
+      "order": 20,
+      "show_on_homepage": true,
+      "show_on_dashboard": true,
+      "allowed_groups": [
+        "visitor",
+        "user:all",
+        "admin"
+      ],
+      "access_mode": "public",
+      "cta_mode": "open"
+    },
+    {
+      "id": "reader",
+      "source": "yunohost",
+      "yunohost_app_id": "13ft",
+      "name": {
+        "fr": "Reader",
+        "en": "Reader",
+        "de": "Reader",
+        "es": "Reader"
+      },
+      "description": {
+        "fr": "Lecteur de flux et de veille sans algorithme publicitaire.",
+        "en": "Feed and reading monitor without advertising algorithms.",
+        "de": "Feed- und Lesebeobachtung ohne Werbealgorithmen.",
+        "es": "Lector de fuentes y seguimiento sin algoritmos publicitarios."
+      },
+      "default_url": "https://read.micou.org/",
+      "category": "knowledge",
+      "order": 25,
+      "show_on_homepage": true,
+      "show_on_dashboard": true,
+      "allowed_groups": [
+        "visitor",
+        "user:all",
+        "admin"
+      ],
+      "access_mode": "public",
+      "cta_mode": "open"
+    },
+    {
+      "id": "writefreely",
+      "source": "yunohost",
+      "category": "publishing",
+      "order": 30,
+      "show_on_homepage": true,
+      "show_on_dashboard": true,
+      "allowed_groups": [
+        "visitor",
+        "user:all",
+        "admin"
+      ],
+      "access_mode": "public",
+      "cta_mode": "open"
+    },
+    {
+      "id": "wordpress",
+      "source": "yunohost",
+      "category": "publishing",
+      "order": 40,
+      "show_on_homepage": true,
+      "show_on_dashboard": true,
+      "allowed_groups": [
+        "admin",
+        "user:authorized"
+      ],
+      "access_mode": "restricted",
+      "cta_mode": "auto",
+      "button_label": {
+        "fr": "Demander l'accès",
+        "en": "Request access",
+        "de": "Zugang anfragen",
+        "es": "Solicitar acceso"
+      }
+    },
+    {
+      "id": "pretix",
+      "source": "yunohost",
+      "category": "events",
+      "order": 50,
+      "show_on_homepage": true,
+      "show_on_dashboard": true,
+      "allowed_groups": [
+        "visitor",
+        "user:all",
+        "admin"
+      ],
+      "access_mode": "restricted",
+      "cta_mode": "auto"
+    },
+    {
+      "id": "benevalibre",
+      "source": "yunohost",
+      "category": "events",
+      "order": 60,
+      "show_on_homepage": true,
+      "show_on_dashboard": true,
+      "allowed_groups": [
+        "visitor",
+        "user:all",
+        "admin"
+      ],
+      "access_mode": "public",
+      "cta_mode": "open"
+    },
+    {
+      "id": "onlyoffice",
+      "source": "yunohost",
+      "category": "collaboration",
+      "order": 70,
+      "show_on_homepage": true,
+      "show_on_dashboard": true,
+      "allowed_groups": [
+        "admin",
+        "user:authorized"
+      ],
+      "access_mode": "restricted",
+      "cta_mode": "auto"
+    },
+    {
+      "id": "vikunja",
+      "source": "yunohost",
+      "category": "collaboration",
+      "order": 80,
+      "show_on_homepage": true,
+      "show_on_dashboard": true,
+      "allowed_groups": [
+        "admin",
+        "user:authorized"
+      ],
+      "access_mode": "restricted",
+      "cta_mode": "auto"
+    },
+    {
+      "id": "nodebb",
+      "source": "yunohost",
+      "category": "collaboration",
+      "order": 90,
+      "show_on_homepage": true,
+      "show_on_dashboard": true,
+      "allowed_groups": [
+        "visitor",
+        "user:all",
+        "admin"
+      ],
+      "access_mode": "public",
+      "cta_mode": "open"
+    },
+    {
+      "id": "agora",
+      "source": "yunohost",
+      "name": {
+        "fr": "Agora",
+        "en": "Agora",
+        "de": "Agora",
+        "es": "Agora"
+      },
+      "description": {
+        "fr": "Espace partagé pour coordonner des échanges, des documents et des projets collectifs.",
+        "en": "Shared space for coordinating discussions, documents, and collective projects.",
+        "de": "Gemeinsamer Raum für Austausch, Dokumente und kollektive Projekte.",
+        "es": "Espacio compartido para coordinar intercambios, documentos y proyectos colectivos."
+      },
+      "category": "collaboration",
+      "order": 95,
+      "show_on_homepage": true,
+      "show_on_dashboard": true,
+      "allowed_groups": [
+        "visitor",
+        "user:all",
+        "admin"
+      ],
+      "access_mode": "public",
+      "cta_mode": "open"
+    },
+    {
+      "id": "ihatemoney",
+      "source": "yunohost",
+      "category": "collaboration",
+      "order": 100,
+      "show_on_homepage": true,
+      "show_on_dashboard": true,
+      "allowed_groups": [
+        "admin",
+        "user:authorized"
+      ],
+      "access_mode": "restricted",
+      "cta_mode": "auto"
+    },
+    {
+      "id": "whitebophir",
+      "source": "yunohost",
+      "category": "collaboration",
+      "order": 110,
+      "show_on_homepage": true,
+      "show_on_dashboard": true,
+      "allowed_groups": [
+        "visitor",
+        "user:all",
+        "admin"
+      ],
+      "access_mode": "public",
+      "cta_mode": "open",
+      "button_label": {
+        "fr": "Dessiner",
+        "en": "Draw",
+        "de": "Zeichnen",
+        "es": "Dibujar"
+      }
+    },
+    {
+      "id": "compteur_du_gase",
+      "source": "yunohost",
+      "name": {
+        "fr": "Compteur du GASE",
+        "en": "GASE Counter",
+        "de": "GASE-Zähler",
+        "es": "Contador GASE"
+      },
+      "description": {
+        "fr": "Suivi de repères et compteurs partagés pour une organisation locale.",
+        "en": "Shared counters and markers for local coordination work.",
+        "de": "Geteilte Zähler und Marker für lokale Koordination.",
+        "es": "Contadores e indicadores compartidos para coordinación local."
+      },
+      "category": "utilities",
+      "order": 120,
+      "show_on_homepage": true,
+      "show_on_dashboard": true,
+      "allowed_groups": [
+        "admin",
+        "user:authorized"
+      ],
+      "access_mode": "restricted",
+      "cta_mode": "auto"
+    },
+    {
+      "id": "wallos",
+      "source": "yunohost",
+      "category": "utilities",
+      "order": 130,
+      "show_on_homepage": false,
+      "show_on_dashboard": true,
+      "allowed_groups": [
+        "admin",
+        "user:authorized"
+      ],
+      "access_mode": "restricted",
+      "cta_mode": "auto",
+      "deployment": {
+        "healthcheck_url": "https://micou.org/abos/"
+      }
+    },
+    {
+      "id": "dynamicqrcode",
+      "source": "yunohost",
+      "category": "utilities",
+      "order": 140,
+      "show_on_homepage": true,
+      "show_on_dashboard": true,
+      "allowed_groups": [
+        "visitor",
+        "user:all",
+        "admin"
+      ],
+      "access_mode": "public",
+      "cta_mode": "open"
+    },
+    {
+      "id": "bentopdf",
+      "source": "yunohost",
+      "name": {
+        "fr": "PDF Tools",
+        "en": "PDF Tools",
+        "de": "PDF Tools",
+        "es": "PDF Tools"
+      },
+      "default_url": "https://micou.org/pdf/",
+      "category": "utilities",
+      "order": 145,
+      "show_on_homepage": true,
+      "show_on_dashboard": true,
+      "allowed_groups": [
+        "admin",
+        "user:authorized"
+      ],
+      "access_mode": "restricted",
+      "cta_mode": "auto",
+      "deployment": {
+        "healthcheck_url": "https://micou.org/pdf/"
+      }
+    },
+    {
+      "id": "faceprivacy",
+      "source": "yunohost",
+      "category": "utilities",
+      "order": 150,
+      "show_on_homepage": true,
+      "show_on_dashboard": true,
+      "allowed_groups": [
+        "visitor",
+        "user:all",
+        "admin"
+      ],
+      "access_mode": "public",
+      "cta_mode": "open"
+    },
+    {
+      "id": "send",
+      "source": "yunohost",
+      "category": "utilities",
+      "order": 160,
+      "show_on_homepage": true,
+      "show_on_dashboard": true,
+      "allowed_groups": [
+        "visitor",
+        "user:all",
+        "admin"
+      ],
+      "access_mode": "public",
+      "cta_mode": "open"
+    },
+    {
+      "id": "vert",
+      "source": "yunohost",
+      "category": "utilities",
+      "order": 170,
+      "show_on_homepage": true,
+      "show_on_dashboard": true,
+      "allowed_groups": [
+        "visitor",
+        "user:all",
+        "admin"
+      ],
+      "access_mode": "public",
+      "cta_mode": "open"
+    },
+    {
+      "id": "grammalecte",
+      "source": "yunohost",
+      "category": "utilities",
+      "order": 180,
+      "show_on_homepage": true,
+      "show_on_dashboard": true,
+      "allowed_groups": [
+        "visitor",
+        "user:all",
+        "admin"
+      ],
+      "access_mode": "public",
+      "cta_mode": "open"
+    },
+    {
+      "id": "immich",
+      "source": "custom",
+      "name": {
+        "fr": "Immich",
+        "en": "Immich",
+        "de": "Immich",
+        "es": "Immich"
+      },
+      "description": {
+        "fr": "Galerie photo et vidéo privée pour garder la main sur ses archives.",
+        "en": "Private photo and video gallery for keeping archives under your control.",
+        "de": "Private Foto- und Videogalerie für Archive unter eigener Kontrolle.",
+        "es": "Galería privada de fotos y vídeos para mantener el control del archivo."
+      },
+      "category": "media",
+      "order": 190,
+      "show_on_homepage": false,
+      "show_on_dashboard": false,
+      "allowed_groups": [
+        "admin",
+        "user:authorized"
+      ],
+      "access_mode": "restricted",
+      "cta_mode": "request",
+      "deployment_mode": "fork",
+      "auth": {
+        "mode": "request",
+        "provider": "manual",
+        "managed_by": "micou",
+        "request_policy": "manual_review",
+        "allowed_groups": [
+          "admin",
+          "user:authorized"
+        ],
+        "notes": "Planned private photo archive. Keep hidden until a real deployment exists."
+      }
+    },
+    {
+      "id": "funkwhale",
+      "source": "custom",
+      "name": {
+        "fr": "Funkwhale",
+        "en": "Funkwhale",
+        "de": "Funkwhale",
+        "es": "Funkwhale"
+      },
+      "description": {
+        "fr": "Écoute et organisation musicale dans un environnement plus ouvert.",
+        "en": "Music listening and organization in a more open environment.",
+        "de": "Musikhören und -organisation in einer offeneren Umgebung.",
+        "es": "Escucha y organización musical en un entorno más abierto."
+      },
+      "category": "media",
+      "order": 200,
+      "show_on_homepage": false,
+      "show_on_dashboard": false,
+      "allowed_groups": [
+        "visitor",
+        "user:all",
+        "admin"
+      ],
+      "access_mode": "public",
+      "cta_mode": "docs",
+      "deployment_mode": "fork",
+      "auth": {
+        "mode": "disabled",
+        "provider": "manual",
+        "managed_by": "micou",
+        "request_policy": "planned",
+        "allowed_groups": [
+          "visitor",
+          "user:all",
+          "admin"
+        ],
+        "notes": "Planned music stack. Keep hidden until a live instance is installed and routed."
+      }
+    },
+    {
+      "id": "piped",
+      "source": "yunohost",
+      "yunohost_app_id": "piped",
+      "name": {
+        "fr": "Piped",
+        "en": "Piped",
+        "de": "Piped",
+        "es": "Piped"
+      },
+      "description": {
+        "fr": "Interface alternative respectueuse de la vie privee pour YouTube.",
+        "en": "Privacy-respecting alternative frontend for YouTube.",
+        "de": "Datenschutzfreundliches Alternativ-Frontend fur YouTube.",
+        "es": "Frontend alternativo de YouTube respetuoso con la privacidad."
+      },
+      "default_url": "https://yt.micou.org/",
+      "category": "media",
+      "order": 210,
+      "show_on_homepage": true,
+      "show_on_dashboard": true,
+      "allowed_groups": [
+        "visitor",
+        "user:all",
+        "admin"
+      ],
+      "access_mode": "public",
+      "cta_mode": "open"
+    },
+    {
+      "id": "nitter",
+      "source": "yunohost",
+      "name": {
+        "fr": "Y",
+        "en": "Y",
+        "de": "Y",
+        "es": "Y"
+      },
+      "default_url": "https://y.micou.org/about",
+      "category": "media",
+      "order": 220,
+      "show_on_homepage": true,
+      "show_on_dashboard": true,
+      "allowed_groups": [
+        "visitor",
+        "user:all",
+        "admin"
+      ],
+      "access_mode": "public",
+      "cta_mode": "open"
+    },
+    {
+      "id": "nodered",
+      "source": "custom",
+      "name": {
+        "fr": "Nodes",
+        "en": "Nodes",
+        "de": "Nodes",
+        "es": "Nodes"
+      },
+      "description": {
+        "fr": "Automatisations et passerelles locales sur demande.",
+        "en": "Local automations and service bridges on request.",
+        "de": "Lokale Automationen und Service-Brücken auf Anfrage.",
+        "es": "Automatizaciones y pasarelas locales bajo demanda."
+      },
+      "category": "utilities",
+      "order": 230,
+      "show_on_homepage": false,
+      "show_on_dashboard": false,
+      "allowed_groups": [
+        "admin",
+        "user:authorized"
+      ],
+      "access_mode": "restricted",
+      "cta_mode": "request",
+      "deployment_mode": "fork",
+      "auth": {
+        "mode": "request",
+        "provider": "manual",
+        "managed_by": "micou",
+        "request_policy": "manual_review",
+        "allowed_groups": [
+          "admin",
+          "user:authorized"
+        ],
+        "notes": "Planned automation surface. Keep hidden until a bounded deployment exists."
+      }
+    },
+    {
+      "id": "micou-homepage",
+      "source": "custom",
+      "service_kind": "publishing",
+      "tags": [
+        "homepage",
+        "static-site",
+        "control-plane"
+      ],
+      "name": {
+        "fr": "Homepage micou.org",
+        "en": "micou.org homepage",
+        "de": "micou.org Startseite",
+        "es": "Pagina de inicio micou.org"
+      },
+      "description": {
+        "fr": "Application statique et backend du portail public micou.org.",
+        "en": "Static app and backend for the public micou.org portal.",
+        "de": "Statische App und Backend fur das offentliche micou.org Portal.",
+        "es": "Aplicacion estatica y backend del portal publico micou.org."
+      },
+      "button_label": {
+        "fr": "Gerer",
+        "en": "Manage",
+        "de": "Verwalten",
+        "es": "Gestionar"
+      },
+      "show_on_homepage": false,
+      "show_on_dashboard": false,
+      "allowed_groups": [
+        "admin"
+      ],
+      "default_url": "https://micou.org/",
+      "repo_url": "",
+      "upstream_url": "",
+      "package_repo_url": "",
+      "deployment_mode": "custom",
+      "category": "publishing",
+      "order": 980,
+      "access_mode": "admin_only",
+      "cta_mode": "docs",
+      "icon_path": "",
+      "illustration_path": "",
+      "auth": {
+        "mode": "sso",
+        "provider": "yunohost",
+        "managed_by": "micou",
+        "request_policy": "admin_only",
+        "allowed_groups": [
+          "admin"
+        ],
+        "notes": "Public homepage managed by admins and served on micou.org."
+      },
+      "deployment": {
+        "strategy": "custom",
+        "source_type": "filesystem",
+        "repo_url": "",
+        "package_repo_url": "",
+        "upstream_url": "",
+        "branch": "main",
+        "deploy_path": "/srv/micou-services/micou-homepage",
+        "compose_file": "",
+        "systemd_unit": "micou-forms.service",
+        "container_name": "",
+        "internal_url": "http://127.0.0.1:9100",
+        "healthcheck_url": "https://micou.org/api/catalog",
+        "notes": "Managed copy of /home/micou_org. Use the migration helper before switching live paths."
+      },
+      "operations": {
+        "deploy": "/home/micou_org/scripts/migrate_service_to_managed_root.sh micou-homepage",
+        "update": "/home/micou_org/scripts/migrate_service_to_managed_root.sh micou-homepage",
+        "restart": "systemctl restart micou-forms.service",
+        "logs": "journalctl -u micou-forms.service --no-pager -n 200",
+        "backup": "tar -C /srv/micou-services -czf /srv/micou-services/micou-homepage-backup-$(date +%F-%H%M%S).tgz micou-homepage"
+      },
+      "links": {
+        "public_url": "https://micou.org/",
+        "docs_url": "",
+        "admin_url": "https://micou.org/admin.html",
+        "dashboard_url": "https://micou.org/yunohost/sso/",
+        "health_url": "https://micou.org/api/catalog"
+      },
+      "appgen": {
+        "mode": "streamlined",
+        "package_type": "admin_surface",
+        "package_id": "micou-admin",
+        "package_name": "micou admin control plane",
+        "short_description_en": "Admin-only control plane for the micou.org registry, content, and access model.",
+        "short_description_fr": "Plan de contrôle réservé à l'admin pour le registre, les contenus et les accès micou.org.",
+        "comprehensive_presentation": "Package the existing micou control plane as a first-class YunoHost admin webapp so the route, tile, and permission are managed through YunoHost instead of portal-only custom JSON. The package should expose /admin.html on micou.org, keep access restricted to admins, and document the relationship with the public homepage backend and PostgreSQL control-plane sync.",
+        "official_website": "https://micou.org/admin.html",
+        "admin_documentation": "https://micou.org/admin.html",
+        "usage_documentation": "https://micou.org/admin.html",
+        "code_repository": "",
+        "version": "0.1.0~ynh1",
+        "maintainer": "micou",
+        "architectures": [
+          "all"
+        ],
+        "app_main_technology": "python",
+        "sso_integration": true,
+        "url_requirement": "domain_and_path",
+        "access_level": "admins",
+        "admin_access_level": "admins",
+        "source_type": "filesystem",
+        "application_source": "https://micou.org/admin.html",
+        "automatic_source_updates": "manual",
+        "init_system_user": false,
+        "init_install_dir": true,
+        "install_dir": "/srv/micou-services/micou-homepage",
+        "init_data_dir": false,
+        "apt_dependencies": [
+          "python3"
+        ],
+        "init_database": true,
+        "database_engine": "postgresql",
+        "use_logrotate": true,
+        "support_change_url": false,
+        "admin_tips": "Keep the package aligned with the managed micou-homepage service tree and the existing forms_service unit. Document all root-managed files touched by deployment and restart procedures.",
+        "pre_install": "Ensure the host already has the micou homepage stack and PostgreSQL control-plane database available, or convert those dependencies into package-managed resources explicitly.",
+        "post_install": "After installation, sync YunoHost access and verify that /api/admin/state still reports zero sync drift.",
+        "service_url": "https://micou.org/admin.html",
+        "public_homepage_visibility": "hidden",
+        "member_portal_visibility": "admins",
+        "runtime_notes": "Wrap the existing admin route and backend rather than creating a second standalone runtime.",
+        "auth_notes": "Keep access admin-only and let YunoHost own the permission and tile."
+      }
+    },
+    {
+      "id": "webstudio",
+      "source": "custom",
+      "service_kind": "publishing",
+      "tags": [
+        "webstudio",
+        "visual-editor",
+        "pages"
+      ],
+      "name": {
+        "fr": "Webstudio",
+        "en": "Webstudio",
+        "de": "Webstudio",
+        "es": "Webstudio"
+      },
+      "description": {
+        "fr": "Espace de travail pour l'édition visuelle des pages publiques et l'export des sites.",
+        "en": "Workspace for visually editing public pages and exporting sites.",
+        "de": "Arbeitsbereich fur die visuelle Bearbeitung offentlichter Seiten und den Site-Export.",
+        "es": "Espacio de trabajo para editar visualmente paginas publicas y exportar sitios."
+      },
+      "button_label": {
+        "fr": "Documentation",
+        "en": "Docs",
+        "de": "Doku",
+        "es": "Docs"
+      },
+      "show_on_homepage": false,
+      "show_on_dashboard": false,
+      "allowed_groups": [
+        "admin"
+      ],
+      "default_url": "https://studio.micou.org/",
+      "repo_url": "",
+      "upstream_url": "https://webstudio.is/",
+      "package_repo_url": "",
+      "deployment_mode": "static",
+      "category": "publishing",
+      "order": 981,
+      "access_mode": "admin_only",
+      "cta_mode": "docs",
+      "icon_path": "",
+      "illustration_path": "",
+      "docs_url": "https://docs.webstudio.is/university/self-hosting",
+      "auth": {
+        "mode": "sso",
+        "provider": "yunohost",
+        "managed_by": "micou",
+        "request_policy": "admin_only",
+        "allowed_groups": [
+          "admin"
+        ],
+        "notes": "Use Webstudio for public-page editing. Keep YunoHost SSO as the authenticated member dashboard."
+      },
+      "deployment": {
+        "strategy": "static",
+        "source_type": "filesystem",
+        "repo_url": "",
+        "package_repo_url": "",
+        "upstream_url": "https://webstudio.is/",
+        "branch": "main",
+        "deploy_path": "/srv/micou-services/webstudio",
+        "compose_file": "",
+        "systemd_unit": "",
+        "container_name": "",
+        "internal_url": "",
+        "healthcheck_url": "https://studio.micou.org/",
+        "notes": "Static workspace served on studio.micou.org. Webstudio Cloud edits public pages, which are then exported and deployed to the managed homepage tree."
+      },
+      "operations": {
+        "deploy": "/home/micou_org/scripts/install_webstudio_runtime.sh && /home/micou_org/scripts/activate_studio_workspace.sh",
+        "update": "/home/micou_org/scripts/install_webstudio_runtime.sh && /home/micou_org/scripts/activate_studio_workspace.sh",
+        "restart": "",
+        "logs": "",
+        "backup": "tar -C /srv/micou-services -czf /srv/micou-services/webstudio-backup-$(date +%F-%H%M%S).tgz webstudio"
+      },
+      "links": {
+        "public_url": "https://studio.micou.org/",
+        "docs_url": "https://docs.webstudio.is/university/self-hosting",
+        "admin_url": "",
+        "dashboard_url": "https://micou.org/yunohost/sso/",
+        "health_url": "https://studio.micou.org/"
+      },
+      "appgen": {
+        "mode": "streamlined",
+        "package_type": "portal_shortcut",
+        "package_id": "webstudio-workspace",
+        "package_name": "Webstudio workspace",
+        "short_description_en": "Admin-only Webstudio workspace shortcut for micou public-page editing.",
+        "short_description_fr": "Raccourci Webstudio réservé à l'admin pour l'édition des pages publiques micou.",
+        "comprehensive_presentation": "Package the current studio.micou.org workspace as a first-class YunoHost admin app so the shortcut appears in the portal with a real permission object. The package should document that the route currently acts as an operational workspace around Webstudio exports and deployment rather than a fully self-hosted editor stack.",
+        "official_website": "https://studio.micou.org/",
+        "admin_documentation": "https://docs.webstudio.is/university/self-hosting",
+        "usage_documentation": "https://docs.webstudio.is/university/self-hosting",
+        "code_repository": "",
+        "version": "0.1.0~ynh1",
+        "maintainer": "micou",
+        "architectures": [
+          "all"
+        ],
+        "app_main_technology": "static",
+        "sso_integration": true,
+        "url_requirement": "full_domain",
+        "access_level": "admins",
+        "admin_access_level": "admins",
+        "source_type": "filesystem",
+        "application_source": "https://studio.micou.org/",
+        "automatic_source_updates": "manual",
+        "init_system_user": false,
+        "init_install_dir": true,
+        "install_dir": "/srv/micou-services/webstudio",
+        "support_change_url": false,
+        "admin_tips": "Keep the package focused on the admin-only route and its portal exposure. Do not overstate it as a full self-hosted Webstudio installation unless the runtime is actually packaged too.",
+        "post_install": "Verify the tile appears only for admins and still routes through the expected studio workspace URL.",
+        "service_url": "https://studio.micou.org/",
+        "public_homepage_visibility": "hidden",
+        "member_portal_visibility": "admins",
+        "runtime_notes": "Current runtime is a static workspace route tied to public-page export procedures.",
+        "auth_notes": "Keep the surface admin-only and managed by YunoHost SSO."
+      }
+    },
+    {
+      "id": "yunohost-portal",
+      "source": "custom",
+      "service_kind": "portal",
+      "tags": [
+        "yunohost",
+        "sso",
+        "member-space"
+      ],
+      "name": {
+        "fr": "Espace membre YunoHost",
+        "en": "YunoHost member portal",
+        "de": "YunoHost-Mitgliederportal",
+        "es": "Portal de miembros de YunoHost"
+      },
+      "description": {
+        "fr": "Portail SSO YunoHost pour l'accès aux services selon les droits attribués.",
+        "en": "YunoHost SSO portal for service access according to assigned permissions.",
+        "de": "YunoHost-SSO-Portal für den Dienstzugang nach vergebenen Rechten.",
+        "es": "Portal SSO de YunoHost para acceder a los servicios según los permisos asignados."
+      },
+      "button_label": {
+        "fr": "Ouvrir",
+        "en": "Open",
+        "de": "Öffnen",
+        "es": "Abrir"
+      },
+      "show_on_homepage": false,
+      "show_on_dashboard": false,
+      "allowed_groups": [
+        "user:all",
+        "admin"
+      ],
+      "default_url": "https://micou.org/yunohost/sso/",
+      "repo_url": "",
+      "upstream_url": "https://yunohost.org/",
+      "package_repo_url": "",
+      "deployment_mode": "custom",
+      "category": "utilities",
+      "order": 982,
+      "access_mode": "authenticated",
+      "cta_mode": "open",
+      "icon_path": "",
+      "illustration_path": "",
+      "auth": {
+        "mode": "sso",
+        "provider": "yunohost",
+        "managed_by": "yunohost",
+        "request_policy": "managed_by_yunohost",
+        "allowed_groups": [
+          "user:all",
+          "admin"
+        ],
+        "notes": "System portal used for member authentication and app launching."
+      },
+      "deployment": {
+        "strategy": "custom",
+        "source_type": "yunohost",
+        "repo_url": "",
+        "package_repo_url": "",
+        "upstream_url": "https://yunohost.org/",
+        "branch": "",
+        "deploy_path": "",
+        "compose_file": "",
+        "systemd_unit": "",
+        "container_name": "",
+        "internal_url": "",
+        "healthcheck_url": "https://micou.org/yunohost/sso/",
+        "notes": "Reserved system surface for the built-in YunoHost member portal."
+      },
+      "operations": {
+        "deploy": "",
+        "update": "",
+        "restart": "",
+        "logs": "",
+        "backup": ""
+      },
+      "links": {
+        "public_url": "https://micou.org/yunohost/sso/",
+        "docs_url": "https://yunohost.org/",
+        "admin_url": "",
+        "dashboard_url": "https://micou.org/yunohost/sso/",
+        "health_url": "https://micou.org/yunohost/sso/"
+      }
+    },
+    {
+      "id": "snowflake",
+      "source": "yunohost",
+      "name": {
+        "fr": "Snowflake",
+        "en": "Snowflake",
+        "de": "Snowflake",
+        "es": "Snowflake"
+      },
+      "description": {
+        "fr": "Relais de transport anti-censure maintenu sur l'infrastructure, sans exposition publique dans l'interface.",
+        "en": "Anti-censorship transport relay maintained on the infrastructure without public UI exposure.",
+        "de": "Anti-Zensur-Transport-Relay auf der Infrastruktur, ohne öffentliche UI-Präsenz.",
+        "es": "Relé de transporte anticensura mantenido en la infraestructura sin exposición pública en la interfaz."
+      },
+      "show_on_homepage": false,
+      "show_on_dashboard": false,
+      "allowed_groups": [],
+      "category": "utilities",
+      "order": 999,
+      "access_mode": "admin_only",
+      "cta_mode": "docs",
+      "auth": {
+        "mode": "disabled",
+        "provider": "yunohost",
+        "managed_by": "yunohost",
+        "request_policy": "system",
+        "allowed_groups": [],
+        "notes": "Infrastructure relay with no member-facing entry point."
+      }
+    },
+    {
+      "id": "cockpit",
+      "source": "yunohost",
+      "show_on_homepage": false,
+      "show_on_dashboard": false,
+      "allowed_groups": [
+        "admin"
+      ],
+      "category": "utilities",
+      "order": 1000,
+      "access_mode": "admin_only",
+      "cta_mode": "open"
+    },
+    {
+      "id": "code-server",
+      "source": "yunohost",
+      "show_on_homepage": false,
+      "show_on_dashboard": false,
+      "allowed_groups": [
+        "admin"
+      ],
+      "category": "utilities",
+      "order": 1001,
+      "access_mode": "admin_only",
+      "cta_mode": "open"
+    },
+    {
+      "id": "fail2ban-web",
+      "source": "yunohost",
+      "show_on_homepage": false,
+      "show_on_dashboard": false,
+      "allowed_groups": [
+        "admin"
+      ],
+      "category": "utilities",
+      "order": 1002,
+      "access_mode": "admin_only",
+      "cta_mode": "open"
+    },
+    {
+      "id": "olivetin",
+      "source": "yunohost",
+      "show_on_homepage": false,
+      "show_on_dashboard": false,
+      "allowed_groups": [
+        "admin"
+      ],
+      "category": "utilities",
+      "order": 1003,
+      "access_mode": "admin_only",
+      "cta_mode": "open",
+      "deployment_mode": "yunohost"
+    },
+    {
+      "id": "micou-admin",
+      "source": "yunohost",
+      "name": {
+        "fr": "micou admin",
+        "en": "micou admin",
+        "de": "micou admin",
+        "es": "micou admin"
+      },
+      "description": {
+        "fr": "Tuile d’administration YunoHost pour ouvrir le plan de contrôle micou.",
+        "en": "YunoHost admin tile for opening the micou control plane.",
+        "de": "YunoHost-Admin-Kachel zum Öffnen der micou-Kontrolloberfläche.",
+        "es": "Acceso de administración YunoHost para abrir el panel de control de micou."
+      },
+      "default_url": "https://micou.org/admin",
+      "category": "utilities",
+      "order": 1004,
+      "show_on_homepage": false,
+      "show_on_dashboard": false,
+      "allowed_groups": [
+        "admin"
+      ],
+      "access_mode": "admin_only",
+      "cta_mode": "open",
+      "deployment_mode": "yunohost"
+    },
+    {
+      "id": "webstudio-workspace",
+      "source": "yunohost",
+      "name": {
+        "fr": "Webstudio workspace",
+        "en": "Webstudio workspace",
+        "de": "Webstudio workspace",
+        "es": "Webstudio workspace"
+      },
+      "description": {
+        "fr": "Tuile d’administration YunoHost pour l’espace de travail Webstudio.",
+        "en": "YunoHost admin tile for the Webstudio workspace.",
+        "de": "YunoHost-Admin-Kachel für den Webstudio-Arbeitsbereich.",
+        "es": "Acceso de administración YunoHost para el espacio de trabajo de Webstudio."
+      },
+      "default_url": "https://studio.micou.org/",
+      "category": "publishing",
+      "order": 1005,
+      "show_on_homepage": false,
+      "show_on_dashboard": false,
+      "allowed_groups": [
+        "admin"
+      ],
+      "access_mode": "admin_only",
+      "cta_mode": "open",
+      "deployment_mode": "yunohost"
+    }
+  ]
+}

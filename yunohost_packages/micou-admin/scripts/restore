@@ -1,0 +1,8 @@
+#!/bin/bash
+
+source /usr/share/yunohost/helpers
+
+ynh_script_progression "Restoring nginx configuration for $app..."
+ynh_config_add_nginx
+
+ynh_script_progression "Restoration of $app completed"

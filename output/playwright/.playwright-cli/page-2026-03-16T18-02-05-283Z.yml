@@ -1,0 +1,18 @@
+- main [ref=e3]:
+  - img [ref=e5]
+  - generic [ref=e7]:
+    - img [ref=e9]
+    - text: Please log in to access this url.
+  - generic [ref=e11]:
+    - group [ref=e13]:
+      - generic [ref=e14]:
+        - img [ref=e16]
+        - generic [ref=e18]: Username
+      - textbox "Username" [ref=e20]
+    - group [ref=e22]:
+      - generic [ref=e23]:
+        - img [ref=e25]
+        - generic [ref=e27]: Password
+      - textbox "Password" [ref=e29]
+    - button "Log in" [ref=e30] [cursor=pointer]:
+      - generic [ref=e31]: Log in

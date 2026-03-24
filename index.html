@@ -1,0 +1,2621 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>micou.org</title>
+  <link rel="icon" type="image/svg+xml" href="illustrations/svgmicoulogo.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-color: #faf8f3;
+      --surface: rgba(255, 255, 255, 0.92);
+      --surface-strong: rgba(255, 255, 255, 0.97);
+      --text-color: #171717;
+      --muted: #4b5563;
+      --accent-purple: #8b5cf6;
+      --accent-pink: #ec4899;
+      --accent-green: #16a34a;
+      --accent-orange: #f97316;
+      --accent-blue: #2563eb;
+      --accent-red: #dc2626;
+      --accent-yellow: #eab308;
+      --border-width: 4px;
+      --shadow-offset: 6px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      background: var(--bg-color);
+      color: var(--text-color);
+      font-family: "Merriweather", Georgia, serif;
+      line-height: 1.65;
+      position: relative;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    button,
+    input,
+    textarea {
+      font: inherit;
+    }
+
+    a:focus-visible,
+    button:focus-visible,
+    input:focus-visible,
+    textarea:focus-visible,
+    summary:focus-visible {
+      outline: 3px solid var(--accent-orange);
+      outline-offset: 3px;
+    }
+
+    .bg-mosaic {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .bg-mosaic img {
+      position: absolute;
+      opacity: 0.16;
+      filter: grayscale(24%);
+    }
+
+    .bg-mosaic img:nth-child(1) { top: 5%; left: 3%; width: 120px; transform: rotate(-15deg); }
+    .bg-mosaic img:nth-child(2) { top: 15%; right: 5%; width: 80px; transform: rotate(20deg); }
+    .bg-mosaic img:nth-child(3) { top: 25%; left: 8%; width: 100px; transform: rotate(10deg); }
+    .bg-mosaic img:nth-child(4) { top: 35%; right: 10%; width: 90px; transform: rotate(-25deg); }
+    .bg-mosaic img:nth-child(5) { top: 45%; left: 2%; width: 70px; transform: rotate(5deg); }
+    .bg-mosaic img:nth-child(6) { top: 55%; right: 3%; width: 110px; transform: rotate(-10deg); }
+    .bg-mosaic img:nth-child(7) { top: 65%; left: 12%; width: 85px; transform: rotate(30deg); }
+    .bg-mosaic img:nth-child(8) { top: 75%; right: 8%; width: 95px; transform: rotate(-5deg); }
+    .bg-mosaic img:nth-child(9) { top: 85%; left: 5%; width: 75px; transform: rotate(15deg); }
+    .bg-mosaic img:nth-child(10) { top: 10%; left: 40%; width: 60px; transform: rotate(-20deg); }
+    .bg-mosaic img:nth-child(11) { top: 30%; right: 25%; width: 70px; transform: rotate(8deg); }
+    .bg-mosaic img:nth-child(12) { top: 50%; left: 30%; width: 55px; transform: rotate(-12deg); }
+    .bg-mosaic img:nth-child(13) { top: 70%; right: 35%; width: 65px; transform: rotate(25deg); }
+    .bg-mosaic img:nth-child(14) { top: 90%; left: 50%; width: 80px; transform: rotate(-8deg); }
+    .bg-mosaic img:nth-child(15) { top: 20%; right: 45%; width: 50px; transform: rotate(18deg); }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      width: min(1180px, calc(100% - 28px));
+      margin: 0 auto;
+      padding: 22px 0 44px;
+    }
+
+    header {
+      border: var(--border-width) solid var(--text-color);
+      background: var(--surface-strong);
+      box-shadow: var(--shadow-offset) var(--shadow-offset) 0 var(--accent-purple);
+      padding: 20px 28px 74px;
+      margin-bottom: 26px;
+      position: relative;
+      overflow: clip;
+    }
+
+    header::after {
+      content: "";
+      position: absolute;
+      top: -10px;
+      right: 14px;
+      width: 96px;
+      height: 96px;
+      background: url("illustrations/rose-purple-sparkle.gif") center/contain no-repeat;
+      opacity: 0.95;
+      pointer-events: none;
+    }
+
+    .header-utility {
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start;
+      gap: 18px;
+      margin-bottom: 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .header-brand {
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hosting-badge {
+      position: absolute;
+      right: 24px;
+      bottom: 16px;
+      width: min(190px, 18vw);
+      max-width: 190px;
+      height: auto;
+      flex: 0 0 auto;
+      filter: drop-shadow(2px 2px 0 rgba(0, 0, 0, 0.22));
+      z-index: 1;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 900;
+      letter-spacing: -0.08em;
+      margin-bottom: 0;
+    }
+
+    .tagline {
+      font-family: "Space Mono", monospace;
+      font-size: 0.86rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--accent-purple);
+      letter-spacing: 0.08em;
+    }
+
+    .hero-card,
+    .services-shell,
+    .form-shell,
+    footer {
+      border: var(--border-width) solid var(--text-color);
+      background: var(--surface);
+      box-shadow: var(--shadow-offset) var(--shadow-offset) 0 var(--text-color);
+      margin-bottom: 26px;
+    }
+
+    .hero-card {
+      padding: 28px;
+      display: grid;
+      gap: 24px;
+    }
+
+    .hero-copy {
+      display: grid;
+      gap: 18px;
+    }
+
+    .hero-top {
+      display: grid;
+      grid-template-columns: auto auto;
+      align-items: center;
+      justify-content: center;
+      gap: 26px;
+      margin-bottom: 4px;
+      text-align: center;
+    }
+
+    .hero-copy h2 {
+      font-size: clamp(1.9rem, 4vw, 3.35rem);
+      line-height: 0.95;
+      text-align: center;
+    }
+
+    .hero-copy .hero-welcome {
+      width: min(420px, 38vw);
+      height: auto;
+      object-fit: contain;
+      flex: 0 0 auto;
+      filter: drop-shadow(4px 6px 0 rgba(0, 0, 0, 0.18));
+    }
+
+    .hero-copy .hero-title-text {
+      display: inline-block;
+      max-width: 6ch;
+      line-height: 0.96;
+    }
+
+    .section-heading img {
+      width: auto;
+      height: 34px;
+      max-height: 34px;
+      object-fit: contain;
+      flex: 0 0 auto;
+    }
+
+    .hero-copy p {
+      text-align: center;
+      max-width: 980px;
+      margin: 0 auto;
+      font-size: 1rem;
+    }
+
+    .hero-copy p + p {
+      margin-top: 0;
+    }
+
+    .lang-switcher {
+      display: inline-flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      gap: 8px;
+      max-width: 390px;
+    }
+
+    .lang-btn {
+      border: 3px solid var(--text-color);
+      background: white;
+      box-shadow: 3px 3px 0 var(--text-color);
+      padding: 7px 11px;
+      font-family: "Space Mono", monospace;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: transform 0.16s ease, box-shadow 0.16s ease, background 0.16s ease;
+    }
+
+    .lang-btn:hover,
+    .lang-btn:focus-visible {
+      transform: translate(-2px, -2px);
+      box-shadow: 5px 5px 0 var(--text-color);
+      outline: none;
+    }
+
+    .lang-btn.active {
+      background: var(--accent-purple);
+      color: white;
+      box-shadow: 4px 4px 0 var(--accent-pink);
+    }
+
+    .cta-row,
+    .service-buttons,
+    .scope-row,
+    .category-nav,
+    .service-meta,
+    .modal-meta,
+    .modal-footer {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .cta-row {
+      justify-content: center;
+      gap: 14px;
+    }
+
+    .action-btn,
+    .access-btn,
+    .modal-btn,
+    .contribute-btn,
+    .scope-btn,
+    .category-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      border: var(--border-width) solid var(--text-color);
+      text-decoration: none;
+      font-family: "Space Mono", monospace;
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      cursor: pointer;
+      box-shadow: 4px 4px 0 var(--text-color);
+      transition: transform 0.16s ease, box-shadow 0.16s ease, background 0.16s ease, color 0.16s ease;
+      padding: 12px 18px;
+      background: white;
+      color: var(--text-color);
+      line-height: normal;
+    }
+
+    .mini-toggle {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      border: 3px solid var(--text-color);
+      font-family: "Space Mono", monospace;
+      font-size: 1.9rem;
+      font-weight: 900;
+      cursor: pointer;
+      box-shadow: 3px 3px 0 var(--text-color);
+      background: white;
+      color: var(--text-color);
+      padding: 0;
+      line-height: 1;
+    }
+
+    .action-btn:hover,
+    .access-btn:hover,
+    .modal-btn:hover,
+    .contribute-btn:hover,
+    .scope-btn:hover,
+    .category-btn:hover,
+    .mini-toggle:hover,
+    .action-btn:focus-visible,
+    .access-btn:focus-visible,
+    .modal-btn:focus-visible,
+    .contribute-btn:focus-visible,
+    .scope-btn:focus-visible,
+    .category-btn:focus-visible,
+    .mini-toggle:focus-visible {
+      transform: translate(-2px, -2px);
+      box-shadow: 6px 6px 0 var(--text-color);
+      outline: none;
+    }
+
+    .action-btn.primary,
+    .access-btn.primary,
+    .contribute-btn,
+    .scope-btn.active,
+    .category-btn.active {
+      background: var(--accent-green);
+      color: white;
+    }
+
+    .access-btn.public {
+      background: var(--accent-green);
+      color: white;
+    }
+
+    .access-btn.request {
+      background: #fde68a;
+      color: #7c2d12;
+    }
+
+    .access-btn.build {
+      background: #fecaca;
+      color: #7f1d1d;
+    }
+
+    .principles-row {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .principle-card {
+      border: 3px solid var(--text-color);
+      background: rgba(255, 255, 255, 0.96);
+      box-shadow: 4px 4px 0 var(--accent-blue);
+      padding: 16px;
+      display: grid;
+      gap: 6px;
+    }
+
+    .principle-card:nth-child(2) { box-shadow: 4px 4px 0 var(--accent-orange); }
+    .principle-card:nth-child(3) { box-shadow: 4px 4px 0 var(--accent-pink); }
+
+    .principle-head {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .principle-head img {
+      width: 36px;
+      height: 36px;
+      object-fit: contain;
+      flex: 0 0 auto;
+    }
+
+    .principle-footnote {
+      border: 3px dashed var(--text-color);
+      padding: 14px 16px;
+      background: rgba(255, 255, 255, 0.9);
+      font-size: 0.85rem;
+      line-height: 1.52;
+      text-align: justify;
+    }
+
+    .support-box {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 16px;
+      align-items: center;
+      border: var(--border-width) solid var(--text-color);
+      background: #fff3d6;
+      box-shadow: 4px 4px 0 var(--accent-orange);
+      padding: 18px;
+    }
+
+    .support-box p {
+      font-size: 0.9rem;
+      line-height: 1.46;
+      text-align: justify;
+    }
+
+    .support-box h3 {
+      font-size: 1.12rem;
+      margin-bottom: 10px;
+    }
+
+    .charter-shell {
+      display: grid;
+      gap: 12px;
+      margin-top: 4px;
+    }
+
+    .charter-shell h3 {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+      text-align: center;
+    }
+
+    .charter-shell h3 img {
+      width: auto;
+      height: 34px;
+      object-fit: contain;
+    }
+
+    .charter-item {
+      border: 3px solid var(--text-color);
+      background: white;
+      box-shadow: 4px 4px 0 var(--accent-yellow);
+      overflow: hidden;
+    }
+
+    .charter-item summary {
+      list-style: none;
+      padding: 14px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .charter-item summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .charter-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      min-width: 0;
+    }
+
+    .charter-copy {
+      padding: 0 16px 18px;
+      color: var(--muted);
+    }
+
+    .charter-item[open] .charter-copy {
+      padding-top: 22px;
+    }
+
+    .charter-item[open] .mini-toggle {
+      font-size: 0;
+    }
+
+    .charter-item[open] .mini-toggle::before {
+      content: "-";
+      font-size: 1.9rem;
+      line-height: 1;
+    }
+
+    .charter-title strong {
+      font-size: 1.02rem;
+      line-height: 1.3;
+    }
+
+    .services-shell,
+    .form-shell,
+    footer {
+      padding: 22px;
+    }
+
+    .section-heading {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 14px;
+      margin-bottom: 18px;
+      text-align: center;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(1.35rem, 3vw, 2rem);
+    }
+
+    .section-heading p {
+      font-family: "Space Mono", monospace;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      color: var(--muted);
+      flex: 1 1 100%;
+    }
+
+    .info-pill,
+    .feature-pill,
+    .language-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 3px solid var(--text-color);
+      background: white;
+      padding: 8px 12px;
+      box-shadow: 3px 3px 0 var(--text-color);
+      font-family: "Space Mono", monospace;
+      font-size: 0.76rem;
+    }
+
+    .info-pill img {
+      width: 20px;
+      height: 20px;
+      object-fit: contain;
+      flex: 0 0 auto;
+    }
+
+    .services-grid {
+      display: grid;
+      gap: 22px;
+    }
+
+    .category-nav {
+      margin-bottom: 18px;
+    }
+
+    .service-category {
+      display: grid;
+      gap: 16px;
+    }
+
+    .service-category-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .service-category-title {
+      font-size: 1.18rem;
+      font-weight: 900;
+    }
+
+    .service-category-count {
+      font-family: "Space Mono", monospace;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .service-category-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+    }
+
+    .service-card {
+      display: grid;
+      gap: 16px;
+      border: var(--border-width) solid var(--text-color);
+      background: rgba(255, 255, 255, 0.97);
+      box-shadow: 5px 5px 0 var(--accent-purple);
+      padding: 18px;
+      min-height: 100%;
+    }
+
+    .service-card.public {
+      box-shadow: 5px 5px 0 var(--accent-blue);
+    }
+
+    .service-card.request {
+      box-shadow: 5px 5px 0 var(--accent-orange);
+      background: linear-gradient(180deg, rgba(255, 252, 239, 0.98), rgba(255, 246, 214, 0.98));
+    }
+
+    .service-card.build {
+      box-shadow: 5px 5px 0 var(--accent-red);
+      background: linear-gradient(180deg, rgba(255, 245, 245, 0.98), rgba(254, 226, 226, 0.98));
+    }
+
+    .service-head {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr);
+      gap: 12px;
+      align-items: start;
+    }
+
+    .service-mark {
+      width: 62px;
+      height: 62px;
+      border: 3px solid var(--text-color);
+      box-shadow: 4px 4px 0 var(--accent-pink);
+      background: linear-gradient(135deg, #fff3cd 0%, #fbcfe8 100%);
+      display: grid;
+      place-items: center;
+      font-family: "Space Mono", monospace;
+      font-size: 1.05rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      overflow: hidden;
+      position: relative;
+      isolation: isolate;
+    }
+
+    .service-card.public .service-mark {
+      background: linear-gradient(135deg, #dcfce7 0%, #dbeafe 100%);
+    }
+
+    .service-card.request .service-mark {
+      background: linear-gradient(135deg, #fff3cd 0%, #fed7aa 100%);
+    }
+
+    .service-card.build .service-mark {
+      background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
+    }
+
+    .service-mark img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      padding: 6px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .service-mark.fallback::after {
+      content: attr(data-fallback);
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      padding: 4px;
+      text-align: center;
+      line-height: 1;
+      z-index: 0;
+    }
+
+    .service-title-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+
+    .service-head h3 {
+      font-size: 1.15rem;
+      line-height: 1.2;
+      margin-bottom: 0;
+    }
+
+    .service-intro {
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .service-title-meta {
+      display: inline-flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .service-title-status {
+      width: 22px;
+      height: 22px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex: 0 0 auto;
+    }
+
+    .service-title-status img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .service-feature-preview {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .service-preview-chip {
+      display: inline-flex;
+      align-items: center;
+      padding: 5px 10px;
+      border: 2px solid var(--text-color);
+      background: rgba(255, 255, 255, 0.92);
+      box-shadow: 2px 2px 0 var(--text-color);
+      font-family: "Space Mono", monospace;
+      font-size: 0.69rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+
+    .service-replaces {
+      font-size: 0.84rem;
+      color: var(--muted);
+      line-height: 1.45;
+    }
+
+    .info-pill.request {
+      background: #fff3cd;
+    }
+
+    .info-pill.public {
+      background: #dcfce7;
+    }
+
+    .info-pill.build {
+      background: #fee2e2;
+    }
+
+    .language-flags {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .flag {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 22px;
+      height: 14px;
+      border: 2px solid var(--text-color);
+      image-rendering: pixelated;
+      box-shadow: 2px 2px 0 var(--text-color);
+      position: relative;
+      background: #ddd;
+      flex-shrink: 0;
+      z-index: 0;
+    }
+
+    .flag img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      image-rendering: pixelated;
+    }
+
+    /* Neobrutalist Tooltips */
+    [data-tooltip] {
+      position: relative;
+      cursor: help;
+    }
+    [data-tooltip]::after {
+      content: attr(data-tooltip);
+      position: absolute;
+      bottom: 100%;
+      left: 50%;
+      transform: translateX(-50%) translateY(-8px);
+      background: #ffff00;
+      color: var(--text-color);
+      border: 3px solid var(--text-color);
+      box-shadow: 3px 3px 0 var(--text-color);
+      padding: 4px 8px;
+      white-space: nowrap;
+      font-family: "Space Mono", monospace;
+      font-size: 0.72rem;
+      font-weight: 700;
+      visibility: hidden;
+      opacity: 0;
+      transition: all 0.15s ease;
+      z-index: 1000;
+      pointer-events: none;
+    }
+    [data-tooltip]:hover::after {
+      visibility: visible;
+      opacity: 1;
+      transform: translateX(-50%) translateY(-12px);
+    }
+
+    [data-tooltip]:focus-visible::after {
+      visibility: visible;
+      opacity: 1;
+      transform: translateX(-50%) translateY(-12px);
+    }
+
+    .service-thanks {
+      font-size: 0.83rem;
+      color: var(--muted);
+      border-top: 2px dashed rgba(23, 23, 23, 0.25);
+      padding-top: 10px;
+    }
+
+    .modal-root {
+      position: fixed;
+      inset: 0;
+      background: rgba(17, 24, 39, 0.5);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 18px;
+      z-index: 60;
+    }
+
+    .modal-root.open {
+      display: flex;
+    }
+
+    .modal-card {
+      width: min(920px, 100%);
+      max-height: min(88vh, 920px);
+      overflow: auto;
+      border: var(--border-width) solid var(--text-color);
+      background: var(--surface-strong);
+      box-shadow: 8px 8px 0 var(--text-color);
+      padding: 22px;
+      display: grid;
+      gap: 18px;
+    }
+
+    .modal-header {
+      display: flex;
+      align-items: start;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .modal-title-wrap {
+      display: grid;
+      gap: 8px;
+      min-width: 0;
+    }
+
+    .modal-close {
+      width: 46px;
+      height: 46px;
+      border: var(--border-width) solid var(--text-color);
+      box-shadow: 4px 4px 0 var(--text-color);
+      background: white;
+      cursor: pointer;
+      font-size: 1.4rem;
+      font-weight: 700;
+      flex: 0 0 auto;
+    }
+
+    .modal-body {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(260px, 0.9fr);
+      gap: 20px;
+    }
+
+    .modal-story {
+      display: grid;
+      gap: 14px;
+    }
+
+    .modal-preview {
+      border: var(--border-width) solid var(--text-color);
+      background: #f8fafc;
+      box-shadow: 5px 5px 0 var(--accent-blue);
+      padding: 14px;
+      display: grid;
+      gap: 12px;
+      align-content: start;
+    }
+
+    .modal-preview-figure {
+      min-height: 220px;
+      border: 3px solid var(--text-color);
+      background: linear-gradient(135deg, #fff8df 0%, #fce7f3 100%);
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+    }
+
+    .modal-preview-figure img {
+      width: min(200px, 85%);
+      object-fit: contain;
+      filter: drop-shadow(4px 4px 0 rgba(0, 0, 0, 0.22));
+    }
+
+    .modal-preview-note {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .form-shell {
+      display: grid;
+      gap: 16px;
+    }
+
+    .form-intro {
+      color: var(--muted);
+      max-width: 760px;
+    }
+
+    .request-form {
+      display: grid;
+      gap: 14px;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .field,
+    .field-wide {
+      display: grid;
+      gap: 6px;
+    }
+
+    .field-wide {
+      grid-column: 1 / -1;
+    }
+
+    .field label,
+    .field-wide label {
+      font-weight: 700;
+    }
+
+    .field input,
+    .field-wide input,
+    .field-wide textarea {
+      width: 100%;
+      border: var(--border-width) solid var(--text-color);
+      background: white;
+      padding: 12px 14px;
+      box-shadow: 4px 4px 0 rgba(23, 23, 23, 0.14);
+    }
+
+    .field-wide textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .field-hint {
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+
+    .field-subhint {
+      margin-top: 4px;
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.45;
+    }
+
+    .services-selection {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .service-choice {
+      position: relative;
+    }
+
+    .service-choice input {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .service-choice label {
+      display: grid;
+      gap: 4px;
+      min-width: 180px;
+      border: 3px solid var(--text-color);
+      background: white;
+      padding: 10px 12px;
+      box-shadow: 3px 3px 0 var(--text-color);
+      cursor: pointer;
+      transition: transform 0.16s ease, box-shadow 0.16s ease, background 0.16s ease;
+    }
+
+    .service-choice input:checked + label {
+      background: #dcfce7;
+      transform: translate(-2px, -2px);
+      box-shadow: 5px 5px 0 var(--text-color);
+    }
+
+    .service-choice-title {
+      font-weight: 700;
+    }
+
+    .service-choice-meta {
+      font-family: "Space Mono", monospace;
+      font-size: 0.74rem;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .form-project-note {
+      margin-top: 4px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.52;
+    }
+
+    .team-only {
+      display: none;
+    }
+
+    .request-form[data-scope="team"] .team-only {
+      display: grid;
+    }
+
+    .form-status {
+      display: none;
+      border: 3px solid var(--text-color);
+      padding: 12px 14px;
+      font-family: "Space Mono", monospace;
+      background: white;
+    }
+
+    .form-status.success {
+      display: block;
+      background: #dcfce7;
+      border-color: var(--accent-green);
+    }
+
+    .form-status.error {
+      display: block;
+      background: #fee2e2;
+      border-color: var(--accent-red);
+    }
+
+    footer {
+      text-align: center;
+      display: grid;
+      gap: 12px;
+    }
+
+    footer .footer-icons {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      align-items: center;
+    }
+
+    footer .footer-icons img {
+      height: 30px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+
+    .reveal.reveal-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 900px) {
+      .modal-body,
+      .support-box,
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .lang-switcher {
+        justify-content: center;
+      }
+
+      .principles-row {
+        grid-template-columns: 1fr;
+      }
+
+      .header-utility,
+      .hero-top {
+        justify-content: center;
+      }
+
+      .header-utility {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .hosting-badge {
+        position: static;
+        width: min(180px, 44vw);
+        margin: 6px auto 0;
+      }
+
+      header {
+        padding-bottom: 26px;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .container {
+        width: min(100%, calc(100% - 18px));
+      }
+
+      header,
+      .hero-card,
+      .services-shell,
+      .form-shell,
+      footer {
+        padding: 18px;
+      }
+
+      .service-category-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .action-btn,
+      .access-btn,
+      .modal-btn,
+      .contribute-btn,
+      .scope-btn,
+      .category-btn {
+        width: 100%;
+      }
+
+      .cta-row,
+      .service-buttons,
+      .scope-row {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .hero-top {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      .hero-copy .hero-welcome {
+        width: min(280px, 74vw);
+        margin: 0 auto;
+      }
+
+      .hero-copy .hero-title-text {
+        max-width: none;
+      }
+
+      .hero-copy p {
+        font-size: 0.95rem;
+      }
+
+      .support-box p,
+      .principle-footnote {
+        text-align: left;
+      }
+    }
+
+    @media (max-width: 520px) {
+      header::after {
+        width: 82px;
+        height: 82px;
+        top: -8px;
+        right: -8px;
+      }
+
+      .hero-card,
+      .services-shell,
+      .form-shell,
+      footer {
+        overflow: hidden;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-mosaic" aria-hidden="true">
+    <img loading="lazy" src="illustrations/butterfly-rainbow-glitter.gif" alt="">
+    <img loading="lazy" src="illustrations/heart-wreath-roses.gif" alt="">
+    <img loading="lazy" src="illustrations/fairy-wand.png" alt="">
+    <img loading="lazy" src="illustrations/parrot-tropical.gif" alt="">
+    <img loading="lazy" src="illustrations/rose-red.gif" alt="">
+    <img loading="lazy" src="illustrations/bow-gold-glitter.gif" alt="">
+    <img loading="lazy" src="illustrations/decor-chandelier-gold.gif" alt="">
+    <img loading="lazy" src="illustrations/candle-candlestick.gif" alt="">
+    <img loading="lazy" src="illustrations/flowers-corner-decoration.gif" alt="">
+    <img loading="lazy" src="illustrations/leaves-autumn-falling.gif" alt="">
+    <img loading="lazy" src="illustrations/hearts-pink-floating.gif" alt="">
+    <img loading="lazy" src="illustrations/saber-toothed-tiger.gif" alt="">
+    <img loading="lazy" src="illustrations/horse-brown-walking.gif" alt="">
+    <img loading="lazy" src="illustrations/divider-daisy-chain.gif" alt="">
+    <img loading="lazy" src="illustrations/bouquet-colorful.png" alt="">
+  </div>
+
+  <main class="container" id="main-content">
+    <header class="reveal" id="site-header"></header>
+
+    <section class="hero-card reveal" id="hero-shell"></section>
+    <section class="services-shell" id="services-shell"></section>
+    <section class="form-shell reveal" id="form-shell"></section>
+    <footer class="reveal" id="footer-shell"></footer>
+  </main>
+
+  <div class="modal-root" id="service-modal" aria-hidden="true">
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <h2 id="modal-title"></h2>
+          <div class="modal-meta" id="modal-meta"></div>
+        </div>
+        <button class="modal-close" id="modal-close" type="button" aria-label="Close">×</button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-story">
+          <p id="modal-detail"></p>
+          <div class="modal-meta" id="modal-features"></div>
+          <p id="modal-replaces"></p>
+          <div class="modal-footer" id="modal-footer"></div>
+        </div>
+        <aside class="modal-preview">
+          <div class="modal-preview-figure">
+            <img loading="lazy" id="modal-preview-image" src="" alt="">
+          </div>
+          <p class="modal-preview-note" id="modal-preview-note"></p>
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const LANGS = ["fr", "en", "de", "es"];
+    const DEFAULT_SUPPORT_EMAIL = "micou@micou.org";
+    const DEFAULT_DONATION_URL = `mailto:${DEFAULT_SUPPORT_EMAIL}?subject=Contribution%20micou.org`;
+    const STATUS_ICON = {
+      public: "illustrations/decor-chandelier-gold.gif",
+      request: "illustrations/icon-treasure-chest.gif",
+      build: "illustrations/icon-construction-worker.gif"
+    };
+    const FLAG_ASSETS = {
+      fr: "illustrations/flag-fr-pixel.svg",
+      en: "illustrations/flag-en-pixel.svg",
+      de: "illustrations/flag-de-pixel.svg",
+      es: "illustrations/flag-es-pixel.svg"
+    };
+
+    const APP_OVERRIDES = {
+      onlyoffice: {
+        art: "illustrations/ornitoffice.png",
+        icon: "illustrations/ornitoffice.png",
+        supported_languages: ["fr", "en", "de", "es"]
+      }
+    };
+
+    const APP_CREDIT_NAMES = {
+      onlyoffice: "Ascensio; the OnlyOffice maintainers; upstream contributors; the YunoHost packaging community",
+      vikunja: "the Vikunja maintainers; upstream contributors; the YunoHost packaging community",
+      nodebb: "the NodeBB founders; current maintainers; plugin contributors; the YunoHost packaging community",
+      ihatemoney: "the I Hate Money maintainers; upstream contributors; the YunoHost packaging community",
+      whitebophir: "the whitebophir maintainers; upstream contributors",
+      pretix: "Raphael Michel; the rami.io team; pretix maintainers; the YunoHost packaging community",
+      benevalibre: "the Bénévalibre founders; active maintainers; upstream contributors",
+      anarchism: "the archive maintainers; volunteer editors; the YunoHost packaging community",
+      dokuwiki: "Andreas Gohr; the DokuWiki maintainers; plugin contributors; the YunoHost packaging community",
+      widdypad: "the WiddyPad contributors; micou maintenance",
+      piped: "TeamPiped; upstream contributors; the YunoHost packaging community",
+      nitter: "the Nitter maintainers; upstream contributors; the YunoHost packaging community",
+      writefreely: "the Write.as team; the WriteFreely maintainers; the YunoHost packaging community",
+      wordpress: "the WordPress project maintainers; theme and plugin contributors; the YunoHost packaging community",
+      compteur_du_gase: "the Compteur du GASE maintainers; micou maintenance",
+      wallos: "the Wallos maintainers; upstream contributors",
+      dynamicqrcode: "the Dynamic QR Code project maintainers; micou maintenance",
+      bentopdf: "the BentoPDF maintainers; upstream contributors",
+      faceprivacy: "the FacePrivacy maintainers; upstream contributors",
+      send: "the Mozilla Send community forks; current Send maintainers; the YunoHost packaging community",
+      vert: "the Vert maintainers; upstream contributors",
+      grammalecte: "Olivier R.; the Grammalecte contributors",
+      reader: "the FreshRSS maintainers; feed-reader contributors; the YunoHost packaging community",
+      immich: "the Immich founders; active maintainers; upstream contributors",
+      funkwhale: "the Funkwhale collective; active maintainers; upstream contributors",
+      nodered: "the Node-RED founders; OpenJS Foundation maintainers; upstream contributors; the YunoHost packaging community"
+    };
+
+    const CATEGORY_COPY = {
+      fr: {
+        collaboration: "travailler à plusieurs, coordonner des tâches et garder les ressources partagées dans un même espace",
+        events: "préparer des inscriptions, accueillir un public et organiser des événements sans plateforme extractive",
+        publishing: "publier des pages, des textes et des informations publiques sans service fermé",
+        knowledge: "lire, documenter et conserver une mémoire collective facile à retrouver",
+        media: "écouter, regarder ou suivre des contenus sans interface publicitaire envahissante",
+        utilities: "régler rapidement des besoins pratiques sans outils propriétaires lourds"
+      },
+      en: {
+        collaboration: "work together, coordinate tasks, and keep shared resources in one place",
+        events: "prepare registrations, welcome people, and organize events without an extractive platform",
+        publishing: "publish pages, writing, and public information without a closed service",
+        knowledge: "read, document, and preserve collective memory in a searchable way",
+        media: "listen, watch, or follow media without an ad-heavy interface",
+        utilities: "handle practical needs quickly without heavy proprietary tools"
+      },
+      de: {
+        collaboration: "gemeinsam zu arbeiten, Aufgaben zu koordinieren und geteilte Ressourcen an einem Ort zu halten",
+        events: "Anmeldungen vorzubereiten, Menschen willkommen zu heißen und Veranstaltungen ohne extraktive Plattform zu organisieren",
+        publishing: "Seiten, Texte und öffentliche Informationen ohne geschlossenen Dienst zu veröffentlichen",
+        knowledge: "zu lesen, zu dokumentieren und kollektive Erinnerung gut auffindbar zu bewahren",
+        media: "Medien ohne werbegetriebene Oberfläche zu hören, zu sehen oder zu verfolgen",
+        utilities: "praktische Bedarfe schnell ohne schwere proprietäre Werkzeuge zu erledigen"
+      },
+      es: {
+        collaboration: "trabajar en común, coordinar tareas y guardar recursos compartidos en un mismo lugar",
+        events: "preparar inscripciones, acoger a la gente y organizar eventos sin una plataforma extractiva",
+        publishing: "publicar páginas, textos e información pública sin un servicio cerrado",
+        knowledge: "leer, documentar y conservar memoria colectiva de forma fácil de encontrar",
+        media: "escuchar, mirar o seguir contenidos sin una interfaz invasiva y publicitaria",
+        utilities: "resolver necesidades prácticas sin herramientas propietarias pesadas"
+      }
+    };
+
+    const REPLACEMENT_COPY = {
+      fr: {
+        collaboration: "Google Workspace, Trello, Notion ou des fils de messages disperses",
+        events: "Eventbrite, Google Forms ou des tableurs de suivi bricolés",
+        publishing: "Medium, Substack, des pages Linktree ou des constructeurs de sites fermés",
+        knowledge: "Notion, Confluence, Pocket ou des espaces de documentation verrouillés",
+        media: "des interfaces de streaming pleines de pistage ou des fils sociaux chronophages",
+        utilities: "des web tools propriétaires ponctuels ou des manipulations manuelles répétitives"
+      },
+      en: {
+        collaboration: "Google Workspace, Trello, Notion, or scattered message threads",
+        events: "Eventbrite, Google Forms, or improvised tracking spreadsheets",
+        publishing: "Medium, Substack, Linktree pages, or closed site builders",
+        knowledge: "Notion, Confluence, Pocket, or locked documentation spaces",
+        media: "tracking-heavy streaming interfaces or exhausting social feeds",
+        utilities: "one-off proprietary web tools or repetitive manual steps"
+      },
+      de: {
+        collaboration: "Google Workspace, Trello, Notion oder verstreute Nachrichtenfäden",
+        events: "Eventbrite, Google Forms oder improvisierte Tabellen zur Nachverfolgung",
+        publishing: "Medium, Substack, Linktree-Seiten oder geschlossene Baukastendienste",
+        knowledge: "Notion, Confluence, Pocket oder abgeschlossene Dokumentationsräume",
+        media: "trackinglastige Streaming-Oberflächen oder erschöpfende Social Feeds",
+        utilities: "punktuelle proprietäre Webtools oder wiederholte manuelle Handgriffe"
+      },
+      es: {
+        collaboration: "Google Workspace, Trello, Notion o hilos de mensajes dispersos",
+        events: "Eventbrite, Google Forms o hojas de seguimiento improvisadas",
+        publishing: "Medium, Substack, páginas tipo Linktree o creadores de sitios cerrados",
+        knowledge: "Notion, Confluence, Pocket o espacios de documentación cerrados",
+        media: "interfaces de streaming con mucho rastreo o feeds sociales agotadores",
+        utilities: "herramientas web propietarias puntuales o pasos manuales repetitivos"
+      }
+    };
+
+    const CREDIT_TOKEN_TRANSLATIONS = {
+      fr: {
+        "Andreas Gohr": "Andreas Gohr",
+        "Ascensio": "Ascensio",
+        "Olivier R.": "Olivier R.",
+        "OpenJS Foundation maintainers": "les mainteneur·euses du projet côté OpenJS Foundation",
+        "Raphael Michel": "Raphael Michel",
+        "TeamPiped": "TeamPiped",
+        "active maintainers": "les mainteneur·euses actives du projet",
+        "current Send maintainers": "les mainteneur·euses actuelles de Send",
+        "current maintainers": "les mainteneur·euses actuelles du projet",
+        "feed-reader contributors": "les contributeur·ices aux lecteurs de flux",
+        "micou maintenance": "la maintenance micou",
+        "plugin contributors": "les contributeur·ices aux plugins",
+        "pretix maintainers": "les mainteneur·euses de pretix",
+        "the BentoPDF maintainers": "les mainteneur·euses de BentoPDF",
+        "the Bénévalibre founders": "les fondateur·ices de Bénévalibre",
+        "the Compteur du GASE maintainers": "les mainteneur·euses du compteur du GASE",
+        "the DokuWiki maintainers": "les mainteneur·euses de DokuWiki",
+        "the Dynamic QR Code project maintainers": "les mainteneur·euses du projet Dynamic QR Code",
+        "the FacePrivacy maintainers": "les mainteneur·euses de FacePrivacy",
+        "the FreshRSS maintainers": "les mainteneur·euses de FreshRSS",
+        "the Funkwhale collective": "le collectif Funkwhale",
+        "the Grammalecte contributors": "les contributeur·ices à Grammalecte",
+        "the I Hate Money maintainers": "les mainteneur·euses de I Hate Money",
+        "the Immich founders": "les fondateur·ices d'Immich",
+        "the Mozilla Send community forks": "les forks communautaires de Mozilla Send",
+        "the Nitter maintainers": "les mainteneur·euses de Nitter",
+        "the Node-RED founders": "les fondateur·ices de Node-RED",
+        "the NodeBB founders": "les fondateur·ices de NodeBB",
+        "the OnlyOffice maintainers": "les mainteneur·euses de OnlyOffice",
+        "the Vert maintainers": "les mainteneur·euses de Vert",
+        "the Vikunja maintainers": "les mainteneur·euses de Vikunja",
+        "the Wallos maintainers": "les mainteneur·euses de Wallos",
+        "the WiddyPad contributors": "les contributeur·ices à WiddyPad",
+        "the WordPress project maintainers": "les mainteneur·euses du projet WordPress",
+        "the Write.as team": "l'équipe Write.as",
+        "the WriteFreely maintainers": "les mainteneur·euses de WriteFreely",
+        "the YunoHost packaging community": "la communauté de packaging YunoHost",
+        "the archive maintainers": "les mainteneur·euses de l'archive",
+        "the rami.io team": "l'équipe rami.io",
+        "the whitebophir maintainers": "les mainteneur·euses de whitebophir",
+        "theme and plugin contributors": "les contributeur·ices aux thèmes et plugins",
+        "upstream contributors": "les contributeur·ices amont",
+        "volunteer editors": "les éditeur·ices bénévoles"
+      },
+      de: {
+        "Andreas Gohr": "Andreas Gohr",
+        "Ascensio": "Ascensio",
+        "Olivier R.": "Olivier R.",
+        "OpenJS Foundation maintainers": "die Maintainer*innen des Projekts bei der OpenJS Foundation",
+        "Raphael Michel": "Raphael Michel",
+        "TeamPiped": "TeamPiped",
+        "active maintainers": "die aktiven Maintainer*innen des Projekts",
+        "current Send maintainers": "die aktuellen Maintainer*innen von Send",
+        "current maintainers": "die aktuellen Maintainer*innen des Projekts",
+        "feed-reader contributors": "die Beitragenden zu Feed-Readern",
+        "micou maintenance": "die micou-Wartung",
+        "plugin contributors": "die Beitragenden zu Plugins",
+        "pretix maintainers": "die Maintainer*innen von pretix",
+        "the BentoPDF maintainers": "die Maintainer*innen von BentoPDF",
+        "the Bénévalibre founders": "die Gründer*innen von Bénévalibre",
+        "the Compteur du GASE maintainers": "die Maintainer*innen von Le compteur du GASE",
+        "the DokuWiki maintainers": "die Maintainer*innen von DokuWiki",
+        "the Dynamic QR Code project maintainers": "die Maintainer*innen des Projekts Dynamic QR Code",
+        "the FacePrivacy maintainers": "die Maintainer*innen von FacePrivacy",
+        "the FreshRSS maintainers": "die Maintainer*innen von FreshRSS",
+        "the Funkwhale collective": "das Funkwhale-Kollektiv",
+        "the Grammalecte contributors": "die Beitragenden zu Grammalecte",
+        "the I Hate Money maintainers": "die Maintainer*innen von I Hate Money",
+        "the Immich founders": "die Gründer*innen von Immich",
+        "the Mozilla Send community forks": "die Community-Forks von Mozilla Send",
+        "the Nitter maintainers": "die Maintainer*innen von Nitter",
+        "the Node-RED founders": "die Gründer*innen von Node-RED",
+        "the NodeBB founders": "die Gründer*innen von NodeBB",
+        "the OnlyOffice maintainers": "die Maintainer*innen von OnlyOffice",
+        "the Vert maintainers": "die Maintainer*innen von Vert",
+        "the Vikunja maintainers": "die Maintainer*innen von Vikunja",
+        "the Wallos maintainers": "die Maintainer*innen von Wallos",
+        "the WiddyPad contributors": "die Beitragenden zu WiddyPad",
+        "the WordPress project maintainers": "die Maintainer*innen des WordPress-Projekts",
+        "the Write.as team": "das Write.as-Team",
+        "the WriteFreely maintainers": "die Maintainer*innen von WriteFreely",
+        "the YunoHost packaging community": "die YunoHost-Paketierungs-Community",
+        "the archive maintainers": "die Maintainer*innen des Archivs",
+        "the rami.io team": "das rami.io-Team",
+        "the whitebophir maintainers": "die Maintainer*innen von whitebophir",
+        "theme and plugin contributors": "die Beitragenden zu Themes und Plugins",
+        "upstream contributors": "die Upstream-Beitragenden",
+        "volunteer editors": "die ehrenamtlichen Editor*innen"
+      },
+      es: {
+        "Andreas Gohr": "Andreas Gohr",
+        "Ascensio": "Ascensio",
+        "Olivier R.": "Olivier R.",
+        "OpenJS Foundation maintainers": "lxs mantenedorxs del proyecto en OpenJS Foundation",
+        "Raphael Michel": "Raphael Michel",
+        "TeamPiped": "TeamPiped",
+        "active maintainers": "lxs mantenedorxs activxs del proyecto",
+        "current Send maintainers": "lxs mantenedorxs actuales de Send",
+        "current maintainers": "lxs mantenedorxs actuales del proyecto",
+        "feed-reader contributors": "lxs colaboradorxs de lectores de feeds",
+        "micou maintenance": "el mantenimiento de micou",
+        "plugin contributors": "lxs colaboradorxs de complementos",
+        "pretix maintainers": "lxs mantenedorxs de pretix",
+        "the BentoPDF maintainers": "lxs mantenedorxs de BentoPDF",
+        "the Bénévalibre founders": "lxs fundadorxs de Bénévalibre",
+        "the Compteur du GASE maintainers": "lxs mantenedorxs de Le compteur du GASE",
+        "the DokuWiki maintainers": "lxs mantenedorxs de DokuWiki",
+        "the Dynamic QR Code project maintainers": "lxs mantenedorxs del proyecto Dynamic QR Code",
+        "the FacePrivacy maintainers": "lxs mantenedorxs de FacePrivacy",
+        "the FreshRSS maintainers": "lxs mantenedorxs de FreshRSS",
+        "the Funkwhale collective": "el colectivo Funkwhale",
+        "the Grammalecte contributors": "lxs colaboradorxs de Grammalecte",
+        "the I Hate Money maintainers": "lxs mantenedorxs de I Hate Money",
+        "the Immich founders": "lxs fundadorxs de Immich",
+        "the Mozilla Send community forks": "los forks comunitarios de Mozilla Send",
+        "the Nitter maintainers": "lxs mantenedorxs de Nitter",
+        "the Node-RED founders": "lxs fundadorxs de Node-RED",
+        "the NodeBB founders": "lxs fundadorxs de NodeBB",
+        "the OnlyOffice maintainers": "lxs mantenedorxs de OnlyOffice",
+        "the Vert maintainers": "lxs mantenedorxs de Vert",
+        "the Vikunja maintainers": "lxs mantenedorxs de Vikunja",
+        "the Wallos maintainers": "lxs mantenedorxs de Wallos",
+        "the WiddyPad contributors": "lxs colaboradorxs de WiddyPad",
+        "the WordPress project maintainers": "lxs mantenedorxs del proyecto WordPress",
+        "the Write.as team": "el equipo de Write.as",
+        "the WriteFreely maintainers": "lxs mantenedorxs de WriteFreely",
+        "the YunoHost packaging community": "la comunidad de empaquetado de YunoHost",
+        "the archive maintainers": "lxs mantenedorxs del archivo",
+        "the rami.io team": "el equipo de rami.io",
+        "the whitebophir maintainers": "lxs mantenedorxs de whitebophir",
+        "theme and plugin contributors": "lxs colaboradorxs de temas y complementos",
+        "upstream contributors": "lxs colaboradorxs del proyecto original",
+        "volunteer editors": "lxs editorxs voluntarixs"
+      }
+    };
+
+    const UI = {
+      fr: {
+        languageName: "Français",
+        hostingBadgeAlt: "Label d'hébergement vert",
+        headerTagline: "Outils protégés · culture du libre",
+        heroTitle: "Créer, s’organiser",
+        intro: [
+          "micou.org met à disposition, avec soin et enthousiasme, des outils pour artistes, créateur·ices, activistes, associations, collectifs et personnes qui ont besoin d’espaces numériques plus sûrs. L’objectif est de rendre possibles des usages concrets : écrire, partager, organiser, publier, collaborer et archiver, sans dépendre d’écosystèmes fermés ni de fournisseurs centralisés.",
+          "Ici, les espaces privés comptent vraiment. L’infrastructure cherche à préserver l’autonomie, la confidentialité, l’accès et l’usage de cadres ouverts, tout en restant simple d’accès pour celles et ceux qui ont besoin d’outils fiables au quotidien."
+        ],
+        panelLabel: "Mon Panel",
+        requestLabel: "Demander un accès",
+        languageSelectorLabel: "Sélecteur de langue",
+        principles: [
+          { title: "Confidentialité réelle", text: "Vos espaces privés restent réservés aux personnes autorisées. Les données circulent chiffrées et bénéficient d’une protection renforcée.", icon: "illustrations/icon-lantern-red.png" },
+          { title: "Gratuit à vie*", text: "Tous les services proposés sur micou.org sont gratuits à utiliser : aucun abonnement, aucune version bridée, aucune publicité ajoutée.", icon: "illustrations/rose-red.gif" },
+          { title: "Principe No-AI", text: "Aucun service cloud d’IA n’est intégré par défaut. Cela limite la collecte de données, les dépendances opaques et l’impact environnemental.", icon: "illustrations/decor-lava-lamp.gif" }
+        ],
+        footnote: "* Pour protéger la plateforme contre le spam, les attaques et les usages abusifs, certains outils plus gourmands sont activés sur demande. Il suffit de remplir le formulaire plus bas, en individuel ou pour une équipe : c’est une simple formalité. Les demandes sont acceptées sauf si la capacité du serveur est temporairement atteinte, et l’infrastructure continue d’être renforcée pour accueillir davantage de monde.",
+        donationText: "L’usage de tous les services proposés sur micou.org est et restera gratuit à vie. Si vous souhaitez néanmoins soutenir les frais liés au maintien du serveur, vous pouvez cliquer sur ce joli bouton pour contribuer. Toute aide est bienvenue mais jamais obligatoire ; ne donnez que si vous êtes sûr·e de pouvoir le faire. 100% des dons sont consacrés au développement et à la maintenance en ligne de cette infrastructure.",
+        contributeLabel: "Contribuer",
+        charterTitle: "Charte d’utilisation",
+        charter: [
+          { title: "1. Je veille à un usage conscient des ressources", body: "Les ressources du serveur sont partagées. J’évite donc les usages disproportionnés en stockage, streaming ou transferts massifs, afin de laisser à tout le monde un espace fluide, stable et agréable à habiter." },
+          { title: "2. Je n’utilise pas micou.org pour dominer, surveiller ou vendre", body: "Ces outils ne servent ni des objectifs commerciaux, ni la surveillance, ni le policing, ni des projets qui renforcent le racisme, le validisme, la grossophobie, la LGBTQIA+phobie, le sexisme ou d’autres logiques de domination. L’infrastructure existe pour soutenir des pratiques émancipatrices, pas pour les contredire." },
+          { title: "3. Je garde la main sur mes données", body: "Les contenus privés ne sont pas lus. Les contenus publics peuvent être modérés lorsqu’ils exposent d’autres personnes, mettent en danger une communauté ou contredisent cette charte. En cas d’abus manifeste ou d’activité illégale, un accès peut être suspendu et des traces techniques minimales peuvent être conservées pour des raisons de sécurité." },
+          { title: "4. Je privilégie les cadres ouverts et sobres", body: "micou.org donne la priorité aux logiciels libres, à l’auto-hébergement et aux réglages attentifs à la confidentialité. Quand un chiffrement existe, il est activé ; sinon, l’objectif reste de limiter la collecte de données, de documenter honnêtement les limites et de choisir des outils aussi soutenables que possible." },
+          { title: "5. Je passe par la demande d’accès quand c’est nécessaire", body: "Le formulaire d’accès n’est pas là pour filtrer arbitrairement. Il aide surtout à freiner les attaques automatisées, à anticiper les besoins d’équipes et à maintenir des outils stables, gratuits et accueillants pour le plus grand nombre." }
+        ],
+        servicesTitle: "Les services",
+        allCategories: "Tout voir",
+        learnMore: "En savoir +",
+        canReplace: "Peut remplacer",
+        thanksPrefix: "Merci à",
+        previewLabel: "Aperçu",
+        closeLabel: "Fermer",
+        accessPublic: "Accès libre",
+        accessRequest: "Sur demande",
+        accessBuild: "En construction",
+        openLabel: "Ouvrir",
+        requestCta: "Demander l’accès",
+        formTitle: "Demander un accès",
+        formLead: "Le formulaire ci-dessous reste volontairement léger. Il permet de traiter les ouvertures de comptes et les besoins d’équipe sans ajouter de friction inutile.",
+        scopeLabel: "Type de demande",
+        scope: { individual: "Individuel", team: "Équipe" },
+        emailLabel: "Adresse e-mail à utiliser",
+        servicesLabel: "Services souhaités",
+        knownLabel: "Sous quel nom vous connais-je, si nous nous connaissons déjà ?",
+        usageLabel: "Pour quel usage souhaitez-vous accéder à ces outils ?",
+        usageHint: "Pas besoin d’être très précis, toutes les demandes sont acceptées sauf en cas de surcharge du serveur. Pour autant, je me réjouis d’en savoir + sur votre projet si vous le souhaitez !",
+        requestsLabel: "Précisions utiles",
+        teamNameLabel: "Nom de l’équipe ou du collectif",
+        teamSizeLabel: "Nombre de comptes estimé",
+        optionalPlaceholder: "Optionnel",
+        teamExample: "Collectif Soleil",
+        teamHint: "Ajoutez ici le nom du groupe et, si besoin, quelques adresses à créer plus tard.",
+        requestTypeLine: "Type de demande",
+        teamNameLine: "Nom de l’équipe",
+        teamSizeLine: "Comptes estimés",
+        projectNote: "Vous portez un projet créatif, culturel, associatif et/ou militant ? N’hésitez pas à me contacter via ce formulaire ou à mitch@micou.org si vous avez besoin de conseils ou souhaitez étudier ensemble un projet personnalisé (site internet, application spécifique...)",
+        submitLabel: "Envoyer la demande",
+        selectServiceError: "Veuillez sélectionner au moins un service.",
+        sendingLabel: "Envoi…",
+        successLabel: "Demande envoyée. Merci : une réponse suivra dès que possible.",
+        errorLabel: "Impossible d’envoyer la demande pour le moment. Réessayez un peu plus tard.",
+        emptyRequestable: "Aucun outil supplémentaire n’exige actuellement de demande d’accès.",
+        footer: "2026 micou.org - Hébergé avec amour sur un serveur autogéré"
+      },
+      en: {
+        languageName: "English",
+        hostingBadgeAlt: "Green hosting label",
+        headerTagline: "Protected tools · free software culture",
+        heroTitle: "Create, organize",
+        intro: [
+          "micou.org offers carefully maintained tools for artists, creators, activists, associations, collectives, and anyone who needs safer digital spaces. The goal is practical: to help people write, share, organize, publish, collaborate, and archive without depending on closed ecosystems or centralized providers.",
+          "Private space matters here. The infrastructure is meant to support autonomy, confidentiality, accessibility, and open frameworks while staying welcoming for people who need reliable tools in everyday work."
+        ],
+        panelLabel: "My Panel",
+        requestLabel: "Request access",
+        languageSelectorLabel: "Language selector",
+        principles: [
+          { title: "Real privacy", text: "Private areas stay limited to the people who are allowed to access them. Data travels encrypted and benefits from reinforced protection.", icon: "illustrations/icon-lantern-red.png" },
+          { title: "Free to use for life*", text: "Every service on micou.org is free to use: no subscription wall, no artificially limited tier, and no added advertising.", icon: "illustrations/rose-red.gif" },
+          { title: "No-AI principle", text: "No cloud AI service is integrated by default. This reduces data extraction, opaque dependencies, and environmental impact.", icon: "illustrations/decor-lava-lamp.gif" }
+        ],
+        footnote: "* To protect the platform against spam, attacks, and misuse, a few more resource-intensive tools are enabled on request. Filling out the form below as an individual or a team is only a simple formality. Requests are accepted unless the server is temporarily close to capacity, and the infrastructure keeps being improved to welcome more people.",
+        donationText: "Every service offered on micou.org is, and will remain, free to use for life. If you still wish to help cover the cost of keeping the server online, you can click this button to contribute. Any help is welcome but never required; only give if you are sure you comfortably can. 100% of donations go to the development and maintenance of this infrastructure.",
+        contributeLabel: "Contribute",
+        charterTitle: "Usage charter",
+        charter: [
+          { title: "1. I use shared resources with care", body: "Server resources are shared. I therefore keep storage-heavy, streaming-heavy, or large-transfer usage in proportion so the platform stays smooth, stable, and welcoming for everyone else too." },
+          { title: "2. I do not use micou.org to dominate, monitor, or sell", body: "These tools are not for commercial extraction, surveillance, policing, or projects that reinforce racism, ableism, fatphobia, LGBTQIA+phobia, sexism, or any other form of domination. The infrastructure exists to support liberatory practices, not undermine them." },
+          { title: "3. I keep agency over my data", body: "Private content is not read. Public content may be moderated when it exposes other people, puts a community at risk, or contradicts this charter. In cases of obvious abuse or illegal activity, access may be suspended and minimal technical traces may be kept for security reasons." },
+          { title: "4. I favor open and low-extraction frameworks", body: "micou.org prioritizes free/libre software, self-hosting, and privacy-oriented defaults. When encryption exists, it is enabled; otherwise the goal remains to minimize data collection, document limitations honestly, and choose tools that stay as sustainable as possible." },
+          { title: "5. I use the access request flow when it helps protect the space", body: "The access form is not arbitrary gatekeeping. It mainly helps slow automated attacks, anticipate collective needs, and keep the tools stable, free, and hospitable to as many people as possible." }
+        ],
+        servicesTitle: "Services",
+        allCategories: "See all",
+        learnMore: "Learn more",
+        canReplace: "Can replace",
+        thanksPrefix: "Thanks to",
+        previewLabel: "Preview",
+        closeLabel: "Close",
+        accessPublic: "Open access",
+        accessRequest: "On request",
+        accessBuild: "Under construction",
+        openLabel: "Open",
+        requestCta: "Request access",
+        formTitle: "Request access",
+        formLead: "The form below stays intentionally light. It handles account openings and team needs without creating unnecessary friction.",
+        scopeLabel: "Request type",
+        scope: { individual: "Individual", team: "Team" },
+        emailLabel: "Email address to use",
+        servicesLabel: "Services requested",
+        knownLabel: "If we already know each other, what name should I know you by?",
+        usageLabel: "What kind of use would you like access to these tools for?",
+        usageHint: "No need to be very specific: every request is accepted unless the server is temporarily under heavy load. Still, I’m always glad to hear more about your project if you’d like to share.",
+        requestsLabel: "Useful details",
+        teamNameLabel: "Team or collective name",
+        teamSizeLabel: "Estimated number of accounts",
+        optionalPlaceholder: "Optional",
+        teamExample: "Sun collective",
+        teamHint: "Add the group name here and, if needed, a few addresses to create later.",
+        requestTypeLine: "Request type",
+        teamNameLine: "Team name",
+        teamSizeLine: "Estimated accounts",
+        projectNote: "Working on a creative, cultural, associative, and/or activist project? Feel free to contact me through this form or at mitch@micou.org if you need advice or would like to explore a custom project together (website, dedicated application, etc.).",
+        submitLabel: "Send request",
+        selectServiceError: "Please select at least one service.",
+        sendingLabel: "Sending…",
+        successLabel: "Request sent. Thank you: a reply will follow as soon as possible.",
+        errorLabel: "The request could not be sent right now. Please try again later.",
+        emptyRequestable: "No additional tool currently requires an access request.",
+        footer: "2026 micou.org - Hosted with love on a self-managed server"
+      },
+      de: {
+        languageName: "Deutsch",
+        hostingBadgeAlt: "Grünes Hosting-Label",
+        headerTagline: "Geschützte Werkzeuge · freie Softwarekultur",
+        heroTitle: "Gestalten, organisieren",
+        intro: [
+          "micou.org stellt mit Sorgfalt gepflegte Werkzeuge für Künstler*innen, Kreative, Aktivist*innen, Vereine, Kollektive und alle Menschen bereit, die sicherere digitale Räume brauchen. Es geht um konkrete Möglichkeiten: schreiben, teilen, organisieren, veröffentlichen, zusammenarbeiten und archivieren, ohne von geschlossenen Ökosystemen oder zentralisierten Anbietern abhängig zu sein.",
+          "Private Räume sind hier nicht nur ein Versprechen. Die Infrastruktur soll Autonomie, Vertraulichkeit, Zugänglichkeit und offene Rahmen stärken und zugleich freundlich für Menschen bleiben, die im Alltag verlässliche Werkzeuge brauchen."
+        ],
+        panelLabel: "Mein Panel",
+        requestLabel: "Zugang anfragen",
+        languageSelectorLabel: "Sprachauswahl",
+        principles: [
+          { title: "Echte Vertraulichkeit", text: "Private Bereiche bleiben den berechtigten Personen vorbehalten. Daten werden verschlüsselt übertragen und profitieren von verstärktem Schutz.", icon: "illustrations/icon-lantern-red.png" },
+          { title: "Lebenslang kostenlos*", text: "Alle Dienste auf micou.org sind kostenlos nutzbar: keine Abo-Schranke, keine künstlich beschnittene Version und keine zusätzliche Werbung.", icon: "illustrations/rose-red.gif" },
+          { title: "No-AI-Prinzip", text: "Standardmäßig ist kein KI-Cloud-Dienst eingebunden. Das begrenzt Datenauswertung, intransparente Abhängigkeiten und Umweltbelastung.", icon: "illustrations/decor-lava-lamp.gif" }
+        ],
+        footnote: "* Um die Plattform vor Spam, Angriffen und Missbrauch zu schützen, werden einige ressourcenintensivere Werkzeuge auf Anfrage freigeschaltet. Das Formular unten ist für Einzelpersonen oder Teams nur eine einfache Formalität. Anfragen werden angenommen, solange der Server nicht vorübergehend an seine Grenzen stößt, und die Infrastruktur wird weiter ausgebaut.",
+        donationText: "Alle Dienste auf micou.org sind und bleiben lebenslang kostenlos nutzbar. Wenn du trotzdem die Kosten des Servers mittragen möchtest, kannst du über diesen schönen Button einen Beitrag anbieten. Jede Hilfe ist willkommen, aber niemals Pflicht; gib nur etwas, wenn du es sicher und entspannt tun kannst. 100% der Beiträge fließen in Entwicklung und Online-Wartung dieser Infrastruktur.",
+        contributeLabel: "Beitragen",
+        charterTitle: "Nutzungsgrundsätze",
+        charter: [
+          { title: "1. Ich gehe achtsam mit geteilten Ressourcen um", body: "Die Serverressourcen werden geteilt. Ich halte speicherintensive Nutzung, Streaming oder große Dateiübertragungen deshalb in einem vernünftigen Rahmen, damit die Plattform für alle flüssig, stabil und angenehm bleibt." },
+          { title: "2. Ich nutze micou.org nicht für Dominanz, Überwachung oder Verkauf", body: "Diese Werkzeuge sind nicht für kommerzielle Verwertung, Überwachung, Polizeiarbeit oder Projekte gedacht, die Rassismus, Ableismus, Fettfeindlichkeit, LGBTQIA+-Feindlichkeit, Sexismus oder andere Herrschaftsformen verstärken. Die Infrastruktur soll emanzipatorische Praktiken unterstützen, nicht ihnen widersprechen." },
+          { title: "3. Ich behalte die Kontrolle über meine Daten", body: "Private Inhalte werden nicht gelesen. Öffentliche Inhalte können moderiert werden, wenn sie andere Menschen gefährden, Communities exponieren oder diesen Grundsätzen widersprechen. Bei offensichtlichem Missbrauch oder illegalen Aktivitäten kann ein Zugang gesperrt und minimale technische Spurensicherung aus Sicherheitsgründen aufbewahrt werden." },
+          { title: "4. Ich bevorzuge offene und ressourcenschonende Rahmen", body: "micou.org setzt auf freie Software, Self-Hosting und datenschutzfreundliche Voreinstellungen. Wo Verschlüsselung verfügbar ist, wird sie aktiviert; sonst bleibt das Ziel, Datenerhebung zu minimieren, Grenzen transparent zu benennen und möglichst nachhaltige Werkzeuge zu wählen." },
+          { title: "5. Ich nutze die Zugangsanfrage, wenn sie den Raum schützt", body: "Das Zugangsformular ist kein willkürliches Gatekeeping. Es hilft vor allem dabei, automatisierte Angriffe zu bremsen, kollektive Bedarfe einzuschätzen und die Werkzeuge stabil, kostenlos und einladend für möglichst viele Menschen zu halten." }
+        ],
+        servicesTitle: "Die Dienste",
+        allCategories: "Alle anzeigen",
+        learnMore: "Mehr erfahren",
+        canReplace: "Kann ersetzen",
+        thanksPrefix: "Dank an",
+        previewLabel: "Vorschau",
+        closeLabel: "Schließen",
+        accessPublic: "Freier Zugang",
+        accessRequest: "Auf Anfrage",
+        accessBuild: "In Arbeit",
+        openLabel: "Öffnen",
+        requestCta: "Zugang anfragen",
+        formTitle: "Zugang anfragen",
+        formLead: "Das Formular bleibt bewusst kompakt. Es eignet sich für Kontoeröffnungen und Team-Bedarfe, ohne unnötige Hürden zu schaffen.",
+        scopeLabel: "Anfrageart",
+        scope: { individual: "Einzeln", team: "Team" },
+        emailLabel: "Zu verwendende E-Mail-Adresse",
+        servicesLabel: "Gewünschte Dienste",
+        knownLabel: "Wenn wir uns schon kennen: unter welchem Namen kenne ich dich?",
+        usageLabel: "Für welchen Zweck möchtest du Zugang zu diesen Werkzeugen erhalten?",
+        usageHint: "Du musst nicht sehr genau sein: Alle Anfragen werden angenommen, außer wenn der Server gerade überlastet ist. Wenn du möchtest, freue ich mich trotzdem, mehr über dein Projekt zu erfahren.",
+        requestsLabel: "Nützliche Hinweise",
+        teamNameLabel: "Name des Teams oder Kollektivs",
+        teamSizeLabel: "Geschätzte Anzahl an Konten",
+        optionalPlaceholder: "Optional",
+        teamExample: "Kollektiv Sonne",
+        teamHint: "Trage hier den Gruppennamen und bei Bedarf einige später anzulegende Adressen ein.",
+        requestTypeLine: "Anfrageart",
+        teamNameLine: "Teamname",
+        teamSizeLine: "Geschätzte Konten",
+        projectNote: "Du trägst ein kreatives, kulturelles, gemeinschaftliches und/oder politisches Projekt? Melde dich gern über dieses Formular oder unter mitch@micou.org, wenn du Beratung brauchst oder gemeinsam ein individuelles Projekt prüfen möchtest (Website, spezielle Anwendung usw.).",
+        submitLabel: "Anfrage senden",
+        selectServiceError: "Bitte wähle mindestens einen Dienst aus.",
+        sendingLabel: "Wird gesendet…",
+        successLabel: "Anfrage gesendet. Danke: eine Rückmeldung folgt so bald wie möglich.",
+        errorLabel: "Die Anfrage konnte gerade nicht gesendet werden. Bitte versuche es später erneut.",
+        emptyRequestable: "Derzeit erfordert kein zusätzliches Werkzeug eine Zugangsanfrage.",
+        footer: "2026 micou.org - Mit Liebe auf einem selbstverwalteten Server gehostet"
+      },
+      es: {
+        languageName: "Español",
+        hostingBadgeAlt: "Etiqueta de alojamiento verde",
+        headerTagline: "Herramientas protegidas · cultura del software libre",
+        heroTitle: "Crear, organizarse",
+        intro: [
+          "micou.org ofrece herramientas cuidadas para artistas, creadorxs, activistas, asociaciones, colectivos y personas que necesitan espacios digitales más seguros. La idea es muy concreta: permitir escribir, compartir, organizar, publicar, colaborar y archivar sin depender de ecosistemas cerrados ni de proveedores centralizados.",
+          "Aquí los espacios privados importan de verdad. La infraestructura busca sostener autonomía, confidencialidad, accesibilidad y marcos abiertos, sin dejar de ser acogedora para quienes necesitan herramientas fiables en el día a día."
+        ],
+        panelLabel: "Mi panel",
+        requestLabel: "Solicitar acceso",
+        languageSelectorLabel: "Selector de idioma",
+        principles: [
+          { title: "Privacidad real", text: "Los espacios privados quedan reservados a las personas autorizadas. Los datos circulan cifrados y cuentan con una protección reforzada.", icon: "illustrations/icon-lantern-red.png" },
+          { title: "Gratis para siempre*", text: "Todos los servicios de micou.org son gratuitos: sin muro de suscripción, sin versión recortada y sin publicidad añadida.", icon: "illustrations/rose-red.gif" },
+          { title: "Principio No-AI", text: "No se integra por defecto ningún servicio de IA en la nube. Esto limita la extracción de datos, las dependencias opacas y el impacto ambiental.", icon: "illustrations/decor-lava-lamp.gif" }
+        ],
+        footnote: "* Para proteger la plataforma frente al spam, los ataques y los usos abusivos, algunas herramientas que consumen más recursos se activan bajo demanda. El formulario de abajo, para personas o equipos, es solo una formalidad sencilla. Las solicitudes se aceptan salvo cuando el servidor está temporalmente cerca de su límite, y la infraestructura sigue ampliándose.",
+        donationText: "El uso de todos los servicios ofrecidos en micou.org es y seguirá siendo gratuito de por vida. Si aun así deseas ayudar a cubrir los gastos del servidor, puedes pulsar este bonito botón para contribuir. Toda ayuda es bienvenida pero nunca obligatoria; dona solo si estás segurx de poder hacerlo con tranquilidad. El 100% de las donaciones se dedica al desarrollo y al mantenimiento en línea de esta infraestructura.",
+        contributeLabel: "Contribuir",
+        charterTitle: "Carta de uso",
+        charter: [
+          { title: "1. Cuido los recursos compartidos", body: "Los recursos del servidor son compartidos. Procuro que el uso intensivo de almacenamiento, streaming o transferencias grandes siga siendo proporcionado para que la plataforma continúe fluida, estable y habitable para todo el mundo." },
+          { title: "2. No uso micou.org para dominar, vigilar ni vender", body: "Estas herramientas no están para la extracción comercial, la vigilancia, el policing ni proyectos que refuercen racismo, capacitismo, gordofobia, LGBTQIA+fobia, sexismo u otras formas de dominación. La infraestructura existe para sostener prácticas emancipadoras, no para contradecirlas." },
+          { title: "3. Mantengo el control sobre mis datos", body: "Los contenidos privados no se leen. Los contenidos públicos pueden moderarse si exponen a otras personas, ponen en riesgo a una comunidad o contradicen esta carta. En caso de abuso evidente o actividad ilegal, un acceso puede suspenderse y pueden conservarse rastros técnicos mínimos por motivos de seguridad." },
+          { title: "4. Priorizo marcos abiertos y sobrios", body: "micou.org prioriza software libre, autoalojamiento y configuraciones orientadas a la privacidad. Cuando existe cifrado, se activa; si no, el objetivo sigue siendo reducir al mínimo la recopilación de datos, explicar con honestidad los límites y elegir herramientas lo más sostenibles posible." },
+          { title: "5. Uso la solicitud de acceso cuando ayuda a proteger el espacio", body: "El formulario de acceso no pretende bloquear arbitrariamente. Sirve sobre todo para frenar ataques automatizados, anticipar necesidades colectivas y mantener herramientas estables, gratuitas y acogedoras para el mayor número posible de personas." }
+        ],
+        servicesTitle: "Los servicios",
+        allCategories: "Ver todo",
+        learnMore: "Saber más",
+        canReplace: "Puede sustituir",
+        thanksPrefix: "Gracias a",
+        previewLabel: "Vista previa",
+        closeLabel: "Cerrar",
+        accessPublic: "Acceso libre",
+        accessRequest: "Bajo demanda",
+        accessBuild: "En construcción",
+        openLabel: "Abrir",
+        requestCta: "Solicitar acceso",
+        formTitle: "Solicitar acceso",
+        formLead: "El formulario se mantiene deliberadamente ligero. Sirve para abrir cuentas y atender necesidades de equipo sin añadir fricción innecesaria.",
+        scopeLabel: "Tipo de solicitud",
+        scope: { individual: "Individual", team: "Equipo" },
+        emailLabel: "Dirección de correo a utilizar",
+        servicesLabel: "Servicios solicitados",
+        knownLabel: "Si ya nos conocemos, ¿con qué nombre te identifico?",
+        usageLabel: "¿Para qué uso te gustaría acceder a estas herramientas?",
+        usageHint: "No hace falta que seas muy precisx: todas las solicitudes se aceptan salvo en caso de sobrecarga temporal del servidor. Aun así, me alegrará saber más sobre tu proyecto si te apetece contarlo.",
+        requestsLabel: "Detalles útiles",
+        teamNameLabel: "Nombre del equipo o colectivo",
+        teamSizeLabel: "Número estimado de cuentas",
+        optionalPlaceholder: "Opcional",
+        teamExample: "Colectivo Sol",
+        teamHint: "Añade aquí el nombre del grupo y, si hace falta, algunas direcciones para crear más adelante.",
+        requestTypeLine: "Tipo de solicitud",
+        teamNameLine: "Nombre del equipo",
+        teamSizeLine: "Cuentas estimadas",
+        projectNote: "¿Llevas un proyecto creativo, cultural, asociativo y/o militante? No dudes en escribirme mediante este formulario o a mitch@micou.org si necesitas consejo o quieres estudiar juntxs un proyecto personalizado (sitio web, aplicación específica, etc.).",
+        submitLabel: "Enviar solicitud",
+        selectServiceError: "Selecciona al menos un servicio.",
+        sendingLabel: "Enviando…",
+        successLabel: "Solicitud enviada. Gracias: recibirás una respuesta en cuanto sea posible.",
+        errorLabel: "No se pudo enviar la solicitud ahora mismo. Vuelve a intentarlo más tarde.",
+        emptyRequestable: "En este momento no hay herramientas adicionales que requieran solicitud de acceso.",
+        footer: "2026 micou.org - Alojado con amor en un servidor autogestionado"
+      }
+    };
+
+    const FEATURE_TERMS = {
+      fr: {
+        docs: "documents partagés", sheets: "tableurs collaboratifs", slides: "présentations",
+        tasks: "gestion de tâches", kanban: "vues kanban", planning: "planification",
+        threads: "discussions structurées", archives: "archives durables", moderation: "modération",
+        expenses: "comptes partagés", balances: "équilibres automatiques", groupBudget: "budget collectif",
+        whiteboard: "tableau collaboratif", sketches: "schémas rapides", facilitation: "ateliers visuels",
+        tickets: "billetterie", registrations: "inscriptions", checkin: "contrôle d’accès",
+        volunteers: "coordination bénévole", shifts: "créneaux", followup: "suivi d’équipe",
+        reading: "lecture approfondie", archivesDocs: "archives ouvertes", references: "repères documentaires",
+        wiki: "documentation", protocols: "modes d’emploi", knowledgeBase: "base de connaissances",
+        music: "écoute musicale", playlists: "sélections", gentleStreaming: "diffusion légère",
+        videoPrivacy: "vidéos sans pistage", subscriptions: "abonnements importés", watchLater: "visionnage apaisé",
+        feeds: "lecture de comptes publics", privacyMirror: "miroir discret", veille: "veille sans compte",
+        blogging: "publication de textes", newsletters: "chroniques", simpleEditing: "édition minimaliste",
+        websites: "sites vitrines", blogPages: "pages publiques", publishingFlow: "mise en ligne",
+        counters: "suivi collectif", simpleStats: "compteurs partagés", stewardship: "coordination locale",
+        subscriptionsTrack: "suivi des abonnements", recurringCosts: "dépenses récurrentes", budgetClarity: "vision budgétaire",
+        qrCodes: "QR dynamiques", printableLinks: "liens imprimables", redirections: "mises à jour sans réimpression",
+        pdf: "fusion PDF", split: "découpe", compress: "compression",
+        blur: "floutage des visages", imageSafety: "préparation d’images", privacyPrep: "partage plus sûr",
+        fileDrop: "envoi temporaire", protectedLinks: "liens protégés", largeFiles: "gros fichiers",
+        convert: "conversions multimédias", formats: "formats variés", quickExports: "exports rapides",
+        grammar: "correction grammaticale", spelling: "orthographe", frenchWriting: "relecture en français"
+      },
+      en: {
+        docs: "shared documents", sheets: "collaborative spreadsheets", slides: "presentations",
+        tasks: "task management", kanban: "kanban views", planning: "planning",
+        threads: "structured discussions", archives: "durable archives", moderation: "moderation",
+        expenses: "shared expenses", balances: "automatic balances", groupBudget: "group budgeting",
+        whiteboard: "collaborative whiteboard", sketches: "quick sketches", facilitation: "visual workshops",
+        tickets: "ticketing", registrations: "registrations", checkin: "check-in",
+        volunteers: "volunteer coordination", shifts: "shifts", followup: "team follow-up",
+        reading: "deep reading", archivesDocs: "open archives", references: "reference material",
+        wiki: "documentation", protocols: "how-to pages", knowledgeBase: "knowledge base",
+        music: "music listening", playlists: "playlists", gentleStreaming: "lightweight streaming",
+        videoPrivacy: "tracking-free video", subscriptions: "imported subscriptions", watchLater: "calmer watching",
+        feeds: "reading public accounts", privacyMirror: "privacy mirror", veille: "monitoring without an account",
+        blogging: "text publishing", newsletters: "chronicles", simpleEditing: "minimal editing",
+        websites: "showcase sites", blogPages: "public pages", publishingFlow: "publishing flow",
+        counters: "collective tracking", simpleStats: "shared counters", stewardship: "local coordination",
+        subscriptionsTrack: "subscription tracking", recurringCosts: "recurring costs", budgetClarity: "budget clarity",
+        qrCodes: "dynamic QR codes", printableLinks: "printable links", redirections: "updates without reprinting",
+        pdf: "PDF merge", split: "splitting", compress: "compression",
+        blur: "face blurring", imageSafety: "image preparation", privacyPrep: "safer sharing",
+        fileDrop: "temporary sending", protectedLinks: "protected links", largeFiles: "large files",
+        convert: "media conversion", formats: "many formats", quickExports: "quick exports",
+        grammar: "grammar checks", spelling: "spelling", frenchWriting: "French proofreading"
+      },
+      de: {
+        docs: "gemeinsame Dokumente", sheets: "Tabellen", slides: "Präsentationen",
+        tasks: "Aufgabenverwaltung", kanban: "Kanban-Ansichten", planning: "Planung",
+        threads: "strukturierte Diskussionen", archives: "dauerhafte Archive", moderation: "Moderation",
+        expenses: "gemeinsame Ausgaben", balances: "automatische Salden", groupBudget: "Gruppenbudget",
+        whiteboard: "kollaboratives Whiteboard", sketches: "schnelle Skizzen", facilitation: "visuelle Workshops",
+        tickets: "Ticketing", registrations: "Anmeldungen", checkin: "Einlasskontrolle",
+        volunteers: "Freiwilligenkoordination", shifts: "Zeitslots", followup: "Team-Nachverfolgung",
+        reading: "vertieftes Lesen", archivesDocs: "offene Archive", references: "Referenzmaterial",
+        wiki: "Dokumentation", protocols: "Anleitungen", knowledgeBase: "Wissensbasis",
+        music: "Musikhören", playlists: "Playlists", gentleStreaming: "leichtes Streaming",
+        videoPrivacy: "trackingfreie Videos", subscriptions: "importierte Abos", watchLater: "ruhigeres Schauen",
+        feeds: "öffentliche Accounts lesen", privacyMirror: "diskreter Spiegel", veille: "Beobachtung ohne Konto",
+        blogging: "Textpublikation", newsletters: "Chroniken", simpleEditing: "minimales Schreiben",
+        websites: "Websites", blogPages: "öffentliche Seiten", publishingFlow: "Veröffentlichung",
+        counters: "kollektive Nachverfolgung", simpleStats: "gemeinsame Zähler", stewardship: "lokale Koordination",
+        subscriptionsTrack: "Abo-Übersicht", recurringCosts: "wiederkehrende Kosten", budgetClarity: "Budgetklarheit",
+        qrCodes: "dynamische QR-Codes", printableLinks: "druckbare Links", redirections: "Updates ohne Neudruck",
+        pdf: "PDF-Zusammenführen", split: "Aufteilen", compress: "Kompression",
+        blur: "Gesichter verwischen", imageSafety: "Bildvorbereitung", privacyPrep: "sichereres Teilen",
+        fileDrop: "temporäres Senden", protectedLinks: "geschützte Links", largeFiles: "große Dateien",
+        convert: "Medienkonvertierung", formats: "viele Formate", quickExports: "schnelle Exporte",
+        grammar: "Grammatikkontrolle", spelling: "Rechtschreibung", frenchWriting: "französisches Korrekturlesen"
+      },
+      es: {
+        docs: "documentos compartidos", sheets: "hojas colaborativas", slides: "presentaciones",
+        tasks: "gestión de tareas", kanban: "vistas kanban", planning: "planificación",
+        threads: "debates estructurados", archives: "archivos duraderos", moderation: "moderación",
+        expenses: "gastos compartidos", balances: "balances automáticos", groupBudget: "presupuesto colectivo",
+        whiteboard: "pizarra colaborativa", sketches: "esquemas rápidos", facilitation: "talleres visuales",
+        tickets: "billettería", registrations: "inscripciones", checkin: "control de acceso",
+        volunteers: "coordinación voluntaria", shifts: "turnos", followup: "seguimiento de equipo",
+        reading: "lectura profunda", archivesDocs: "archivos abiertos", references: "referencias",
+        wiki: "documentación", protocols: "guías prácticas", knowledgeBase: "base de conocimiento",
+        music: "escucha musical", playlists: "listas", gentleStreaming: "difusión ligera",
+        videoPrivacy: "vídeo sin rastreo", subscriptions: "suscripciones importadas", watchLater: "visualización serena",
+        feeds: "lectura de cuentas públicas", privacyMirror: "espejo discreto", veille: "seguimiento sin cuenta",
+        blogging: "publicación de textos", newsletters: "boletines", simpleEditing: "edición mínima",
+        websites: "sitios públicos", blogPages: "páginas visibles", publishingFlow: "puesta en línea",
+        counters: "seguimiento colectivo", simpleStats: "contadores compartidos", stewardship: "coordinación local",
+        subscriptionsTrack: "seguimiento de suscripciones", recurringCosts: "costes recurrentes", budgetClarity: "claridad presupuestaria",
+        qrCodes: "QR dinámicos", printableLinks: "enlaces imprimibles", redirections: "cambios sin reimprimir",
+        pdf: "unión de PDF", split: "separación", compress: "compresión",
+        blur: "difuminado de rostros", imageSafety: "preparación de imágenes", privacyPrep: "compartir con más cuidado",
+        fileDrop: "envío temporal", protectedLinks: "enlaces protegidos", largeFiles: "archivos grandes",
+        convert: "conversión multimedia", formats: "varios formatos", quickExports: "exportaciones rápidas",
+        grammar: "corrección gramatical", spelling: "ortografía", frenchWriting: "revisión en francés"
+      }
+    };
+
+    const APP_META = {
+      onlyoffice: { badge: "OO", art: "illustrations/decor-chandelier-gold.gif", features: ["docs", "sheets", "slides"], thanks: "OnlyOffice, Ascensio, the upstream contributors, and the YunoHost packaging community.", supported_languages: ["fr", "en", "de", "es"], card: { fr: "Rédigez, corrigez et partagez des documents, tableurs et présentations dans un même espace protégé.", en: "Write, revise, and share documents, spreadsheets, and presentations in one protected workspace.", de: "Dokumente, Tabellen und Präsentationen in einem geschützten gemeinsamen Raum bearbeiten.", es: "Redacta, corrige y comparte documentos, hojas y presentaciones en un mismo espacio protegido." }, detail: { fr: "Ornitoffice permet de travailler à plusieurs sur des fichiers bureautiques sans passer par Google Docs ou Microsoft 365. C’est utile pour les collectifs qui veulent garder la main sur leurs documents de travail et leurs archives.", en: "Ornitoffice lets several people work on office files without relying on Google Docs or Microsoft 365. It is useful for collectives that want to keep control over working documents and archives.", de: "Mit Ornitoffice können mehrere Personen gemeinsam an Bürodateien arbeiten, ohne Google Docs oder Microsoft 365 zu nutzen. Das eignet sich für Kollektive, die ihre Arbeitsdokumente und Archive selbst kontrollieren möchten.", es: "Ornitoffice permite trabajar en grupo sobre archivos de oficina sin depender de Google Docs ni de Microsoft 365. Resulta útil para colectivos que quieren conservar el control de sus documentos y archivos." }, replaces: { fr: "Google Docs, Google Sheets, Microsoft 365 en ligne.", en: "Google Docs, Google Sheets, online Microsoft 365.", de: "Google Docs, Google Sheets, Microsoft 365 im Browser.", es: "Google Docs, Google Sheets, Microsoft 365 en línea." } },
+      vikunja: { badge: "VK", art: "illustrations/fairy-wand.png", features: ["tasks", "kanban", "planning"], thanks: "Vikunja and the free software maintainers who keep calm project planning possible.", supported_languages: ["fr", "en", "de", "es"], card: { fr: "Structurez des listes, des tableaux et des échéances pour suivre un projet sans interface managériale lourde.", en: "Organize lists, boards, and deadlines for projects without a heavy managerial interface.", de: "Listen, Boards und Fristen für Projekte organisieren, ohne schwerfällige Management-Oberfläche.", es: "Organiza listas, tableros y fechas para proyectos sin una interfaz de gestión pesada." }, detail: { fr: "Vikunja aide à répartir les tâches, visualiser l’avancement et garder une vue claire sur les priorités d’une équipe ou d’un projet personnel. L’outil reste sobre et très pratique pour sortir des plateformes de productivité invasives.", en: "Vikunja helps distribute tasks, visualize progress, and keep priorities clear for a team or a personal project. It stays lightweight and practical for leaving invasive productivity platforms behind.", de: "Vikunja hilft dabei, Aufgaben zu verteilen, Fortschritt sichtbar zu machen und Prioritäten in Teams oder persönlichen Projekten klar zu halten. Das Werkzeug bleibt leichtgewichtig und praktisch.", es: "Vikunja ayuda a repartir tareas, visualizar el avance y mantener claras las prioridades de un equipo o de un proyecto personal. Sigue siendo ligera y muy práctica para salir de plataformas invasivas de productividad." }, replaces: { fr: "Trello, Todoist, Asana pour les usages simples.", en: "Trello, Todoist, or Asana for simpler setups.", de: "Trello, Todoist oder Asana für einfachere Setups.", es: "Trello, Todoist o Asana para usos más sencillos." } },
+      nodebb: { badge: "FB", art: "illustrations/heart-wreath-roses.gif", features: ["threads", "archives", "moderation"], thanks: "NodeBB, its plugin ecosystem, and everyone who still builds public discussion spaces.", supported_languages: ["fr", "en", "de", "es"], card: { fr: "Ouvrez des discussions qui restent lisibles dans le temps, avec des catégories, de la modération et de la mémoire collective.", en: "Host discussions that remain readable over time, with categories, moderation, and collective memory.", de: "Diskussionen führen, die langfristig lesbar bleiben, mit Kategorien, Moderation und kollektivem Gedächtnis.", es: "Aloja conversaciones que siguen siendo legibles con el tiempo, con categorías, moderación y memoria colectiva." }, detail: { fr: "Le Forum sert à faire vivre des discussions plus durables que des fils de chat. Il permet de poser des questions, documenter des réponses et garder des traces utiles pour un groupe, un projet ou une communauté élargie.", en: "Le Forum is meant for conversations that deserve more durability than chat threads. It helps ask questions, document answers, and keep useful traces for a group, project, or broader community.", de: "Le Forum ist für Gespräche gedacht, die mehr Dauer brauchen als Chat-Verläufe. Fragen, Antworten und nützliche Spuren für Gruppen, Projekte oder Communities bleiben dort auffindbar.", es: "Le Forum está pensado para conversaciones que merecen más duración que un chat. Ayuda a plantear preguntas, documentar respuestas y conservar rastros útiles para un grupo, proyecto o comunidad." }, replaces: { fr: "Des groupes Facebook, des salons Discord éphémères, des listes de messages dispersées.", en: "Facebook groups, ephemeral Discord channels, scattered message threads.", de: "Facebook-Gruppen, vergängliche Discord-Kanäle, verstreute Nachrichtenfäden.", es: "Grupos de Facebook, canales efímeros de Discord, hilos dispersos de mensajes." } },
+      agora: { badge: "AG", art: "illustrations/rose-red.gif", features: ["threads", "archivesDocs", "knowledgeBase"], thanks: "Agora, its maintainers, and the people building shared digital spaces that do not depend on extractive collaboration suites.", supported_languages: ["fr", "en", "de", "es"], card: { fr: "Rassemblez échanges, documents et repères communs dans un espace partagé pensé pour la vie d’un collectif.", en: "Bring discussions, documents, and shared reference points together in one space built for collective work.", de: "Gespräche, Dokumente und gemeinsame Bezugspunkte in einem Raum bündeln, der für kollektive Arbeit gedacht ist.", es: "Reúne conversaciones, documentos y referencias comunes en un espacio pensado para la vida de un colectivo." }, detail: { fr: "Agora sert à structurer des échanges, centraliser des ressources utiles et garder des traces de travail pour un groupe, une association ou un projet. C’est pratique quand on veut sortir des suites fermées où les discussions et documents se dispersent vite.", en: "Agora helps structure discussions, centralize useful resources, and keep working traces for a group, association, or project. It is useful when you want to leave closed suites where conversations and documents quickly get scattered.", de: "Agora hilft dabei, Austausch zu strukturieren, nützliche Ressourcen zu zentralisieren und Arbeitsspuren für Gruppen, Vereine oder Projekte zu bewahren. Das ist besonders hilfreich, wenn geschlossene Suiten Gespräche und Dokumente zerstreuen.", es: "Agora sirve para estructurar conversaciones, centralizar recursos útiles y conservar huellas de trabajo para un grupo, una asociación o un proyecto. Resulta útil cuando se quiere salir de suites cerradas donde las conversaciones y documentos se dispersan enseguida." }, replaces: { fr: "Des espaces de travail fermés où discussions, fichiers et repères restent éparpillés.", en: "Closed workspaces where discussions, files, and references stay fragmented.", de: "Geschlossene Arbeitsräume, in denen Gespräche, Dateien und Bezugspunkte zerstreut bleiben.", es: "Espacios de trabajo cerrados donde conversaciones, archivos y referencias quedan fragmentados." } },
+      ihatemoney: { badge: "HM", art: "illustrations/icon-strawberry-basket.png", features: ["expenses", "balances", "groupBudget"], thanks: "I Hate Money and the people maintaining small, clear tools for collective life.", supported_languages: ["fr", "en", "de", "es"], card: { fr: "Répartissez des dépenses partagées simplement, sans feuille de calcul bricolée ni appli commerciale envahissante.", en: "Split shared expenses simply, without improvised spreadsheets or intrusive commercial apps.", de: "Gemeinsame Ausgaben einfach aufteilen, ohne improvisierte Tabellen oder aufdringliche Kommerz-Apps.", es: "Reparte gastos compartidos de forma sencilla, sin hojas improvisadas ni aplicaciones comerciales invasivas." }, detail: { fr: "I Hate Money permet de suivre qui a payé quoi, équilibrer un budget de colocation, de collectif ou d’événement, et éviter les calculs manuels à chaque dépense. C’est volontairement simple et lisible.", en: "I Hate Money helps track who paid what, balance a shared budget for housing, collectives, or events, and avoid manual calculations every time money moves. It stays deliberately simple and readable.", de: "I Hate Money hilft dabei nachzuvollziehen, wer was bezahlt hat, ein gemeinsames Budget auszugleichen und manuelle Rechnerei zu vermeiden. Das Werkzeug bleibt bewusst einfach und gut lesbar.", es: "I Hate Money permite seguir quién ha pagado qué, equilibrar un presupuesto compartido de vivienda, colectivo o evento y evitar cálculos manuales cada vez que hay un gasto. Se mantiene deliberadamente simple." }, replaces: { fr: "Splitwise ou les tableaux bricolés pour les dépenses partagées.", en: "Splitwise or improvised spreadsheets for shared expenses.", de: "Splitwise oder improvisierte Tabellen für geteilte Ausgaben.", es: "Splitwise o las hojas improvisadas para gastos compartidos." } },
+      whitebophir: { badge: "TB", art: "illustrations/icon-watering-can.gif", features: ["whiteboard", "sketches", "facilitation"], thanks: "WBO / WhiteBophir and everyone building low-friction collaborative drawing tools.", supported_languages: ["fr", "en", "de", "es"], card: { fr: "Dessinez ensemble, animez un atelier ou posez un schéma sans créer de compte complexe.", en: "Draw together, facilitate a workshop, or sketch quickly without a heavy account setup.", de: "Gemeinsam zeichnen, Workshops begleiten oder schnell skizzieren, ohne komplizierte Konten.", es: "Dibuja en grupo, facilita un taller o esboza algo rápido sin una cuenta compleja." }, detail: { fr: "Tablo ouvre un grand tableau blanc partagé, utile pour des réunions, des ateliers, des cartes mentales ou des explications visuelles improvisées. Le service va à l’essentiel et fonctionne bien pour des usages rapides.", en: "Tablo opens a shared whiteboard that works well for meetings, workshops, mind maps, or improvised visual explanations. It focuses on the essentials and is especially useful for quick collaborative sessions.", de: "Tablo bietet ein gemeinsames Whiteboard für Meetings, Workshops, Mindmaps oder spontane visuelle Erklärungen. Es konzentriert sich auf das Wesentliche und eignet sich gut für schnelle Zusammenarbeit.", es: "Tablo abre una pizarra compartida útil para reuniones, talleres, mapas mentales o explicaciones visuales improvisadas. Se centra en lo esencial y funciona muy bien para usos rápidos." }, replaces: { fr: "Miro, Jamboard ou un écran partagé juste pour gribouiller ensemble.", en: "Miro, Jamboard, or screen-sharing just to draw together.", de: "Miro, Jamboard oder Bildschirmteilen nur zum gemeinsamen Skizzieren.", es: "Miro, Jamboard o compartir pantalla solo para dibujar en grupo." } },
+      pretix: { badge: "BT", art: "illustrations/text-links-3d.gif", features: ["tickets", "registrations", "checkin"], thanks: "pretix, its maintainers, and the people building ethical event infrastructure.", supported_languages: ["fr", "en", "de", "es"], card: { fr: "Préparez des inscriptions, des billets et des jauges pour un événement sans passer par une billetterie extractive.", en: "Prepare registrations, tickets, and attendance limits for an event without an extractive ticketing platform.", de: "Anmeldungen, Tickets und Kapazitäten für Veranstaltungen organisieren, ohne ausbeuterische Ticketplattformen.", es: "Prepara inscripciones, entradas y aforos sin pasar por una plataforma de billettería extractiva." }, detail: { fr: "Billetterie permet de publier des événements, gérer les inscriptions, envoyer les confirmations et organiser l’accueil. C’est particulièrement utile pour garder la main sur les données de participation et les flux d’entrée.", en: "Billetterie helps publish events, manage registrations, send confirmations, and organize admission. It is especially useful when you want to keep control over attendance data and entry flows.", de: "Billetterie hilft beim Veröffentlichen von Veranstaltungen, beim Verwalten von Anmeldungen, beim Versenden von Bestätigungen und bei der Organisation des Einlasses. Besonders hilfreich, wenn Teilnahmedaten in eigener Hand bleiben sollen.", es: "Billetterie permite publicar eventos, gestionar inscripciones, enviar confirmaciones y organizar la acogida. Resulta especialmente útil para conservar el control sobre los datos de asistencia y los flujos de entrada." }, replaces: { fr: "Eventbrite ou les formulaires d’inscription éparpillés.", en: "Eventbrite or scattered registration forms.", de: "Eventbrite oder verstreute Anmeldeformulare.", es: "Eventbrite o formularios de inscripción dispersos." } },
+      benevalibre: { badge: "BV", art: "illustrations/butterfly-rainbow-glitter.gif", features: ["volunteers", "shifts", "followup"], thanks: "Bénévalibre and the communities that maintain free coordination tools for associations.", supported_languages: ["fr", "en", "de", "es"], card: { fr: "Coordonnez des créneaux, des missions et des personnes volontaires sans tableur qui déborde.", en: "Coordinate shifts, missions, and volunteers without an overflowing spreadsheet.", de: "Zeitslots, Aufgaben und Freiwillige koordinieren, ohne ausufernde Tabellen.", es: "Coordina turnos, misiones y personas voluntarias sin una hoja que se desborde." }, detail: { fr: "Bénévalibre aide les associations et équipes d’organisation à répartir des rôles, visualiser les disponibilités et garder une vue commune sur ce qu’il reste à pourvoir. C’est un outil très concret pour les événements ou permanences.", en: "Bénévalibre helps associations and organizing teams distribute roles, see availability, and keep a shared view of what still needs to be covered. It is a very practical tool for events and recurring shifts.", de: "Bénévalibre unterstützt Vereine und Organisationsteams dabei, Rollen zu verteilen, Verfügbarkeiten sichtbar zu machen und gemeinsam zu sehen, was noch offen ist. Sehr praktisch für Veranstaltungen und wiederkehrende Dienste.", es: "Bénévalibre ayuda a asociaciones y equipos organizadores a repartir roles, ver disponibilidades y mantener una visión común de lo que queda por cubrir. Es muy útil para eventos y turnos recurrentes." }, replaces: { fr: "Des tableaux de bénévoles bricolés à la main ou des chaînes de messages.", en: "Hand-built volunteer spreadsheets or long message chains.", de: "Handgebastelte Freiwilligen-Tabellen oder lange Nachrichtenketten.", es: "Hojas caseras de voluntariado o cadenas interminables de mensajes." } },
+      anarchism: { badge: "AQ", art: "illustrations/text-angels-protection.png", features: ["reading", "archivesDocs", "references"], thanks: "The maintainers and authors behind An Anarchist FAQ and open radical archives.", supported_languages: ["fr", "en", "de", "es"], card: { fr: "Consultez une ressource documentaire ouverte pour lire, citer et retrouver des textes de référence.", en: "Browse an open documentation resource to read, quote, and revisit reference texts.", de: "Eine offene Dokumentationsquelle durchsuchen, um Referenztexte zu lesen, zu zitieren und wiederzufinden.", es: "Consulta un recurso documental abierto para leer, citar y volver a textos de referencia." }, detail: { fr: "Anarchism donne accès à une bibliothèque publique de textes et de repères théoriques. Le service sert surtout à lire au calme, retrouver une citation ou envoyer rapidement une ressource à d’autres personnes.", en: "Anarchism provides access to a public library of texts and theoretical references. It is mainly useful for calm reading, recovering a quote, or quickly sharing a resource with someone else.", de: "Anarchism bietet Zugang zu einer öffentlichen Sammlung von Texten und theoretischen Bezugspunkten. Nützlich zum ruhigen Lesen, zum Wiederfinden von Zitaten oder zum schnellen Teilen von Ressourcen.", es: "Anarchism da acceso a una biblioteca pública de textos y referencias teóricas. Sirve sobre todo para leer con calma, recuperar una cita o compartir rápidamente un recurso con otras personas." }, replaces: { fr: "Des recherches dispersées entre des archives peu lisibles.", en: "Scattered searches across archives that are hard to navigate.", de: "Verstreute Recherchen in schwer zugänglichen Archiven.", es: "Búsquedas dispersas entre archivos poco legibles." } },
+      dokuwiki: { badge: "WK", art: "illustrations/divider-daisy-chain.gif", features: ["wiki", "protocols", "knowledgeBase"], thanks: "DokuWiki and the people maintaining sustainable, low-complexity documentation tools.", supported_languages: ["fr", "en", "de", "es"], card: { fr: "Documentez des pratiques, gardez des tutoriels internes et partagez une mémoire collective durable.", en: "Document practices, keep internal how-to pages, and share durable collective memory.", de: "Praktiken dokumentieren, interne Anleitungen festhalten und kollektives Wissen dauerhaft teilen.", es: "Documenta prácticas, guarda guías internas y comparte memoria colectiva duradera." }, detail: { fr: "Le Wiki sert à centraliser des procédures, des notes, des guides ou de la documentation d’équipe. Il est particulièrement pratique quand les informations importantes commencent à se perdre entre messages, pads et fichiers.", en: "The Wiki is useful for centralizing procedures, notes, guides, or team documentation. It becomes especially helpful when important information starts getting lost across messages, pads, and files.", de: "Das Wiki hilft dabei, Abläufe, Notizen, Leitfäden oder Team-Dokumentation zu zentralisieren. Besonders nützlich, wenn wichtige Informationen sonst in Nachrichten, Pads und Dateien verschwinden.", es: "El Wiki sirve para centralizar procedimientos, notas, guías o documentación de equipo. Resulta especialmente útil cuando la información importante empieza a perderse entre mensajes, pads y archivos." }, replaces: { fr: "Des dossiers partagés confus ou des notes éparpillées.", en: "Confusing shared folders or scattered notes.", de: "Unübersichtliche gemeinsame Ordner oder verstreute Notizen.", es: "Carpetas compartidas confusas o notas dispersas." } },
+      widdypad: { badge: "WP", art: "illustrations/decor-jukebox.gif", features: ["music", "playlists", "gentleStreaming"], thanks: "The small custom WiddyPad experiments and the open audio tools that made them possible.", supported_languages: ["fr", "en", "de", "es"], card: { fr: "Explorez une bibliothèque musicale légère pensée pour l’écoute, les sélections et les ambiances partagées.", en: "Explore a lightweight music library designed for listening, selections, and shared moods.", de: "Eine leichte Musikbibliothek für Hören, kuratierte Auswahlen und geteilte Stimmungen erkunden.", es: "Explora una biblioteca musical ligera pensada para escuchar, seleccionar y compartir ambientes." }, detail: { fr: "WiddyPad est un espace d’écoute simple et un peu expérimental. Il permet de mettre en commun des morceaux, préparer des sélections ou ouvrir une ambiance sonore sans passer par une plateforme publicitaire.", en: "WiddyPad is a simple and slightly experimental listening space. It lets people gather tracks, prepare selections, or open a shared sound atmosphere without going through an ad-driven platform.", de: "WiddyPad ist ein einfach gehaltener, leicht experimenteller Hörraum. Dort lassen sich Stücke teilen, Auswahlen vorbereiten oder Klangatmosphären öffnen, ohne eine werbefinanzierte Plattform zu nutzen.", es: "WiddyPad es un espacio de escucha sencillo y un poco experimental. Permite reunir canciones, preparar selecciones o abrir una atmósfera sonora sin pasar por una plataforma publicitaria." }, replaces: { fr: "Des plateformes de streaming surchargées pour de petits usages partagés.", en: "Heavy streaming platforms for small, shared listening needs.", de: "Schwere Streaming-Plattformen für kleine gemeinsame Hörsituationen.", es: "Plataformas de streaming pesadas para pequeños usos compartidos." } },
+      piped: { badge: "YT", art: "illustrations/wings-dragon.gif", features: ["videoPrivacy", "subscriptions", "watchLater"], thanks: "Piped and all the maintainers building privacy-respecting video frontends.", supported_languages: ["fr", "en", "de", "es"], card: { fr: "Regardez des vidéos en limitant le pistage, le bruit publicitaire et les recommandations intrusives.", en: "Watch videos while limiting tracking, ad noise, and intrusive recommendations.", de: "Videos ansehen und dabei Tracking, Werbelärm und aufdringliche Empfehlungen begrenzen.", es: "Mira vídeos limitando el rastreo, el ruido publicitario y las recomendaciones intrusivas." }, detail: { fr: "Piped sert à consulter YouTube avec une interface plus sobre et plus respectueuse de la vie privée. C’est utile pour suivre des contenus publics sans offrir en échange un profil complet à une régie publicitaire.", en: "Piped lets you browse YouTube through a calmer and more privacy-respecting interface. It is useful when you want to follow public video content without handing a full profile back to an ad ecosystem.", de: "Piped ermöglicht den Zugriff auf YouTube über eine ruhigere und datenschutzfreundlichere Oberfläche. So lassen sich öffentliche Videos verfolgen, ohne gleichzeitig ein komplettes Profil an ein Werbeökosystem zu liefern.", es: "Piped permite consultar YouTube desde una interfaz más sobria y respetuosa con la privacidad. Sirve para seguir contenidos públicos sin entregar a la vez un perfil completo a un ecosistema publicitario." }, replaces: { fr: "L’interface standard de YouTube.", en: "The standard YouTube interface.", de: "Die Standardoberfläche von YouTube.", es: "La interfaz estándar de YouTube." } },
+      nitter: { badge: "Y", art: "illustrations/rose-red-single.gif", features: ["feeds", "privacyMirror", "veille"], thanks: "Nitter-like privacy frontends and everyone keeping public-web mirrors usable.", supported_languages: ["fr", "en", "de", "es"], card: { fr: "Lisez des comptes publics et faites de la veille sans vous connecter à la plateforme elle-même.", en: "Read public accounts and keep watch without logging into the platform itself.", de: "Öffentliche Accounts lesen und Monitoring betreiben, ohne sich bei der Plattform selbst einzuloggen.", es: "Lee cuentas públicas y haz seguimiento sin conectarte a la propia plataforma." }, detail: { fr: "Y permet de consulter des comptes publics ou des fils de veille avec moins de bruit et moins de dépendance à l’interface officielle. C’est surtout un service de lecture, pas de publication.", en: "Y is meant for reading public accounts and keeping an eye on feeds with less noise and less dependence on the official interface. It is primarily a reading tool, not a publishing one.", de: "Y dient zum Lesen öffentlicher Accounts und Beobachten von Feeds mit weniger Lärm und weniger Abhängigkeit von der offiziellen Oberfläche. Es ist vor allem ein Lese- und Beobachtungswerkzeug.", es: "Y está pensado para leer cuentas públicas y seguir hilos con menos ruido y menos dependencia de la interfaz oficial. Es sobre todo una herramienta de lectura, no de publicación." }, replaces: { fr: "L’interface officielle de X / Twitter pour la lecture publique.", en: "The official X / Twitter interface for public reading.", de: "Die offizielle X-/Twitter-Oberfläche für öffentliches Lesen.", es: "La interfaz oficial de X / Twitter para lectura pública." } },
+      writefreely: { badge: "WF", art: "illustrations/text-email-fire.gif", features: ["blogging", "newsletters", "simpleEditing"], thanks: "WriteFreely and the maintainers preserving quiet publishing tools.", supported_languages: ["fr", "en", "de", "es"], card: { fr: "Publiez des textes, notes ou chroniques avec une interface légère qui laisse respirer l’écriture.", en: "Publish texts, notes, or chronicles in a lightweight interface that lets writing breathe.", de: "Texte, Notizen oder Chroniken in einer leichten Oberfläche veröffentlichen, die dem Schreiben Raum lässt.", es: "Publica textos, notas o crónicas en una interfaz ligera que deja respirar la escritura." }, detail: { fr: "WriteFreely sert à publier sans distraction, dans un format volontairement simple. Il convient bien aux carnets, journaux, annonces ou prises de parole qui n’ont pas besoin d’une usine à gaz éditoriale.", en: "WriteFreely is meant for distraction-free publishing through a deliberately simple workflow. It works especially well for notebooks, journals, announcements, or short-form publishing that does not need a heavy editorial machine.", de: "WriteFreely ist auf ablenkungsarmes Publizieren mit bewusst einfachem Ablauf ausgelegt. Besonders gut geeignet für Notizbücher, Journale, Ankündigungen oder kurze Texte ohne schwere Redaktionsmaschine.", es: "WriteFreely está pensado para publicar sin distracciones mediante un flujo deliberadamente simple. Funciona muy bien para cuadernos, diarios, anuncios o publicaciones breves que no necesitan una máquina editorial pesada." }, replaces: { fr: "Medium, Substack ou des CMS trop lourds pour un texte simple.", en: "Medium, Substack, or CMS tools that are too heavy for simple publishing.", de: "Medium, Substack oder CMS-Werkzeuge, die für einfache Texte zu schwer sind.", es: "Medium, Substack o CMS demasiado pesados para una publicación sencilla." } },
+      wordpress: { badge: "WS", art: "illustrations/flowers-corner-decoration.gif", features: ["sites", "blogPages", "publishingFlow"], thanks: "WordPress and the huge open-source ecosystem around public web publishing.", supported_languages: ["fr", "en", "de", "es"], card: { fr: "Montez un site, une page projet ou un blog plus complet quand vous avez besoin d’une présence publique durable.", en: "Build a site, project page, or fuller blog when you need a durable public presence.", de: "Eine Website, Projektseite oder ein volleres Blog aufbauen, wenn eine dauerhafte öffentliche Präsenz gebraucht wird.", es: "Crea un sitio, una página de proyecto o un blog más completo cuando necesites una presencia pública duradera." }, detail: { fr: "Sites est l’option la plus souple pour construire une présence publique plus élaborée : pages, navigation, thèmes, extensions et contenus plus structurés. L’accès reste sur demande pour garder l’infrastructure saine.", en: "Sites is the most flexible option for building a fuller public presence: multiple pages, navigation, themes, plugins, and more structured content. Access stays on request to keep the infrastructure healthy.", de: "Sites ist die flexibelste Option für eine ausgebaute öffentliche Präsenz mit mehreren Seiten, Navigation, Themes, Erweiterungen und strukturierteren Inhalten. Der Zugang bleibt auf Anfrage, um die Infrastruktur stabil zu halten.", es: "Sites es la opción más flexible para construir una presencia pública más elaborada: varias páginas, navegación, temas, extensiones y contenidos más estructurados. El acceso sigue siendo bajo demanda para mantener sana la infraestructura." }, replaces: { fr: "Wix, WordPress.com ou des constructeurs de site fermés.", en: "Wix, WordPress.com, or closed website builders.", de: "Wix, WordPress.com oder geschlossene Website-Baukästen.", es: "Wix, WordPress.com o constructores cerrados de sitios." } },
+      compteur_du_gase: { badge: "CG", art: "illustrations/icon-strawberry-basket.png", features: ["counters", "simpleStats", "stewardship"], thanks: "The local custom work behind the GASE counter and the people coordinating mutual-aid logistics.", supported_languages: ["fr", "en", "de", "es"], card: { fr: "Suivez des compteurs et des repères partagés pour un usage collectif très concret et local.", en: "Track shared counters and practical markers for very concrete local collective use.", de: "Gemeinsame Zähler und praktische Marker für sehr konkrete lokale Kollektivnutzung verfolgen.", es: "Sigue contadores y referencias compartidas para un uso colectivo muy concreto y local." }, detail: { fr: "Le compteur du GASE est un outil plus spécifique, pensé pour garder une vue simple sur des chiffres ou repères partagés au sein d’un cadre collectif. Il reste activé sur demande afin de préserver la pertinence des accès.", en: "Le compteur du GASE is a more specific tool designed to keep a simple view on shared numbers or markers inside a collective setting. It stays available on request so access remains relevant and manageable.", de: "Le compteur du GASE ist ein spezifischeres Werkzeug, das gemeinsame Zahlen oder Marker in einem kollektiven Rahmen übersichtlich sichtbar macht. Der Zugang bleibt auf Anfrage, damit die Nutzung sinnvoll und handhabbar bleibt.", es: "Le compteur du GASE es una herramienta más específica pensada para mantener una vista simple sobre cifras o referencias compartidas dentro de un marco colectivo. Se mantiene bajo demanda para que el acceso siga siendo pertinente y manejable." }, replaces: { fr: "Des tableaux manuels ou des suivis locaux éparpillés.", en: "Manual sheets or scattered local tracking.", de: "Manuelle Listen oder verstreute lokale Nachverfolgung.", es: "Hojas manuales o seguimientos locales dispersos." } },
+      wallos: { badge: "WL", art: "illustrations/figure-runner-gold.gif", features: ["subscriptionsTrack", "recurringCosts", "budgetClarity"], thanks: "Wallos and the people building clear personal-finance tools without surveillance design.", supported_languages: ["fr", "en", "de", "es"], card: { fr: "Gardez une vue claire sur des abonnements et dépenses récurrentes sans tableur interminable.", en: "Keep a clear view of subscriptions and recurring costs without an endless spreadsheet.", de: "Abos und wiederkehrende Kosten klar im Blick behalten, ohne endlose Tabellen.", es: "Mantén una visión clara de suscripciones y gastos recurrentes sin una hoja interminable." }, detail: { fr: "Wallos aide à recenser les services payants, les renouvellements et les charges régulières afin d’éviter les oublis et d’avoir une vue d’ensemble plus nette. L’accès reste sur demande car l’outil manipule des informations plus sensibles.", en: "Wallos helps list paid services, renewals, and recurring charges so they stay visible over time. Access remains on request because the tool may involve more sensitive financial information.", de: "Wallos hilft dabei, bezahlte Dienste, Verlängerungen und regelmäßige Kosten übersichtlich sichtbar zu halten. Der Zugang bleibt auf Anfrage, weil dort auch sensiblere Finanzinformationen zusammenlaufen können.", es: "Wallos ayuda a listar servicios de pago, renovaciones y cargos recurrentes para mantenerlos visibles en el tiempo. El acceso sigue siendo bajo demanda porque puede implicar información financiera más sensible." }, replaces: { fr: "Les tableurs d’abonnements ou des rappels éparpillés.", en: "Subscription spreadsheets or scattered reminders.", de: "Abo-Tabellen oder verstreute Erinnerungen.", es: "Hojas de suscripciones o recordatorios dispersos." } },
+      dynamicqrcode: { badge: "QR", art: "illustrations/divider-blue-squares.gif", features: ["qrCodes", "printableLinks", "redirections"], thanks: "Dynamic QR Code maintainers and the free web tooling around printed links.", supported_languages: ["fr", "en", "de", "es"], card: { fr: "Créez des QR codes modifiables dans le temps pour des affiches, flyers, menus ou parcours publics.", en: "Create QR codes that can change over time for posters, flyers, menus, or public paths.", de: "QR-Codes erstellen, die sich über die Zeit anpassen lassen, für Plakate, Flyer, Menüs oder öffentliche Wege.", es: "Crea códigos QR actualizables con el tiempo para carteles, folletos, menús o recorridos públicos." }, detail: { fr: "QR permet de fabriquer un code imprimable puis de faire évoluer sa destination plus tard, sans devoir tout réimprimer. C’est utile pour de la signalétique, des événements ou des documents déjà diffusés.", en: "QR lets you print a code once and change its destination later without reprinting everything. It is useful for signage, events, or any document that has already been distributed.", de: "QR erlaubt es, einen Code einmal zu drucken und sein Ziel später zu ändern, ohne alles neu zu drucken. Das ist nützlich für Beschilderung, Veranstaltungen oder bereits verteilte Dokumente.", es: "QR permite imprimir un código una sola vez y cambiar después su destino sin volver a imprimirlo todo. Resulta útil para señalética, eventos o documentos ya distribuidos." }, replaces: { fr: "Les générateurs de QR jetables ou impossibles à mettre à jour.", en: "Throwaway QR generators that cannot be updated later.", de: "Wegwerf-QR-Generatoren, die sich später nicht aktualisieren lassen.", es: "Generadores de QR desechables imposibles de actualizar después." } },
+      bentopdf: { badge: "PDF", art: "illustrations/text-juice-3d.png", features: ["pdf", "split", "compress"], thanks: "Open PDF tooling and the packagers who keep self-hosted document utilities alive.", supported_languages: ["fr", "en", "de", "es"], card: { fr: "Fusionnez, découpez, compressez ou réorganisez des PDF sans passer par un site opaque.", en: "Merge, split, compress, or reorganize PDFs without relying on an opaque website.", de: "PDFs zusammenführen, aufteilen, komprimieren oder neu ordnen, ohne undurchsichtige Websites.", es: "Une, separa, comprime o reorganiza PDF sin depender de una web opaca." }, detail: { fr: "PDF Tools sert aux manipulations courantes autour des fichiers PDF : fusion, extraction, conversion légère ou réduction de taille. C’est un bon remplacement aux petits services web bardés de trackers.", en: "PDF Tools covers common PDF tasks: merging, extracting, light conversion, or reducing file size. It is a good alternative to small document websites filled with trackers.", de: "PDF Tools deckt typische PDF-Aufgaben ab: Zusammenführen, Extrahieren, leichte Konvertierung oder Größenreduktion. Eine gute Alternative zu kleinen Dokument-Websites voller Tracker.", es: "PDF Tools cubre tareas habituales con PDF: unir, extraer, convertir de forma ligera o reducir tamaño. Es una buena alternativa a pequeños sitios llenos de rastreadores." }, replaces: { fr: "iLovePDF, Smallpdf et autres utilitaires web intrusifs.", en: "iLovePDF, Smallpdf, and similar intrusive document sites.", de: "iLovePDF, Smallpdf und ähnliche aufdringliche Dokument-Websites.", es: "iLovePDF, Smallpdf y otros sitios intrusivos para documentos." } },
+      faceprivacy: { badge: "FP", art: "illustrations/icon-scuba-diver.png", features: ["blur", "imageSafety", "privacyPrep"], thanks: "Face Privacy and the projects that make safer image sharing easier.", supported_languages: ["fr", "en", "de", "es"], card: { fr: "Préparez des images avant diffusion en masquant visages ou zones sensibles.", en: "Prepare images before sharing by hiding faces or other sensitive areas.", de: "Bilder vor dem Teilen vorbereiten, indem Gesichter oder sensible Bereiche verborgen werden.", es: "Prepara imágenes antes de compartirlas ocultando rostros o zonas sensibles." }, detail: { fr: "FacePrivacy aide à protéger des personnes ou des contextes avant publication d’une photo. L’outil est précieux pour des usages militants, associatifs, éducatifs ou tout simplement prudents.", en: "FacePrivacy helps protect people or contexts before a photo is published. It is especially valuable for activist, associative, educational, or simply cautious uses.", de: "FacePrivacy hilft dabei, Personen oder Situationen zu schützen, bevor ein Foto veröffentlicht wird. Besonders wertvoll für aktivistische, Vereins-, Bildungs- oder schlicht vorsichtige Kontexte.", es: "FacePrivacy ayuda a proteger a personas o contextos antes de publicar una foto. Es especialmente valiosa para usos activistas, asociativos, educativos o simplemente prudentes." }, replaces: { fr: "Des applications mobiles opaques pour flouter à la va-vite.", en: "Opaque mobile apps for quick face blurring.", de: "Undurchsichtige Mobile-Apps zum schnellen Verwischen.", es: "Aplicaciones opacas para difuminar deprisa desde el móvil." } },
+      send: { badge: "SD", art: "illustrations/icon-treasure-chest.gif", features: ["fileDrop", "protectedLinks", "largeFiles"], thanks: "Send-inspired file-sharing tools and the people keeping temporary transfer services simple.", supported_languages: ["fr", "en", "de", "es"], card: { fr: "Partagez des fichiers ponctuellement avec des liens simples, temporaires et plus respectueux.", en: "Share files occasionally through simple, temporary, and more respectful links.", de: "Dateien punktuell über einfache, temporäre und respektvollere Links teilen.", es: "Comparte archivos puntualmente con enlaces simples, temporales y más respetuosos." }, detail: { fr: "Send est fait pour l’envoi ponctuel de documents ou médias trop volumineux pour l’e-mail. Le service privilégie des liens limités dans le temps et une expérience rapide, sans détour commercial.", en: "Send is made for occasional sharing of documents or media that are too large for email. It favors time-limited links and a quick experience without commercial detours.", de: "Send ist für das gelegentliche Teilen von Dokumenten oder Medien gedacht, die zu groß für E-Mail sind. Das Werkzeug setzt auf zeitlich begrenzte Links und eine schnelle, unkomplizierte Nutzung.", es: "Send está pensado para compartir de manera puntual documentos o medios demasiado grandes para el correo. Da prioridad a enlaces limitados en el tiempo y a una experiencia rápida, sin desvíos comerciales." }, replaces: { fr: "WeTransfer ou des pièces jointes trop lourdes.", en: "WeTransfer or oversized email attachments.", de: "WeTransfer oder zu große E-Mail-Anhänge.", es: "WeTransfer o adjuntos demasiado pesados." } },
+      vert: { badge: "VT", art: "illustrations/tree-winter-bare.gif", features: ["convert", "formats", "quickExports"], thanks: "VERT.sh and the communities maintaining transparent conversion tools.", supported_languages: ["fr", "en", "de", "es"], card: { fr: "Convertissez rapidement des médias ou documents vers un format plus pratique, sans collecte inutile.", en: "Convert media or documents quickly into a more useful format without unnecessary data collection.", de: "Medien oder Dokumente schnell in passendere Formate umwandeln, ohne unnötige Datensammlung.", es: "Convierte medios o documentos con rapidez a formatos más prácticos, sin recopilación innecesaria." }, detail: { fr: "Convertisseur s’appuie sur VERT.sh pour transformer des fichiers audio, vidéo, image ou document vers des formats plus adaptés à un usage quotidien. C’est très utile pour préparer une diffusion ou alléger un fichier.", en: "Convertisseur relies on VERT.sh to turn audio, video, image, or document files into formats that fit everyday use better. It is very useful when preparing a publication or lightening a file.", de: "Convertisseur nutzt VERT.sh, um Audio-, Video-, Bild- oder Dokumentdateien in alltagstauglichere Formate umzuwandeln. Sehr nützlich für Veröffentlichungen oder das Verkleinern von Dateien.", es: "Convertisseur se apoya en VERT.sh para transformar archivos de audio, vídeo, imagen o documento en formatos más adecuados al uso cotidiano. Resulta muy útil para preparar una publicación o aligerar un archivo." }, replaces: { fr: "Des convertisseurs web opaques ou truffés de pub.", en: "Opaque or ad-heavy web converters.", de: "Undurchsichtige oder werbeüberladene Web-Konverter.", es: "Conversores web opacos o llenos de publicidad." } },
+      grammalecte: { badge: "GR", art: "illustrations/text-i-love-you-hearts.gif", features: ["grammar", "spelling", "frenchWriting"], thanks: "Grammalecte and the people building free linguistic tools for French writing.", supported_languages: ["fr"], card: { fr: "Relisez des textes en français avec un correcteur libre, utile pour les brouillons comme pour les versions finales.", en: "Proofread French texts with a free grammar tool that helps on drafts and final versions alike.", de: "Französische Texte mit einem freien Grammatikwerkzeug für Entwürfe und Endfassungen prüfen.", es: "Revisa textos en francés con una herramienta libre útil tanto en borradores como en versiones finales." }, detail: { fr: "Grammalecte server propose une aide à la correction grammaticale et orthographique en français. C’est particulièrement pratique pour relire une annonce, un billet, un courrier ou une page avant publication.", en: "Grammalecte server offers grammar and spelling assistance for French writing. It is especially practical when proofreading an announcement, article, email, or page before publication.", de: "Der Grammalecte-Server bietet Grammatik- und Rechtschreibhilfe für französische Texte. Besonders praktisch für Ankündigungen, Artikel, Mails oder Seiten vor der Veröffentlichung.", es: "El servidor Grammalecte ofrece ayuda gramatical y ortográfica para escritura en francés. Resulta especialmente práctico para revisar un anuncio, artículo, correo o página antes de publicarla." }, replaces: { fr: "Des correcteurs cloud propriétaires pour le français.", en: "Proprietary cloud grammar checkers for French.", de: "Proprietäre Cloud-Korrekturdienste für Französisch.", es: "Correctores propietarios en la nube para francés." } },
+      reader: { badge: "RD", art: "illustrations/decor-vine-heart.gif", features: ["reading", "archivesDocs", "references"], thanks: "FreshRSS Reader, RSS maintainers, and everyone keeping the open web readable without recommendation engines.", supported_languages: ["fr", "en", "de", "es"], card: { fr: "Suivez des flux, revues de presse et publications choisies dans un lecteur calme, sans algorithme intrusif.", en: "Follow feeds, reading lists, and selected publications in a calm reader without intrusive algorithms.", de: "Feeds, Presseschauen und ausgewählte Veröffentlichungen in einem ruhigen Reader ohne aufdringliche Algorithmen verfolgen.", es: "Sigue fuentes, selecciones y publicaciones en un lector tranquilo, sin algoritmos intrusivos." }, detail: { fr: "Reader rassemble vos flux RSS et sources suivies dans un espace de lecture stable. Il est pratique pour faire de la veille, lire des médias indépendants et remplacer les plateformes où l’ordre des contenus dépend d’une logique publicitaire.", en: "Reader gathers your RSS feeds and followed sources in a stable reading space. It is useful for watch work, reading independent media, and replacing platforms where content order is driven by advertising logic.", de: "Reader bündelt RSS-Feeds und abonnierte Quellen in einem stabilen Leseraum. Das ist praktisch für Monitoring, unabhängige Medien und als Ersatz für Plattformen, deren Reihenfolge von Werbelogik bestimmt wird.", es: "Reader reúne tus fuentes RSS y publicaciones seguidas en un espacio de lectura estable. Resulta útil para la vigilancia informativa, para leer medios independientes y para sustituir plataformas cuyo orden depende de la lógica publicitaria." }, replaces: { fr: "Feedly ou les fils sociaux utilisés comme revue de presse.", en: "Feedly or social feeds used as a press digest.", de: "Feedly oder soziale Feeds als Pressespiegel.", es: "Feedly o los feeds sociales usados como revista de prensa." } },
+      immich: { badge: "IM", art: "illustrations/flowers-corner-decoration.gif", features: ["imageSafety", "archivesDocs", "references"], thanks: "Immich, its contributors, and the free software communities building self-hosted photo archives.", supported_languages: ["fr", "en", "de", "es"], card: { fr: "Rangez, retrouvez et partagez des photos ou vidéos dans une galerie privée pensée pour garder la main sur vos archives.", en: "Store, find, and share photos or videos in a private gallery built to keep your archives under your control.", de: "Fotos und Videos in einer privaten Galerie speichern, wiederfinden und teilen, damit das Archiv unter eigener Kontrolle bleibt.", es: "Guarda, encuentra y comparte fotos o vídeos en una galería privada pensada para mantener el control de tus archivos." }, detail: { fr: "Immich sert d’espace photo et vidéo personnel ou collectif pour conserver des souvenirs, documenter des activités ou préparer des partages choisis. C’est une bonne alternative à Google Photos ou iCloud quand on veut un hébergement maîtrisé.", en: "Immich works as a personal or collective photo and video space to preserve memories, document activities, or prepare selective sharing. It is a strong alternative to Google Photos or iCloud when you want controlled hosting.", de: "Immich dient als persönlicher oder gemeinsamer Foto- und Video-Speicher, um Erinnerungen zu bewahren, Aktivitäten zu dokumentieren oder gezielte Freigaben vorzubereiten. Es ist eine gute Alternative zu Google Fotos oder iCloud.", es: "Immich funciona como espacio personal o colectivo para fotos y vídeos, útil para conservar recuerdos, documentar actividades o preparar comparticiones selectivas. Es una buena alternativa a Google Photos o iCloud cuando se busca un alojamiento controlado." }, replaces: { fr: "Google Photos, iCloud Photos ou des dossiers dispersés.", en: "Google Photos, iCloud Photos, or scattered folders.", de: "Google Fotos, iCloud Fotos oder verstreute Ordner.", es: "Google Photos, iCloud Photos o carpetas dispersas." } },
+      funkwhale: { badge: "FW", art: "illustrations/decor-jukebox.gif", features: ["music", "playlists", "gentleStreaming"], thanks: "Funkwhale, fediverse audio communities, and the maintainers keeping music sharing open.", supported_languages: ["fr", "en", "de", "es"], card: { fr: "Écoutez de la musique dans une interface sobre, créez des playlists et gardez une bibliothèque plus indépendante.", en: "Listen to music in a sober interface, build playlists, and keep a more independent library.", de: "Musik in einer ruhigen Oberfläche hören, Playlists anlegen und eine unabhängigere Bibliothek behalten.", es: "Escucha música en una interfaz sobria, crea listas y mantén una biblioteca más independiente." }, detail: { fr: "Funkwhale permet d’écouter, d’organiser et parfois de partager des bibliothèques musicales sans dépendre d’une plateforme fermée. Il convient bien aux personnes ou équipes qui veulent garder leurs écoutes dans un environnement plus ouvert.", en: "Funkwhale lets you listen to, organize, and sometimes share music libraries without depending on a closed platform. It suits people or teams who want to keep listening habits in a more open environment.", de: "Mit Funkwhale lassen sich Musikbibliotheken hören, organisieren und teils teilen, ohne von einer geschlossenen Plattform abhängig zu sein. Geeignet für Menschen oder Teams, die ein offeneres Umfeld möchten.", es: "Funkwhale permite escuchar, organizar y a veces compartir bibliotecas musicales sin depender de una plataforma cerrada. Va bien para personas o equipos que quieren un entorno más abierto para sus escuchas." }, replaces: { fr: "Spotify ou des bibliothèques musicales enfermées dans un service unique.", en: "Spotify or music libraries locked into a single service.", de: "Spotify oder Musikbibliotheken, die an einen einzelnen Dienst gebunden sind.", es: "Spotify o bibliotecas musicales encerradas en un único servicio." } },
+      nodered: { badge: "NR", art: "illustrations/wings-dragon.gif", features: ["redirections", "simpleStats", "stewardship"], thanks: "Node-RED and the maker communities building transparent automations instead of opaque SaaS glue.", supported_languages: ["fr", "en", "de", "es"], card: { fr: "Assemblez des automatisations, des passerelles et des petits flux utiles sans repartir de zéro en code.", en: "Assemble automations, bridges, and useful little flows without rebuilding everything in code.", de: "Automationen, Brücken und nützliche kleine Abläufe zusammenstellen, ohne alles neu zu programmieren.", es: "Monta automatizaciones, pasarelas y pequeños flujos útiles sin rehacerlo todo en código." }, detail: { fr: "Nodes sert à relier des services, déclencher des actions, transformer des données ou prototyper des automatisations locales. L’accès reste sur demande parce que ce type d’outil peut agir sur le reste de l’infrastructure.", en: "Nodes is useful for connecting services, triggering actions, transforming data, or prototyping local automations. Access stays on request because this kind of tool can interact with the rest of the infrastructure.", de: "Nodes dient dazu, Dienste zu verbinden, Aktionen auszulösen, Daten umzuwandeln oder lokale Automationen zu prototypisieren. Der Zugang bleibt auf Anfrage, weil dieses Werkzeug auf andere Teile der Infrastruktur einwirken kann.", es: "Nodes sirve para conectar servicios, lanzar acciones, transformar datos o prototipar automatizaciones locales. El acceso sigue siendo bajo demanda porque este tipo de herramienta puede interactuar con el resto de la infraestructura." }, replaces: { fr: "Zapier ou des scripts locaux dispersés.", en: "Zapier or scattered local scripts.", de: "Zapier oder verstreute lokale Skripte.", es: "Zapier o scripts locales dispersos." } }
+    };
+
+    const FALLBACK_MODEL = {
+      categories: {
+        events: { order: 10, name: { fr: "Organiser", en: "Organize", de: "Organisieren", es: "Organizar" } },
+        collaboration: { order: 20, name: { fr: "Collaborer", en: "Collaborate", de: "Zusammenarbeiten", es: "Colaborar" } },
+        publishing: { order: 30, name: { fr: "Publier", en: "Publish", de: "Veröffentlichen", es: "Publicar" } },
+        knowledge: { order: 40, name: { fr: "Lire et documenter", en: "Read and document", de: "Lesen und dokumentieren", es: "Leer y documentar" } },
+        media: { order: 50, name: { fr: "Écouter et regarder", en: "Listen and watch", de: "Hören und schauen", es: "Escuchar y mirar" } },
+        utilities: { order: 60, name: { fr: "Outils pratiques", en: "Practical tools", de: "Praktische Werkzeuge", es: "Herramientas prácticas" } }
+      },
+      apps: [
+        { id: "onlyoffice", category: "collaboration", access_mode: "restricted", cta_mode: "auto", name: { fr: "Ornitoffice", en: "Ornitoffice", de: "Ornitoffice", es: "Ornitoffice" }, default_url: "https://office.micou.org/" },
+        { id: "vikunja", category: "collaboration", access_mode: "restricted", cta_mode: "auto", name: { fr: "Vikunja", en: "Vikunja", de: "Vikunja", es: "Vikunja" }, default_url: "https://orga.micou.org/" },
+        { id: "nodebb", category: "collaboration", access_mode: "public", cta_mode: "open", name: { fr: "Le Forum", en: "Le Forum", de: "Le Forum", es: "Le Forum" }, default_url: "https://micou.org/forum" },
+        { id: "ihatemoney", category: "collaboration", access_mode: "restricted", cta_mode: "auto", name: { fr: "I Hate Money", en: "I Hate Money", de: "I Hate Money", es: "I Hate Money" }, default_url: "https://micou.org/ihatemoney" },
+        { id: "whitebophir", category: "collaboration", access_mode: "public", cta_mode: "open", name: { fr: "Tablo", en: "Tablo", de: "Tablo", es: "Tablo" }, default_url: "https://micou.org/dessin" },
+        { id: "pretix", category: "events", access_mode: "restricted", cta_mode: "auto", name: { fr: "Billetterie", en: "Billetterie", de: "Billetterie", es: "Billetterie" }, default_url: "https://billetterie.micou.org/" },
+        { id: "benevalibre", category: "events", access_mode: "public", cta_mode: "open", name: { fr: "Bénévalibre", en: "Bénévalibre", de: "Bénévalibre", es: "Bénévalibre" }, default_url: "https://benevalibre.micou.org/" },
+        { id: "anarchism", category: "knowledge", access_mode: "public", cta_mode: "open", name: { fr: "Anarchism", en: "Anarchism", de: "Anarchism", es: "Anarchism" }, default_url: "https://micou.org/anarchism" },
+        { id: "dokuwiki", category: "knowledge", access_mode: "public", cta_mode: "open", name: { fr: "Wiki", en: "Wiki", de: "Wiki", es: "Wiki" }, default_url: "https://micou.org/wiki" },
+        { id: "widdypad", category: "media", access_mode: "public", cta_mode: "open", name: { fr: "WiddyPad", en: "WiddyPad", de: "WiddyPad", es: "WiddyPad" }, default_url: "https://micou.org/widdypad/" },
+        { id: "piped", category: "media", access_mode: "public", cta_mode: "open", name: { fr: "Piped", en: "Piped", de: "Piped", es: "Piped" }, default_url: "https://yt.micou.org/" },
+        { id: "nitter", category: "media", access_mode: "public", cta_mode: "open", name: { fr: "Y", en: "Y", de: "Y", es: "Y" }, default_url: "https://y.micou.org/about" },
+        { id: "writefreely", category: "publishing", access_mode: "public", cta_mode: "open", name: { fr: "WriteFreely", en: "WriteFreely", de: "WriteFreely", es: "WriteFreely" }, default_url: "https://write.micou.org/" },
+        { id: "wordpress", category: "publishing", access_mode: "restricted", cta_mode: "auto", name: { fr: "Sites", en: "Sites", de: "Sites", es: "Sites" }, default_url: "https://micou.org/sites" },
+        { id: "compteur_du_gase", category: "utilities", access_mode: "restricted", cta_mode: "auto", name: { fr: "Le compteur du GASE", en: "Le compteur du GASE", de: "Le compteur du GASE", es: "Le compteur du GASE" }, default_url: "https://micou.org/comptes" },
+        { id: "dynamicqrcode", category: "utilities", access_mode: "public", cta_mode: "open", name: { fr: "QR", en: "QR", de: "QR", es: "QR" }, default_url: "https://qr.micou.org/" },
+        { id: "bentopdf", category: "utilities", access_mode: "restricted", cta_mode: "auto", name: { fr: "PDF Tools", en: "PDF Tools", de: "PDF Tools", es: "PDF Tools" }, default_url: "https://micou.org/pdf/" },
+        { id: "faceprivacy", category: "utilities", access_mode: "public", cta_mode: "open", name: { fr: "FacePrivacy", en: "FacePrivacy", de: "FacePrivacy", es: "FacePrivacy" }, default_url: "https://micou.org/faceprivacy" },
+        { id: "send", category: "utilities", access_mode: "public", cta_mode: "open", name: { fr: "Send", en: "Send", de: "Send", es: "Send" }, default_url: "https://send.micou.org/" },
+        { id: "vert", category: "utilities", access_mode: "public", cta_mode: "open", name: { fr: "Convertisseur", en: "Convertisseur", de: "Convertisseur", es: "Convertisseur" }, default_url: "https://convert.micou.org/" },
+        { id: "grammalecte", category: "utilities", access_mode: "public", cta_mode: "open", name: { fr: "Grammalecte server", en: "Grammalecte server", de: "Grammalecte server", es: "Grammalecte server" }, default_url: "https://grammaire.micou.org/" },
+        { id: "reader", category: "knowledge", access_mode: "public", cta_mode: "open", name: { fr: "Reader", en: "Reader", de: "Reader", es: "Reader" }, default_url: "https://read.micou.org/" }
+      ]
+    };
+
+    const FALLBACK_CONTENT = {
+      homepage: {
+        support_email: DEFAULT_SUPPORT_EMAIL,
+        donation_platform: "Liberapay",
+        donation_url: ""
+      }
+    };
+
+    let currentLang = "fr";
+    let currentFilter = "all";
+    let currentModel = { categories: FALLBACK_MODEL.categories, apps: FALLBACK_MODEL.apps, dashboard: { requestable_apps: [] } };
+    let currentContent = FALLBACK_CONTENT;
+    let modalAppId = null;
+
+    function supportEmail() {
+      return ((((currentContent || {}).homepage || {}).support_email) || DEFAULT_SUPPORT_EMAIL).trim() || DEFAULT_SUPPORT_EMAIL;
+    }
+
+    function donationUrl() {
+      const configured = ((((currentContent || {}).homepage || {}).donation_url) || "").trim();
+      return configured || `mailto:${supportEmail()}?subject=Contribution%20micou.org`;
+    }
+
+    function escapeHtml(value) {
+      return String(value ?? "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#39;");
+    }
+
+    function getLocalized(value, lang, fallback = "") {
+      if (value && typeof value === "object") return value[lang] || value.en || value.fr || fallback;
+      return value || fallback;
+    }
+
+    function getMeta(id) {
+      const dynamic = currentModel.apps.find((a) => a.id === id);
+      const staticMeta = APP_META[id] || {};
+      const overrideMeta = APP_OVERRIDES[id] || {};
+      if (!dynamic) return { ...staticMeta, ...overrideMeta };
+      return {
+        ...staticMeta,
+        ...overrideMeta,
+        badge: dynamic.badge || staticMeta.badge,
+        icon: dynamic.icon_path || overrideMeta.icon || staticMeta.icon,
+        art: dynamic.illustration_path || dynamic.icon_path || overrideMeta.art || staticMeta.art,
+        features: Array.isArray(dynamic.features) ? dynamic.features : (overrideMeta.features || staticMeta.features),
+        thanks: dynamic.thanks || overrideMeta.thanks || staticMeta.thanks,
+        supported_languages: Array.isArray(dynamic.supported_languages) ? dynamic.supported_languages : (overrideMeta.supported_languages || staticMeta.supported_languages),
+        card: dynamic.card || overrideMeta.card || staticMeta.card,
+        detail: dynamic.detail || overrideMeta.detail || staticMeta.detail,
+        replaces: dynamic.replaces || overrideMeta.replaces || staticMeta.replaces
+      };
+    }
+
+    function getAppState(service) {
+      const meta = getMeta(service.id);
+      if (meta && meta.state === "build") return "build";
+      const restricted = service.requires_request || service.access_mode === "restricted" || service.cta_mode === "request" || (service.cta_mode === "auto" && !service.allowed_for_viewer && service.access_mode !== "public");
+      return restricted ? "request" : "public";
+    }
+
+    function getLocalizedAppText(service, field, lang, fallback = "") {
+      const meta = getMeta(service.id);
+      if (meta && meta[field]) return getLocalized(meta[field], lang, fallback);
+      if (service[field]) return getLocalized(service[field], lang, fallback);
+      return synthesizeAppText(service, field, lang, fallback);
+    }
+
+    function getFeatureLabels(service, lang) {
+      const meta = getMeta(service.id);
+      const terms = FEATURE_TERMS[lang] || FEATURE_TERMS.en;
+      const keys = meta && Array.isArray(meta.features) ? meta.features : [];
+      return keys.map((key) => terms[key]).filter(Boolean);
+    }
+
+    function getLanguagesFor(service) {
+      const meta = getMeta(service.id);
+      return meta && Array.isArray(meta.supported_languages) && meta.supported_languages.length ? meta.supported_languages : ["fr", "en", "de", "es"];
+    }
+
+    function getBadge(service) {
+      const meta = getMeta(service.id);
+      if (meta && meta.badge) return meta.badge;
+      const source = getLocalized(service.name, "en", service.id || "AP");
+      return source.replace(/[^A-Za-zÀ-ÿ0-9]/g, "").slice(0, 3).toUpperCase() || "AP";
+    }
+
+    function getArt(service) {
+      const meta = getMeta(service.id);
+      return (meta && meta.art) || getServiceIcon(service) || "illustrations/fairy-wand.png";
+    }
+
+    function getThanks(service) {
+      const meta = getMeta(service.id);
+      if (meta && meta.thanks && typeof meta.thanks === "object") return getLocalized(meta.thanks, currentLang, "");
+      return localizeCreditsText(APP_CREDIT_NAMES[service.id] || (meta && meta.thanks) || "", currentLang);
+    }
+
+    function localizeCreditsText(text, lang) {
+      if (!text || lang === "en") return text;
+      return text
+        .split(";")
+        .map((token) => token.trim())
+        .filter(Boolean)
+        .map((token) => localizeCreditToken(token, lang))
+        .join("; ");
+    }
+
+    function localizeCreditToken(token, lang) {
+      return (CREDIT_TOKEN_TRANSLATIONS[lang] && CREDIT_TOKEN_TRANSLATIONS[lang][token]) || token;
+    }
+
+    function sentenceCase(value) {
+      const normalized = String(value || "").trim();
+      return normalized ? normalized.charAt(0).toLowerCase() + normalized.slice(1) : "";
+    }
+
+    function joinNaturalList(items, lang) {
+      if (!items.length) return "";
+      if (items.length === 1) return items[0];
+      const conjunction = lang === "fr" ? "et" : lang === "de" ? "und" : lang === "es" ? "y" : "and";
+      return `${items.slice(0, -1).join(", ")} ${conjunction} ${items[items.length - 1]}`;
+    }
+
+    function synthesizeAppText(service, field, lang, fallback = "") {
+      const features = getFeatureLabels(service, lang).slice(0, 3);
+      const featureList = joinNaturalList(features, lang);
+      const rawDescription = getLocalized(service.description, lang, "");
+      const categoryKey = service.category || "utilities";
+      const categoryCopy = ((CATEGORY_COPY[lang] || CATEGORY_COPY.en)[categoryKey]) || ((CATEGORY_COPY.en || {}).utilities);
+      const replacementCopy = ((REPLACEMENT_COPY[lang] || REPLACEMENT_COPY.en)[categoryKey]) || ((REPLACEMENT_COPY.en || {}).utilities);
+      const name = getLocalized(service.name, lang, service.id);
+      const baseDescription = rawDescription || (
+        lang === "fr" ? `${name} aide à ${categoryCopy}.` :
+        lang === "de" ? `${name} hilft dabei, ${categoryCopy}.` :
+        lang === "es" ? `${name} sirve para ${categoryCopy}.` :
+        `${name} helps you ${categoryCopy}.`
+      );
+
+      if (field === "card") return baseDescription;
+      if (field === "detail") {
+        if (lang === "fr") return [baseDescription, featureList ? `On y retrouve notamment ${featureList}.` : "", `C'est une alternative plus sobre à ${replacementCopy}.`].filter(Boolean).join(" ");
+        if (lang === "de") return [baseDescription, featureList ? `Dazu gehören unter anderem ${featureList}.` : "", `So entsteht eine ruhigere Alternative zu ${replacementCopy}.`].filter(Boolean).join(" ");
+        if (lang === "es") return [baseDescription, featureList ? `Incluye por ejemplo ${featureList}.` : "", `Así puede sustituir con más calma a ${replacementCopy}.`].filter(Boolean).join(" ");
+        return [baseDescription, featureList ? `It covers ${featureList}.` : "", `That makes it a calmer alternative to ${replacementCopy}.`].filter(Boolean).join(" ");
+      }
+      if (field === "replaces") return replacementCopy;
+      return fallback;
+    }
+
+    function getServiceIcon(service) {
+      const meta = getMeta(service.id);
+      if (meta && meta.icon) return meta.icon;
+      if (service.icon_path) return service.icon_path;
+      if (meta && typeof meta.art === "string" && meta.art.startsWith("illustrations/")) return meta.art;
+      if (typeof service.art_path === "string" && service.art_path.startsWith("illustrations/")) return service.art_path;
+      return "";
+    }
+
+    function renderServiceMark(service) {
+      const fallback = escapeHtml(getBadge(service));
+      const icon = getServiceIcon(service);
+      if (!icon) return `<div class="service-mark fallback" data-fallback="${fallback}"></div>`;
+      return `<div class="service-mark" data-fallback="${fallback}"><img loading="lazy" src="${escapeHtml(icon)}" alt="" onerror="this.parentElement.classList.add('fallback'); this.remove();"></div>`;
+    }
+
+    function renderFlags(langs) {
+      return langs.map((lang) => `<span class="flag" role="img" aria-label="${escapeHtml(UI[lang].languageName)}" tabindex="0" data-tooltip="${escapeHtml(UI[lang].languageName)}"><img loading="lazy" src="${escapeHtml(FLAG_ASSETS[lang])}" alt=""></span>`).join("");
+    }
+
+    function normalizeModel(payload) {
+      const sourceApps = payload && Array.isArray(payload.apps) && payload.apps.length ? payload.apps : FALLBACK_MODEL.apps;
+      const sourceCategories = payload && payload.categories ? payload.categories : FALLBACK_MODEL.categories;
+      const requestable = payload && payload.dashboard && Array.isArray(payload.dashboard.requestable_apps)
+        ? payload.dashboard.requestable_apps.map((item) => item.id)
+        : sourceApps.filter((item) => item.access_mode === "restricted").map((item) => item.id);
+      const requestableSet = new Set(requestable);
+      const categories = {};
+      Object.entries(sourceCategories || {}).forEach(([id, category]) => { categories[id] = { id, ...(category || {}) }; });
+      const apps = sourceApps
+        .filter((item) => item && item.id && item.show_on_homepage !== false && item.access_mode !== "admin_only")
+        .map((item) => ({ ...item, requires_request: item.requires_request || requestableSet.has(item.id) }))
+        .sort((a, b) => {
+          const categoryDelta = (categories[a.category]?.order || 9999) - (categories[b.category]?.order || 9999);
+          if (categoryDelta) return categoryDelta;
+          return String(getLocalized(a.name, "en", a.id)).localeCompare(String(getLocalized(b.name, "en", b.id)));
+        });
+      return { categories, apps, dashboard: { requestable_apps: apps.filter((app) => getAppState(app) === "request") } };
+    }
+
+    function renderHeader() {
+      const copy = UI[currentLang];
+      const header = document.getElementById("site-header");
+      header.innerHTML = `
+        <div class="header-utility">
+          <div class="lang-switcher" aria-label="${escapeHtml(copy.languageSelectorLabel)}">
+            ${LANGS.map((lang) => `<button type="button" class="lang-btn ${lang === currentLang ? "active" : ""}" data-lang="${lang}">${escapeHtml(UI[lang].languageName)}</button>`).join("")}
+          </div>
+        </div>
+        <div class="header-brand">
+          <h1>micou.org</h1>
+          <p class="tagline" id="header-tagline">${escapeHtml(copy.headerTagline)}</p>
+        </div>
+        <img loading="lazy" class="hosting-badge" src="illustrations/www.micou.org.png" alt="${escapeHtml(copy.hostingBadgeAlt)}">
+      `;
+      header.querySelectorAll(".lang-btn").forEach((button) => {
+        button.addEventListener("click", () => setLang(button.dataset.lang));
+      });
+    }
+
+    function renderHero() {
+      const copy = UI[currentLang];
+      const hero = document.getElementById("hero-shell");
+      const donate = donationUrl();
+      const donateAttrs = donate.startsWith("mailto:") ? "" : ` target="_blank" rel="noreferrer"`;
+      hero.innerHTML = `
+        <div class="hero-copy">
+          <div class="hero-top">
+            <img loading="lazy" class="hero-welcome" src="illustrations/text-welcome-home.png" alt="">
+            <h2><span class="hero-title-text">${escapeHtml(copy.heroTitle)}</span></h2>
+          </div>
+          ${copy.intro.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join("")}
+        </div>
+        <div class="cta-row">
+          <a class="action-btn primary" href="/yunohost/sso/">${escapeHtml(copy.panelLabel)}</a>
+          <a class="action-btn" href="#access-form">${escapeHtml(copy.requestLabel)}</a>
+        </div>
+        <div class="principles-row">
+          ${copy.principles.map((item) => `
+            <article class="principle-card">
+              <div class="principle-head">
+                <img loading="lazy" src="${item.icon}" alt="">
+                <strong>${escapeHtml(item.title)}</strong>
+              </div>
+              <p>${escapeHtml(item.text)}</p>
+            </article>
+          `).join("")}
+        </div>
+        <div class="principle-footnote">${escapeHtml(copy.footnote)}</div>
+        <div class="support-box">
+          <div>
+            <p>${escapeHtml(copy.donationText)}</p>
+          </div>
+          <a class="contribute-btn" href="${escapeHtml(donate)}"${donateAttrs}>${escapeHtml(copy.contributeLabel)}</a>
+        </div>
+        <div class="charter-shell">
+          <h3><img loading="lazy" src="illustrations/text-inferno-fire.gif" alt="">${escapeHtml(copy.charterTitle)}</h3>
+          ${copy.charter.map((item) => `
+            <details class="charter-item">
+              <summary>
+                <span class="charter-title"><strong>${escapeHtml(item.title)}</strong></span>
+                <span class="mini-toggle">+</span>
+              </summary>
+              <div class="charter-copy"><p>${escapeHtml(item.body)}</p></div>
+            </details>
+          `).join("")}
+        </div>
+      `;
+    }
+
+    function renderCard(service, copy) {
+      const state = getAppState(service);
+      const name = getLocalized(service.name, currentLang, service.id);
+      const description = getLocalizedAppText(service, "card", currentLang, getLocalized(service.description, currentLang, ""));
+      const cta = state === "request"
+        ? `<a class="access-btn request" href="#access-form">${escapeHtml(copy.requestCta)}</a>`
+        : `<a class="access-btn public" href="${escapeHtml(service.default_url || "#")}">${escapeHtml(copy.openLabel)}</a>`;
+      return `
+        <article class="service-card ${escapeHtml(state)}">
+          <div class="service-head">
+            ${renderServiceMark(service)}
+            <div>
+              <div class="service-title-row">
+                <h3>${escapeHtml(name)}</h3>
+                <div class="service-title-meta">
+                  <span class="service-title-status" role="img" tabindex="0" aria-label="${escapeHtml(state === "request" ? copy.accessRequest : state === "build" ? copy.accessBuild : copy.accessPublic)}" data-tooltip="${escapeHtml(state === "request" ? copy.accessRequest : state === "build" ? copy.accessBuild : copy.accessPublic)}"><img loading="lazy" src="${STATUS_ICON[state]}" alt=""></span>
+                  <span class="language-flags">${renderFlags(getLanguagesFor(service))}</span>
+                </div>
+              </div>
+              <p class="service-intro">${escapeHtml(description)}</p>
+            </div>
+          </div>
+          <div class="service-buttons">
+            ${cta}
+            <button type="button" class="modal-btn" data-modal-open="${escapeHtml(service.id)}">${escapeHtml(copy.learnMore)}</button>
+          </div>
+        </article>
+      `;
+    }
+
+    function renderServices() {
+      const copy = UI[currentLang];
+      const root = document.getElementById("services-shell");
+      const categories = Object.values(currentModel.categories || {}).sort((a, b) => (a.order || 9999) - (b.order || 9999));
+      const grouped = currentModel.apps.reduce((acc, service) => {
+        const key = service.category || "other";
+        (acc[key] ||= []).push(service);
+        return acc;
+      }, {});
+      root.innerHTML = `
+        <div class="section-heading">
+          <img loading="lazy" src="illustrations/text-links-3d.gif" alt="" style="max-height: 34px; width: auto;">
+          <h2>${escapeHtml(copy.servicesTitle)}</h2>
+        </div>
+        <div class="category-nav">
+          <button type="button" class="category-btn ${currentFilter === "all" ? "active" : ""}" data-filter="all">${escapeHtml(copy.allCategories)}</button>
+          ${categories.filter((category) => Array.isArray(grouped[category.id]) && grouped[category.id].length).map((category) => `<button type="button" class="category-btn ${currentFilter === category.id ? "active" : ""}" data-filter="${category.id}">${escapeHtml(getLocalized(category.name, currentLang, category.id))} (${grouped[category.id].length})</button>`).join("")}
+        </div>
+        <div class="services-grid">
+          ${categories.filter((category) => Array.isArray(grouped[category.id]) && grouped[category.id].length).filter((category) => currentFilter === "all" || currentFilter === category.id).map((category) => `
+            <section class="service-category">
+              <div class="service-category-header">
+                <h3 class="service-category-title">${escapeHtml(getLocalized(category.name, currentLang, category.id))}</h3>
+                <span class="service-category-count">${grouped[category.id].length}</span>
+              </div>
+              <div class="service-category-grid">
+                ${grouped[category.id].map((service) => renderCard(service, copy)).join("")}
+              </div>
+            </section>
+          `).join("")}
+        </div>
+      `;
+      root.querySelectorAll(".category-btn").forEach((button) => {
+        button.addEventListener("click", () => {
+          currentFilter = button.dataset.filter || "all";
+          renderServices();
+        });
+      });
+      root.querySelectorAll("[data-modal-open]").forEach((button) => {
+        button.addEventListener("click", () => openModal(button.dataset.modalOpen));
+      });
+    }
+
+    function renderForm() {
+      const copy = UI[currentLang];
+      const requestable = (currentModel.apps || []).filter((service) => getAppState(service) === "request");
+      const servicesSelection = requestable.length
+        ? requestable.map((service) => `
+            <div class="service-choice">
+              <input type="checkbox" id="svc-${escapeHtml(service.id)}" name="services" value="${escapeHtml(service.id)}">
+              <label for="svc-${escapeHtml(service.id)}">
+                <span class="service-choice-title">${escapeHtml(getLocalized(service.name, currentLang, service.id))}</span>
+                <span class="service-choice-meta">${escapeHtml(copy.accessRequest)}</span>
+              </label>
+            </div>
+          `).join("")
+        : `<p class="field-hint">${escapeHtml(copy.emptyRequestable)}</p>`;
+      const formRoot = document.getElementById("form-shell");
+      formRoot.innerHTML = `
+        <div class="section-heading">
+          <img loading="lazy" src="illustrations/text-enchanted-purple.gif" alt="">
+          <h2 id="access-form">${escapeHtml(copy.formTitle)}</h2>
+        </div>
+        <div class="scope-row" aria-label="${escapeHtml(copy.scopeLabel)}">
+          <button type="button" class="scope-btn active" data-scope="individual">${escapeHtml(copy.scope.individual)}</button>
+          <button type="button" class="scope-btn" data-scope="team">${escapeHtml(copy.scope.team)}</button>
+        </div>
+        <form class="request-form" id="request-form" data-scope="individual">
+          <div class="form-grid">
+            <div class="field">
+              <label for="request-email">${escapeHtml(copy.emailLabel)}</label>
+              <input id="request-email" type="email" name="email" required placeholder="micou@example.org">
+            </div>
+            <div class="field">
+              <label for="request-known">${escapeHtml(copy.knownLabel)}</label>
+              <input id="request-known" type="text" name="known_as" placeholder="${escapeHtml(copy.optionalPlaceholder)}">
+            </div>
+            <div class="field team-only">
+              <label for="request-team-name">${escapeHtml(copy.teamNameLabel)}</label>
+              <input id="request-team-name" type="text" name="team_name" placeholder="${escapeHtml(copy.teamExample)}">
+            </div>
+            <div class="field team-only">
+              <label for="request-team-size">${escapeHtml(copy.teamSizeLabel)}</label>
+              <input id="request-team-size" type="text" name="team_size" placeholder="6">
+            </div>
+            <div class="field-wide">
+              <label>${escapeHtml(copy.servicesLabel)}</label>
+              <div class="services-selection">${servicesSelection}</div>
+            </div>
+            <div class="field-wide">
+              <label for="request-usage">${escapeHtml(copy.usageLabel)}</label>
+              <p class="field-subhint">${escapeHtml(copy.usageHint)}</p>
+              <textarea id="request-usage" name="usage"></textarea>
+              <p class="field-hint team-only">${escapeHtml(copy.teamHint)}</p>
+            </div>
+            <div class="field-wide">
+              <label for="request-details">${escapeHtml(copy.requestsLabel)}</label>
+              <textarea id="request-details" name="requests"></textarea>
+            </div>
+          </div>
+          <p class="form-project-note">${escapeHtml(copy.projectNote)}</p>
+          <button type="submit" class="action-btn primary">${escapeHtml(copy.submitLabel)}</button>
+          <div class="form-status" role="status" aria-live="polite"></div>
+        </form>
+      `;
+      formRoot.querySelectorAll(".scope-btn").forEach((button) => {
+        button.addEventListener("click", () => {
+          const form = document.getElementById("request-form");
+          form.dataset.scope = button.dataset.scope || "individual";
+          formRoot.querySelectorAll(".scope-btn").forEach((node) => node.classList.toggle("active", node === button));
+        });
+      });
+      document.getElementById("request-form").addEventListener("submit", handleSubmit);
+    }
+
+    function renderFooter() {
+      const copy = UI[currentLang];
+      document.getElementById("footer-shell").innerHTML = `
+        <div class="footer-icons">
+          <img loading="lazy" src="illustrations/bow-gold-glitter.gif" alt="">
+          <img loading="lazy" src="illustrations/heart-wreath-roses.gif" alt="">
+          <img loading="lazy" src="illustrations/bow-gold-glitter.gif" alt="">
+        </div>
+        <p>${escapeHtml(copy.footer)}</p>
+        <div class="footer-icons">
+          <img loading="lazy" src="illustrations/parrot-tropical.gif" alt="">
+          <img loading="lazy" src="illustrations/fairy-wand.png" alt="">
+          <img loading="lazy" src="illustrations/parrot-tropical.gif" alt="">
+        </div>
+      `;
+    }
+
+    function openModal(appId) {
+      const service = currentModel.apps.find((item) => item.id === appId);
+      if (!service) return;
+      const copy = UI[currentLang];
+      const state = getAppState(service);
+      const detail = getLocalizedAppText(service, "detail", currentLang, getLocalized(service.description, currentLang, ""));
+      const replaces = getLocalizedAppText(service, "replaces", currentLang, "");
+      const featureLabels = getFeatureLabels(service, currentLang);
+      document.getElementById("modal-title").textContent = getLocalized(service.name, currentLang, service.id);
+      document.getElementById("modal-meta").innerHTML = `
+        <span class="info-pill ${state}" data-tooltip="${escapeHtml(state === "request" ? copy.accessRequest : state === "build" ? copy.accessBuild : copy.accessPublic)}"><img loading="lazy" src="${STATUS_ICON[state]}" alt=""><span>${escapeHtml(state === "request" ? copy.accessRequest : state === "build" ? copy.accessBuild : copy.accessPublic)}</span></span>
+        <span class="language-pill">${renderFlags(getLanguagesFor(service))}</span>
+      `;
+      document.getElementById("modal-detail").textContent = detail;
+      document.getElementById("modal-features").innerHTML = featureLabels.map((item) => `<span class="feature-pill">${escapeHtml(item)}</span>`).join("");
+      document.getElementById("modal-replaces").innerHTML = replaces ? `<strong>${escapeHtml(copy.canReplace)}:</strong> ${escapeHtml(replaces)}` : "";
+      document.getElementById("modal-footer").innerHTML = `
+        <span class="service-thanks"><strong>${escapeHtml(copy.thanksPrefix)}</strong> ${escapeHtml(getThanks(service))}</span>
+        ${state === "request" ? `<a class="access-btn request" href="#access-form">${escapeHtml(copy.requestCta)}</a>` : `<a class="access-btn public" href="${escapeHtml(service.default_url || "#")}">${escapeHtml(copy.openLabel)}</a>`}
+      `;
+      document.getElementById("modal-preview-image").src = getArt(service);
+      document.getElementById("modal-preview-image").alt = getLocalized(service.name, currentLang, service.id);
+      document.getElementById("modal-preview-note").textContent = [featureLabels.join(" · "), replaces ? `${copy.canReplace}: ${replaces}` : ""].filter(Boolean).join(" — ") || `${copy.previewLabel}: ${detail}`;
+      document.getElementById("service-modal").classList.add("open");
+      document.getElementById("service-modal").setAttribute("aria-hidden", "false");
+      modalAppId = appId;
+    }
+
+    function closeModal() {
+      document.getElementById("service-modal").classList.remove("open");
+      document.getElementById("service-modal").setAttribute("aria-hidden", "true");
+      modalAppId = null;
+    }
+
+    function setLang(lang) {
+      currentLang = LANGS.includes(lang) ? lang : "fr";
+      document.documentElement.lang = currentLang;
+      try { localStorage.setItem("micou_lang", currentLang); } catch (_) {}
+      renderPage();
+    }
+
+    function renderPage() {
+      renderHeader();
+      renderHero();
+      renderServices();
+      renderForm();
+      renderFooter();
+      document.getElementById("modal-close").setAttribute("aria-label", UI[currentLang].closeLabel);
+      if (modalAppId) openModal(modalAppId);
+      setupRevealAnimations();
+    }
+
+    async function sha256Hex(input) {
+      const data = new TextEncoder().encode(input);
+      const hash = await crypto.subtle.digest("SHA-256", data);
+      return Array.from(new Uint8Array(hash)).map((value) => value.toString(16).padStart(2, "0")).join("");
+    }
+
+    async function solvePow(token, difficultyZeros) {
+      const maxIterations = 250000;
+      for (let counter = 0; counter < maxIterations; counter++) {
+        const hash = await sha256Hex(`${token}:${counter}`);
+        if (hash.startsWith("0".repeat(difficultyZeros))) return { token, counter, hash };
+      }
+      return null;
+    }
+
+    async function submitAccessRequest(payload, pow) {
+      const body = pow ? { ...payload, pow } : payload;
+      const res = await fetch("/api/access-request", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify(body)
+      });
+      const text = await res.text();
+      let json = null;
+      try { json = text ? JSON.parse(text) : null; } catch (_) {}
+      return { ok: res.ok, status: res.status, json };
+    }
+
+    async function handleSubmit(event) {
+      event.preventDefault();
+      const form = event.currentTarget;
+      const copy = UI[currentLang];
+      const submitButton = form.querySelector('button[type="submit"]');
+      const statusEl = form.querySelector(".form-status");
+      const services = Array.from(form.querySelectorAll('input[name="services"]:checked')).map((node) => node.value);
+      const formData = new FormData(form);
+      const scope = form.dataset.scope || "individual";
+      const requests = [
+        (formData.get("requests") || "").toString().trim(),
+        scope !== "individual" ? `${copy.requestTypeLine}: ${scope}` : "",
+        scope !== "individual" ? `${copy.teamNameLine}: ${(formData.get("team_name") || "").toString().trim() || "—"}` : "",
+        scope !== "individual" ? `${copy.teamSizeLine}: ${(formData.get("team_size") || "").toString().trim() || "—"}` : ""
+      ].filter(Boolean).join("\n");
+
+      statusEl.className = "form-status";
+      statusEl.textContent = "";
+      statusEl.style.display = "none";
+      if (!services.length) {
+        statusEl.classList.add("error");
+        statusEl.textContent = copy.selectServiceError;
+        statusEl.style.display = "block";
+        return false;
+      }
+
+      submitButton.disabled = true;
+      submitButton.textContent = copy.sendingLabel;
+      const payload = {
+        language: currentLang,
+        email: (formData.get("email") || "").toString().trim(),
+        services,
+        known_as: (formData.get("known_as") || "").toString().trim(),
+        usage: (formData.get("usage") || "").toString().trim(),
+        requests,
+        request_scope: scope,
+        team_name: (formData.get("team_name") || "").toString().trim(),
+        team_size: (formData.get("team_size") || "").toString().trim()
+      };
+
+      try {
+        let result = await submitAccessRequest(payload, null);
+        if (result.status === 429 && result.json && result.json.pow_required) {
+          const challengeRes = await fetch("/api/pow", { headers: { Accept: "application/json" } });
+          const challenge = await challengeRes.json();
+          const pow = await solvePow(challenge.token, challenge.difficulty_zeros || 4);
+          if (pow) result = await submitAccessRequest(payload, pow);
+        }
+        if (result.ok) {
+          form.reset();
+          form.dataset.scope = "individual";
+          document.querySelectorAll(".scope-btn").forEach((node) => node.classList.toggle("active", node.dataset.scope === "individual"));
+          statusEl.classList.add("success");
+          statusEl.textContent = copy.successLabel;
+          statusEl.style.display = "block";
+        } else {
+          statusEl.classList.add("error");
+          statusEl.textContent = (result.json && result.json.error) || copy.errorLabel;
+          statusEl.style.display = "block";
+        }
+      } catch (_) {
+        statusEl.classList.add("error");
+        statusEl.textContent = copy.errorLabel;
+        statusEl.style.display = "block";
+      } finally {
+        submitButton.disabled = false;
+        submitButton.textContent = copy.submitLabel;
+      }
+      return false;
+    }
+
+    async function refreshCatalog() {
+      try {
+        const response = await fetch("/api/catalog", { headers: { Accept: "application/json" } });
+        if (response.ok) {
+          currentModel = normalizeModel(await response.json());
+          renderPage();
+          return;
+        }
+      } catch (_) {}
+      currentModel = normalizeModel(FALLBACK_MODEL);
+      renderPage();
+    }
+
+    async function refreshContent() {
+      try {
+        const response = await fetch("/api/content", { headers: { Accept: "application/json" } });
+        if (response.ok) {
+          const payload = await response.json();
+          if (payload && typeof payload === "object") {
+            currentContent = {
+              ...FALLBACK_CONTENT,
+              ...payload,
+              homepage: {
+                ...FALLBACK_CONTENT.homepage,
+                ...((payload || {}).homepage || {})
+              }
+            };
+            renderPage();
+          }
+        }
+      } catch (_) {}
+    }
+
+    function setupRevealAnimations() {
+      const nodes = Array.from(document.querySelectorAll(".reveal"));
+      if (!nodes.length) return;
+      if (!("IntersectionObserver" in window)) {
+        nodes.forEach((node) => node.classList.add("reveal-visible"));
+        return;
+      }
+      if (!window.__micouRevealObserver) {
+        window.__micouRevealObserver = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("reveal-visible");
+              window.__micouRevealObserver.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.12 });
+      }
+      nodes.forEach((node, index) => {
+        node.style.transitionDelay = `${Math.min(index % 6, 5) * 45}ms`;
+        if (!node.classList.contains("reveal-visible")) window.__micouRevealObserver.observe(node);
+      });
+    }
+
+    function detectPreferredLanguage() {
+      try {
+        const stored = localStorage.getItem("micou_lang");
+        if (LANGS.includes(stored)) return stored;
+      } catch (_) {}
+      const nav = (navigator.language || "fr").slice(0, 2).toLowerCase();
+      return LANGS.includes(nav) ? nav : "fr";
+    }
+
+    document.getElementById("modal-close").addEventListener("click", closeModal);
+    document.getElementById("service-modal").addEventListener("click", (event) => {
+      if (event.target.id === "service-modal") closeModal();
+    });
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && modalAppId) closeModal();
+    });
+
+    currentLang = detectPreferredLanguage();
+    renderPage();
+    refreshCatalog();
+    refreshContent();
+  </script>
+</body>
+</html>
